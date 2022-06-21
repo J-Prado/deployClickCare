@@ -1,5 +1,5 @@
 //URL to modify when changing port on deployment
-export const LOCAL_HOST = "https://api-rest-pf-production.up.railway.app/api/";
+export const LOCAL_HOST = "https://api-rest-pf-production.up.railway.app/api";
 
 //Log In
 export const LOGIN = "LOGIN";
