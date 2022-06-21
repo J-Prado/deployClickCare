@@ -137,7 +137,7 @@ function Offers() {
           </div>
 
           <div className="containerOffersRight">
-            {PostByPage.map((d) => (
+            {PostByPage?.map((d) => (
               <Card
                 key={d.id}
                 id={d.id}
