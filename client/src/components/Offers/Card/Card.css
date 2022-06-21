@@ -1,0 +1,138 @@
+.cardContainer{
+    display: flex;
+    width: 900px;
+    height: 250px;
+    justify-content: right;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+.cardContainerLeft{
+    right: 0;
+    width: 180px;
+    height: 180px;
+    border-radius: 110px 110px 110px 0px ;
+    background-color: var(--main-first-color);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.imguserOffers{
+    width: auto;
+    height:150px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.7);
+}
+.cardContainerRight{
+    position: relative;
+    margin-right: -210px;
+    right: 3rem;
+    top: 0.5rem;
+    width: 830px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.64);
+    border-radius: 25px;
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
+    display: flex;
+    z-index: 1;
+    
+}
+.containerDataRight{
+    width: 88%;
+    height:250px;
+    /* background-color: blueviolet; */
+    text-align: left;
+    justify-content: left;
+    box-sizing: border-box;
+}
+
+.dateCard{
+    font-family: 'Nunito', sans-serif;
+    color: var(--main-extra-color);
+    margin-left: 1rem;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+.dayCard{
+    color: var(--main-first-color);
+}
+
+.nameCard{
+    font-family: 'Nunito', sans-serif;
+    color: var(--main-first-color);
+    font-weight: 800;
+    margin-top: -1rem;
+    margin-bottom: 0;
+    text-align: right;
+}
+.despcriptioCard{
+    margin-left: 3rem;
+    width: 90%;
+    height: 70px;
+    margin-top: 0;
+    font-size: 23px ;
+    /* background-color: aqua; */
+    text-align: left;
+}
+.serviceOffer{
+    text-align: right;
+    line-height: 24px;
+    margin-bottom: 0;
+    margin-top: 1rem;
+}
+.posBotton{
+    position: relative;
+    text-align: left;
+    margin-left: 1rem;
+    margin-top: -2.5rem;
+    top: -2rem;
+}
+.containerDataBotton{
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 0;
+    margin-top: -0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+.calenderIcon{
+    font-size: 30px;
+    color: var(--main-first-color);
+}
+.whenOffer{
+    font-size: 20px;
+    
+
+}
+.containerDataLeft{
+    width: 25%;
+    height:240px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}    
+.cityOffers{
+    position: relative;
+    bottom: 0;
+}
+.containerCity{
+    text-align: center;
+}
+.containerCity> h3, h2{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Nunito', sans-serif;
+    color: var(--main-extra-color);
+}
+.capitalText{
+    color: var(--main-first-color);
+    margin-top: -0.4rem;
+}

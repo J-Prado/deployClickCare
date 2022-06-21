@@ -1,0 +1,83 @@
+.pageOffers{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.pageOffersIn{
+  width: 90%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 1rem;
+  justify-content: center;
+  text-align: center;
+}
+.containerPagButton{
+  width: 54.9%;
+  height: 80px;
+  margin-left: auto;
+  margin-right: 12.5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0rem;
+}
+.buttonArrowOffers{
+  color: var(--main-first-color);
+  font-size: 45px;
+  filter: drop-shadow(1px 1px 0.5px #000);
+  cursor:pointer;
+}
+.countPag, #paginadoNumerico{
+  color: var(--main-first-color);
+  font-size: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+}
+.containerTitlesOffers{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.containerOffers{
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.containerOffersLeft{
+  width: auto;
+  height: 900px;
+
+  margin-top: 2rem;
+  display: block;
+  /* background-color: aqua; */
+
+}
+.containerInputDate{
+    
+}
+
+.containerInputDate{
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  color: var(--main-first-color);
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
+.titleFilters{
+  font-size: 30px;
+  color: var(--main-extra-color);
+}
+.containerOffersRight{
+  width: 55%;
+  height: 1380px;
+}
+

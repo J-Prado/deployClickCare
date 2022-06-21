@@ -1,0 +1,51 @@
+.phoneContainer{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color:rgb(248, 248, 248);
+    padding-bottom: 1%;
+}
+.phoneCall{
+    width: 40%;
+    height:auto;
+    text-align: center; 
+}
+.phoneImg{
+    width: 70%;
+    min-width: 250px;
+    height:auto;  
+    margin-top: 5%;
+}
+.phoneTexto{
+    font-family: 'Nunito', sans-serif;
+    width: 40%;
+    height: auto;
+    font-size: 30px;
+    color: var(--main-first-color);
+}
+.phoneTexto p{
+    margin-bottom: 4%;
+}
+
+@media (max-width: 880px) {
+    .phoneContainer{
+        display: inline-block;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        width: 100%;
+        height:auto;
+    }
+    .phoneCall{
+        width: 100%;
+        padding: 2% 10%;
+    }
+    .phoneTexto{
+        width: 100%;
+        padding: 1% 10%;
+    }
+
+}

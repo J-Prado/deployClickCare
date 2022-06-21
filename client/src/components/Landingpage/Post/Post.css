@@ -1,0 +1,16 @@
+.containerPost{
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0rem;
+}
+.conatinerCardPost{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -1rem;
+}
