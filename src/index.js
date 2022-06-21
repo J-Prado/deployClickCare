@@ -8,6 +8,11 @@ import store, { persistor } from "./redux/store";
 import { BrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 // import { PersistGate } from "redux-persist/lib/integration/react";
+import dotenv from "dotenv";
+import axios from "axios";
+dotenv.config();
+
+axios.defaults.baseURL = process.env.REACT_APP_API;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

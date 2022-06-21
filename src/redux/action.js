@@ -24,11 +24,7 @@ const axiosConfig = {
 export function login(values) {
   return async function (dispatch) {
     try {
-      const resp = await axios.post(
-        `${LOCAL_HOST}/userdblogin`,
-        values,
-        axiosConfig
-      );
+      const resp = await axios.post(`/userdblogin`, values, axiosConfig);
 
       const json = await resp.data;
 
@@ -49,7 +45,7 @@ export function login(values) {
 export function logOut() {
   return async function (dispatch) {
     try {
-      const resp = await axios.get(`${LOCAL_HOST}/userdblogout`, axiosConfig);
+      const resp = await axios.get(`/userdblogout`, axiosConfig);
       const json = await resp.data;
 
       return dispatch({
@@ -69,7 +65,7 @@ export function logOut() {
 export function signUp(values) {
   return async function (dispatch) {
     try {
-      const resp = await axios.post(`${LOCAL_HOST}/userdbRegistration`, values);
+      const resp = await axios.post(`/userdbRegistration`, values);
       const json = await resp.data;
 
       return dispatch({
@@ -89,7 +85,7 @@ export function signUp(values) {
 export function getCountry() {
   return async function (dispatch) {
     try {
-      const resp = await axios.get(`${LOCAL_HOST}/GetCountries`);
+      const resp = await axios.get(`/GetCountries`);
       const json = await resp.data;
       return dispatch({
         type: GET_COUNTRY,
@@ -104,9 +100,7 @@ export function getCountry() {
 export function GetStatebyCountry(country) {
   return async function (dispatch) {
     try {
-      const resp = await axios.get(
-        `${LOCAL_HOST}/GetStatesByCountry/${country}`
-      );
+      const resp = await axios.get(`/GetStatesByCountry/${country}`);
       const json = await resp.data;
       return dispatch({
         type: GET_STATE_BY_COUNTRY,
@@ -121,7 +115,7 @@ export function GetStatebyCountry(country) {
 export function GetCitiesByState(state) {
   return async function (dispatch) {
     try {
-      const resp = await axios.get(`${LOCAL_HOST}/GetCitiesByState/${state}`);
+      const resp = await axios.get(`/GetCitiesByState/${state}`);
       const json = await resp.data;
       return dispatch({
         type: GET_CITIES_BY_STATE,
@@ -136,7 +130,7 @@ export function GetCitiesByState(state) {
 export function userValidationProcess(id) {
   return async function (dispatch) {
     try {
-      const resp = await axios.get(`${LOCAL_HOST}/userValidationProcess/${id}`);
+      const resp = await axios.get(`/userValidationProcess/${id}`);
       const json = await resp.data;
       return dispatch({
         type: USER_VALID,
@@ -157,7 +151,7 @@ export function clear() {
 export function getAllPost() {
   return async function (dispatch) {
     try {
-      let response = await axios.get(`${LOCAL_HOST}/infoCardPost`);
+      let response = await axios.get(`/infoCardPost`);
       // console.log(response.data)
       return dispatch({
         type: GET_ALL_POST,
@@ -180,7 +174,7 @@ export function filterDatePost(datePost) {
 export function getSpecialties(state) {
   return async function (dispatch) {
     try {
-      const resp = await axios.get(`${LOCAL_HOST}/especialty`);
+      const resp = await axios.get(`/especialty`);
       const json = await resp.data;
       return dispatch({
         type: GET_SPECIALTIES,
@@ -195,7 +189,7 @@ export function getSpecialties(state) {
 export function postRegister(values) {
   return async function (dispatch) {
     try {
-      const resp = await axios.post(`${LOCAL_HOST}/postgenerator`, values);
+      const resp = await axios.post(`/postgenerator`, values);
       const json = await resp.data;
 
       return dispatch({
