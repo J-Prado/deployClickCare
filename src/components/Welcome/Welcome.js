@@ -42,7 +42,7 @@ const Welcome = withRouter((props) => {
         title: userSession.message,
         text: "Disfruta de nuestros Servicios",
       }).then(() => {
-        window.location = "http://localhost:3000/offers";
+        window.location = "https://deploy-click-care.vercel.app/offers";
       });
     } else if (userSession.error) {
       swal({

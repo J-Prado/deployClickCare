@@ -85,18 +85,18 @@ const UserRegister = () => {
   };
 
   const onClick = () => {
-    if (register.message === "User existent") {
+    if (register?.message === "User existent") {
       swal({
-        title: register.message,
+        title: register?.message,
         text: "Por Favor Intente Nuevamente",
       });
       dispatch(clear());
-    } else if (register.message === "User created") {
+    } else if (register?.message === "User created") {
       swal({
-        title: register.message,
+        title: register?.message,
         text: "Por favor revise su correo, se ha enviado un link de verificación",
       }).then(() => {
-        window.location = "http://localhost:3000/welcome";
+        window.location = "https://deploy-click-care.vercel.app/welcome";
       });
       dispatch(clear());
     }
