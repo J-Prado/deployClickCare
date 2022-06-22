@@ -45,12 +45,12 @@ const Login = () => {
   };
 
   const onClick = () => {
-    if (user.message) {
+    if (user?.message) {
       swal({
         title: user?.message,
         text: "Disfruta de nuestros Servicios",
       });
-    } else if (user.error) {
+    } else if (user?.error) {
       swal({
         title: user?.error,
         text: "Por Favor Intente Nuevamente",
