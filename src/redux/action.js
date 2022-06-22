@@ -18,14 +18,14 @@ import {
   SIGN_UP_PROF,
 } from "./ActionTypes";
 
-// const axiosConfig = {
-//   withCredentials: true,
-// };
+const axiosConfig = {
+  withCredentials: true,
+};
 
 export function login(values) {
   return async function (dispatch) {
     try {
-      const resp = await axios.post(`/userdblogin`, values);
+      const resp = await axios.post(`/userdblogin`, values, axiosConfig);
 
       const json = await resp.data;
       console.log(json);
