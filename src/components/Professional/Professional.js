@@ -12,7 +12,7 @@ const Professional = () => {
     trainings: "",
     photo: "",
     cvu: "",
-    userId: 0,
+    userId: 9,
   };
 
   //Hooks for Redux
@@ -20,81 +20,111 @@ const Professional = () => {
 
   //Validation using Yup
   const validationSchema = Yup.object({
-    tuition: Yup.string().required("Es necesario llenar este campo"),
-    trainings: Yup.string().required("Es necesario llenar este campo"),
-    photo: Yup.string().required("Es necesario llenar este campo"),
-    cvu: Yup.string().required("Es necesario llenar este campo"),
+    tuition: Yup.string()
+      .required("Es necesario llenar este campo")
+      .trim("Elimine los espacios en blanco"),
+    trainings: Yup.string()
+      .required("Es necesario llenar este campo")
+      .trim("Elimine los espacios en blanco"),
+    photo: Yup.string()
+      .required("Es necesario llenar este campo")
+      .trim("Elimine los espacios en blanco"),
+    cvu: Yup.string()
+      .required("Es necesario llenar este campo")
+      .trim("Elimine los espacios en blanco"),
     userId: Yup.number().required("Es necesario llenar este campo"),
   });
 
   //Handlers
   const onSubmit = (values, { resetForm }) => {
-    dispatch();
-    resetForm();
+    console.log(values);
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {(props) => {
-        return (
-          <Form>
-            <div className="sign-prof">
-              <div className="sign-spaces">
-                <label className="sign-label">Universidad*:</label>
-                <Field
-                  className="inputs"
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Nombre"
-                />
-                <span className="sign-error">Este campo es obligatorio.</span>
-                <label className="sign-label">URL Photo*:</label>
-                <input
-                  className="inputs"
-                  id="photo"
-                  type="text"
-                  placeholder="URL photo"
-                />
-                <span className="sign-error">Este campo es obligatorio.</span>
-                <label className="sign-label">Especialidad*:</label>
-                <input
-                  className="inputs"
-                  id="speciality"
-                  type="text"
-                  placeholder="Especialidad"
-                />
-                <span className="sign-error">Este campo es obligatorio.</span>
+    <div className="general-container">
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {(props) => {
+          return (
+            <Form>
+              <div className="sign-prof">
+                <div className="prof-spaces">
+                  <label className="sign-label">Universidad*:</label>
+                  <Field
+                    className="profInputs"
+                    id="tuition"
+                    name="tuition"
+                    type="text"
+                    placeholder="Universidad"
+                  />
+                  <ErrorMessage
+                    render={(msg) => <div className="error-prof">{msg}</div>}
+                    name="tuition"
+                  />
+                </div>
+                <div className="prof-spaces">
+                  <label className="sign-label">URL Photo*:</label>
+                  <Field
+                    className="profInputs"
+                    id="photo"
+                    name="photo"
+                    type="text"
+                    placeholder="URL Photo"
+                  />
+                  <ErrorMessage
+                    render={(msg) => <div className="error-prof">{msg}</div>}
+                    name="photo"
+                  />
+                </div>
+                <div className="prof-spaces">
+                  <label className="sign-label">CVU*:</label>
+                  <Field
+                    className="profInputs"
+                    id="cvu"
+                    name="cvu"
+                    type="text"
+                    placeholder="CVU"
+                  />
+                  <ErrorMessage
+                    render={(msg) => <div className="error-prof">{msg}</div>}
+                    name="cvu"
+                  />
+                </div>
+                <div className="prof-spaces">
+                  <label className="sign-label">Capacitaciones*:</label>
+                  <Field
+                    className="profInputs"
+                    id="trainings"
+                    name="trainings"
+                    type="text"
+                    placeholder="Capacitaciones"
+                  />
+                  {/* <button className="principalButton">
+                    Añadir Capacitación
+                  </button>
+                  <ul>
+                    <li>a</li>
+                    <li>a</li>
+                  </ul> */}
+                  <ErrorMessage
+                    render={(msg) => <div className="error-prof">{msg}</div>}
+                    name="trainings"
+                  />
+                </div>
+                <div className="sign-button">
+                  <button className="buttonOne principalButton" type="submit">
+                    Registra Datos Profesionales
+                  </button>
+                </div>
               </div>
-              <div className="sign-spaces">
-                <label className="sign-label">Capacitaciones*:</label>
-                <input
-                  className="inputs"
-                  id="trainings"
-                  type="text"
-                  placeholder="Capacitaciones"
-                />
-                <button className="principalButton">Añadir Capacitación</button>
-                <ul>
-                  <li>a</li>
-                  <li>a</li>
-                </ul>
-                <span className="sign-error">Este campo es obligatorio.</span>
-              </div>
-              <div className="sign-button">
-                <button className="oneButton principalButton" type="submit">
-                  Registra Datos Profesionales
-                </button>
-              </div>
-            </div>
-          </Form>
-        );
-      }}
-    </Formik>
+            </Form>
+          );
+        }}
+      </Formik>
+    </div>
   );
 };
 

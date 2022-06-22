@@ -15,6 +15,7 @@ import {
   FILTER_DATE_POST,
   GET_SPECIALTIES,
   POST_REGISTER,
+  SIGN_UP_PROF,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -27,7 +28,7 @@ export function login(values) {
       const resp = await axios.post(`/userdblogin`, values, axiosConfig);
 
       const json = await resp.data;
-
+      console.log(json);
       return dispatch({
         type: LOGIN,
         payload: json,
@@ -200,6 +201,26 @@ export function postRegister(values) {
       console.log(error);
       return dispatch({
         type: POST_REGISTER,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function profRegister(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.post(`/profdbregistration`, values);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: SIGN_UP_PROF,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: SIGN_UP_PROF,
         payload: error.response.data,
       });
     }

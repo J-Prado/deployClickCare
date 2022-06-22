@@ -13,6 +13,9 @@ export const GET_STATE_BY_COUNTRY = "GET_STATE_BY_COUNTRY";
 export const GET_COUNTRY = "GET_COUNTRY";
 export const USER_VALID = "USER_VALID";
 
+//Action types for professional registration
+export const SIGN_UP_PROF = "SIGN_UP_PROF";
+
 //Clear User State
 export const CLEAR_STATE = "CLEAR_STATE";
 

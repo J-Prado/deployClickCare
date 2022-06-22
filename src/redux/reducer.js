@@ -12,6 +12,7 @@ import {
   FILTER_DATE_POST,
   GET_SPECIALTIES,
   POST_REGISTER,
+  SIGN_UP_PROF,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -26,6 +27,7 @@ const initialState = {
   allPost: [],
   specialties: [],
   postRegister: {},
+  profRegister: {},
 };
 
 //Reducers
@@ -113,6 +115,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         postRegister: action.payload,
+      };
+
+    case SIGN_UP_PROF:
+      return {
+        ...state,
+        profRegister: action.payload,
       };
 
     default:

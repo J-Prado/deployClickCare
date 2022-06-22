@@ -11,6 +11,7 @@ import DowloadApp from "./components/DowloadApp/DowloadApp.js";
 import ContactUs from "./components/ContactUs/ContactUs.js";
 import Welcome from "./components/Welcome/Welcome.js";
 import CreatePost from "./components/CreatePost/CreatePost.js";
+import Professional from "./components/Professional/Professional.js";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route exact path="/welcome/:id" component={Welcome} />
       <Route exact path="/welcome" component={Welcome} />
       <Route exact path="/postCreation" component={CreatePost} />
+      <Route exact path="/professional" component={Professional} />
     </div>
   );
 }
