@@ -4,7 +4,7 @@ import {
   LOGIN,
   LOGIN_FAIL,
   LOG_OUT,
-  LOCAL_HOST,
+  // LOCAL_HOST,
   GET_COUNTRY,
   GET_STATE_BY_COUNTRY,
   GET_CITIES_BY_STATE,
@@ -18,14 +18,14 @@ import {
   SIGN_UP_PROF,
 } from "./ActionTypes";
 
-const axiosConfig = {
-  withCredentials: true,
-};
+// const axiosConfig = {
+//   withCredentials: true,
+// };
 
 export function login(values) {
   return async function (dispatch) {
     try {
-      const resp = await axios.post(`/userdblogin`, values, axiosConfig);
+      const resp = await axios.post(`/userdblogin`, values);
 
       const json = await resp.data;
       console.log(json);
@@ -48,7 +48,7 @@ export function logOut() {
     try {
       const resp = await axios.get(`/userdblogout`, axiosConfig);
       const json = await resp.data;
-
+      console.log(json);
       return dispatch({
         type: LOG_OUT,
         payload: json,
@@ -68,7 +68,7 @@ export function signUp(values) {
     try {
       const resp = await axios.post(`/userdbRegistration`, values);
       const json = await resp.data;
-
+      console.log(json);
       return dispatch({
         type: SIGN_UP,
         payload: json,
@@ -175,7 +175,7 @@ export function filterDatePost(datePost) {
 export function getSpecialties(state) {
   return async function (dispatch) {
     try {
-      const resp = await axios.get(`/especialty`);
+      const resp = await axios.get(`/specialty`);
       const json = await resp.data;
       return dispatch({
         type: GET_SPECIALTIES,
