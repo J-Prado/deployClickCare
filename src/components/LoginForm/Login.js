@@ -18,6 +18,7 @@ const Login = () => {
   // const state = useSelector((state) => state.isLogged);
   const [cookies, setCookie] = useCookies();
   console.log(document.cookie);
+  console.log(cookies);
   const user = useSelector((state) => state.userSession);
 
   //Formik initial values
