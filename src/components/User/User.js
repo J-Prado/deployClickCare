@@ -53,7 +53,7 @@ const UserRegister = () => {
       .required("Es necesario llenar este campo.")
       .trim("Elimine los espacios"),
     address: Yup.string().required("Es necesario llenar este campo."),
-    age: Yup.required("Es necesario llenar este campo."),
+    age: Yup.string().required("Es necesario llenar este campo."),
     document: Yup.string()
       .required("Es necesario llenar este campo.")
       .trim("Elimine los espacios"),
