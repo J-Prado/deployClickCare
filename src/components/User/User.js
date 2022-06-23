@@ -21,7 +21,7 @@ const UserRegister = () => {
     surname: "",
     phone: "",
     address: "",
-    age: 0,
+    age: "",
     document: "",
     phone2: "",
     state: "",
@@ -120,7 +120,7 @@ const UserRegister = () => {
         return (
           <Form>
             <div className="sign-spaces">
-              <label className="sign-label">Nombre*:</label>
+              <label className="sign-label">Nombres*:</label>
               <Field
                 className="sign-inputs"
                 id="name"
@@ -134,7 +134,7 @@ const UserRegister = () => {
               />
             </div>
             <div className="sign-spaces">
-              <label className="sign-label">Apellido*:</label>
+              <label className="sign-label">Apellidos*:</label>
               <Field
                 className="sign-inputs"
                 id="surname"
@@ -148,12 +148,12 @@ const UserRegister = () => {
               />
             </div>
             <div className="sign-spaces">
-              <label className="sign-label">Edad*:</label>
+              <label className="sign-label">Fecha de Nacimiento*:</label>
               <Field
                 className="sign-inputs"
                 name="age"
                 id="age"
-                type="number"
+                type="date"
                 placeholder="Edad"
               />
               <ErrorMessage
