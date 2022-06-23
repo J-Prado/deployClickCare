@@ -3,7 +3,7 @@ import "./Login.css";
 import { useFormik } from "formik";
 import { clear, login } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
-import { useCookies } from "react-cookie";
+import { useCookies, Cookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import image from "./helpImages/doctor_PNG15967.png";
 
@@ -12,13 +12,12 @@ import image from "./helpImages/doctor_PNG15967.png";
 import * as Yup from "yup";
 import swal from "sweetalert";
 
-const Login = () => {
+const Login = (props) => {
   //Hooks needed
   const dispatch = useDispatch();
   // const state = useSelector((state) => state.isLogged);
   const [cookies, setCookie] = useCookies();
-  console.log(document.cookie);
-  console.log(cookies);
+
   const user = useSelector((state) => state.userSession);
 
   //Formik initial values
@@ -43,6 +42,7 @@ const Login = () => {
   const onSubmit = (values, { resetForm }) => {
     dispatch(login(values));
     resetForm();
+    setCookie("name", 2);
   };
 
   const onClick = () => {
