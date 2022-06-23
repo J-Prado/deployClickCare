@@ -13,6 +13,7 @@ import swal from "sweetalert";
 import "../User/User.css";
 
 const UserRegister = () => {
+  const today = new Date();
   //Input values
   const initialValues = {
     email: "",
@@ -52,10 +53,7 @@ const UserRegister = () => {
       .required("Es necesario llenar este campo.")
       .trim("Elimine los espacios"),
     address: Yup.string().required("Es necesario llenar este campo."),
-    age: Yup.number()
-      .min(18, "Debes ser mayor de 18 años.")
-      .max(100, "Edad invalida.")
-      .required("Es necesario llenar este campo."),
+    age: Yup.required("Es necesario llenar este campo."),
     document: Yup.string()
       .required("Es necesario llenar este campo.")
       .trim("Elimine los espacios"),
@@ -80,8 +78,9 @@ const UserRegister = () => {
 
   //Handlers
   const onSubmit = (values, { resetForm }) => {
-    dispatch(signUp(values));
-    resetForm();
+    // dispatch(signUp(values));
+    // resetForm();
+    console.log(values);
   };
 
   const onClick = () => {
