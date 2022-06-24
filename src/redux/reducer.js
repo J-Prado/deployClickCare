@@ -19,6 +19,8 @@ import {
   GET_USER_ID,
   GET_MESSAGES,
   GET_CONTRACTS,
+  GET_USER_POST_DETAIL,
+  GET_USER_DETAIL,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -165,7 +167,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         contracts: action.payload,
       };
-
+    case GET_USER_POST_DETAIL:
+      return {
+        ...state,
+        userPostDetail: action.payload,
+      };
+    case GET_USER_DETAIL:
+      return {
+        ...state,
+        userDetail: action.payload,
+      };
     default:
       return { ...state };
   }
