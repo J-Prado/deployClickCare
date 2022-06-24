@@ -1,11 +1,12 @@
 import {
-  CLEAR_STATE,
-  GET_CITIES_BY_STATE,
-  GET_COUNTRY,
-  GET_STATE_BY_COUNTRY,
   LOGIN,
   LOGIN_FAIL,
   LOG_OUT,
+  // LOCAL_HOST,
+  GET_COUNTRY,
+  GET_STATE_BY_COUNTRY,
+  GET_CITIES_BY_STATE,
+  CLEAR_STATE,
   SIGN_UP,
   USER_VALID,
   GET_ALL_POST,
@@ -14,6 +15,10 @@ import {
   POST_REGISTER,
   SIGN_UP_PROF,
   VALIDATE_PREMIUM,
+  GET_CONVERSATIONS,
+  GET_USER_ID,
+  GET_MESSAGES,
+  GET_CONTRACTS,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -30,6 +35,10 @@ const initialState = {
   postRegister: {},
   profRegister: {},
   premium: {},
+  contracts: [],
+  conversations: [],
+  user_id: {},
+  currentChatMessages: {},
 };
 
 //Reducers
@@ -129,6 +138,30 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         premium: action.payload,
+      };
+
+    case GET_CONVERSATIONS:
+      return {
+        ...state,
+        conversations: action.payload,
+      };
+
+    case GET_USER_ID:
+      return {
+        ...state,
+        user_id: action.payload,
+      };
+
+    case GET_MESSAGES:
+      return {
+        ...state,
+        currentChatMessages: action.payload,
+      };
+
+    case GET_CONTRACTS:
+      return {
+        ...state,
+        contracts: action.payload,
       };
 
     default:

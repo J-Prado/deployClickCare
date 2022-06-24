@@ -12,6 +12,8 @@ import Welcome from "./components/Welcome/Welcome.js";
 import CreatePost from "./components/CreatePost/CreatePost.js";
 import Professional from "./components/Professional/Professional.js";
 import PaymentStatus from "./components/PaymentStatus/PaymentStatus.js";
+import Chat from "./components/Chat/Chat.js";
+
 function App() {
   return (
     <div>
@@ -28,6 +30,7 @@ function App() {
       <Route exact path="/postCreation" component={CreatePost} />
       <Route exact path="/professional" component={Professional} />
       <Route exact path="/paymentStatus" component={PaymentStatus} />
+      <Route exact path="/chat" component={Chat} />
     </div>
   );
 }

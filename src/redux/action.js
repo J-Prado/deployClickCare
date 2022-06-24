@@ -17,6 +17,10 @@ import {
   POST_REGISTER,
   SIGN_UP_PROF,
   VALIDATE_PREMIUM,
+  GET_CONVERSATIONS,
+  GET_USER_ID,
+  GET_MESSAGES,
+  GET_CONTRACTS,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -244,6 +248,74 @@ export function validatePremium(values) {
         type: VALIDATE_PREMIUM,
         payload: error.response.data,
       });
+    }
+  };
+}
+
+// This actions are for the chat
+
+export function getConversations(values) {
+  return async function (dispatch) {
+    const resp = await axios.get(`/conversation/${values}`);
+    const json = await resp.data;
+    return dispatch({
+      type: GET_CONVERSATIONS,
+      payload: json,
+    });
+  };
+}
+
+export function getUserId(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/users/${values}`);
+      const json = await resp.data;
+      return dispatch({
+        type: GET_USER_ID,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function getMessages(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/allmessage/${values}`);
+      const json = await resp.data;
+      return dispatch({
+        type: GET_MESSAGES,
+        payload: json,
+      });
+    } catch (err) {
+      console.log("no hay current chat");
+    }
+  };
+}
+export function postMessage(values) {
+  return async function (dispatch) {
+    try {
+      const json = await axios.post(`/message`, values);
+      console.log("json del action", json);
+      return json;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getContracts(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/getContracts`);
+      const json = await resp.data;
+      return dispatch({
+        type: GET_CONTRACTS,
+        payload: json,
+      });
+    } catch (error) {
+      console.log("no hay current chat", error);
     }
   };
 }

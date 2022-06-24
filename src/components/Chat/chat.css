@@ -1,0 +1,127 @@
+.messenger{
+    height: calc(100vh - 70px );
+    display: flex;
+    
+}
+
+.separadorChat{
+    height: 30px;
+    width: 100%;
+}
+.chatMenu{
+    flex:3.5;
+    overflow-y: scroll;
+    scroll-padding-right: 10px;
+    width:260px;
+    float: left;
+    background-color: #444753;
+    color: white;
+}
+
+.chatBox{
+    flex:5.5;
+    width: 490px;
+  float:left;
+  background: #F2F5F8;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: calc(100vh - 150px );
+  color: #434651;
+  
+}
+
+ .chat-header {
+    padding: 40px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+}
+.imgHeader{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    float: left;
+}
+.chat-about {
+    
+    padding-left: 10px;
+    margin-top: 6px;
+  }
+.chat-with {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .chat-num-messages {
+        color:  #92959E;
+      }   
+      
+.chatBoxBottom{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.chatMessageInput{
+    width: 90%;
+    height: 70px;
+    padding: 10px;
+}
+.chatSubmitButton{
+    width: 70px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chatBoxTop{
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+.chatOnline{
+    flex:3;
+    background-color: blueviolet;
+}
+
+.chatMenuWrapper{
+    padding: 10px;
+    height: 100%;
+    border: 3px solid;
+
+}
+
+.chatBoxWrapper{
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+}
+
+
+
+.chatOnlineWrapper{
+ padding: 10px;
+ height: 100%;
+}
+
+.chatMenuInput{
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom:1px solid gray;
+}
+
+.noConversationText{
+    position: absolute;
+    top:30%;
+    font-size:100px;
+}
+
+
