@@ -78,8 +78,8 @@ const UserRegister = () => {
 
   //Handlers
   const onSubmit = (values, { resetForm }) => {
-    // dispatch(signUp(values));
-    // resetForm();
+    dispatch(signUp(values));
+    resetForm();
     console.log(values);
   };
 
