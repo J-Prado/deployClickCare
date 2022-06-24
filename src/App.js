@@ -9,7 +9,6 @@ import Offers from "./components/Offers/Offers.js";
 import DowloadApp from "./components/DowloadApp/DowloadApp.js";
 import ContactUs from "./components/ContactUs/ContactUs.js";
 import Welcome from "./components/Welcome/Welcome.js";
-import CreatePost from "./components/PostForm/CreatePost.js";
 import Professional from "./components/Professional/Professional.js";
 import PaymentStatus from "./components/PaymentStatus/PaymentStatus.js";
 import Chat from "./components/Chat/Chat.js";
@@ -29,7 +28,6 @@ function App() {
       <Route exact path="/contactUs" component={ContactUs} />
       <Route exact path="/welcome/:id" component={Welcome} />
       <Route exact path="/welcome" component={Welcome} />
-      <Route exact path="/postCreation" component={CreatePost} />
       <Route exact path="/professional" component={Professional} />
       <Route exact path="/paymentStatus" component={PaymentStatus} />
       <Route exact path="/chat" component={Chat} />
