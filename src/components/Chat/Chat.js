@@ -14,7 +14,7 @@ export default function Chat() {
   console.log("me monto");
   const dispatch = useDispatch();
   // obtenemos el id de user
-  const user = jwt.decode(localStorage.getItem("session"));
+  const user = jwt.decode(localStorage?.getItem("session"));
 
   const id = user?.id;
   // obtenemos el estado conversations
@@ -45,7 +45,7 @@ export default function Chat() {
     arrivalMessage &&
       members?.member.includes(arrivalMessage.sender) &&
       setMessages((prev) => [...prev, arrivalMessage]);
-  }, [arrivalMessage, currentChat]);
+  }, [arrivalMessage, currentChat, members?.member]);
 
   useEffect(() => {
     socket.current.emit("addUser", user.id);
@@ -54,13 +54,13 @@ export default function Chat() {
 
   useEffect(() => {
     dispatch(getConversations(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   useEffect(() => {
     const getMessages = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/api/allmessage/${currentChat?.id}`
+          `https://api-rest-pf-production.up.railway.app/api/allmessage/${currentChat?.id}`
         );
         setMessages(res.data);
       } catch (err) {
