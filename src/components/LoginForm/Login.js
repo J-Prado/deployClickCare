@@ -3,22 +3,16 @@ import "./Login.css";
 import { useFormik } from "formik";
 import { clear, login } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
-import { useCookies, Cookies } from "react-cookie";
+// import { useCookies, Cookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import jwt from "jsonwebtoken";
 import image from "./helpImages/doctor_PNG15967.png";
-
-// import Offers from "../Offers/Offers.js";
-
 import * as Yup from "yup";
 import swal from "sweetalert";
-import { click } from "@testing-library/user-event/dist/click";
 
 const Login = (props) => {
   //Hooks needed
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.isLogged);
-  const [cookies, setCookie] = useCookies();
 
   const user = useSelector((state) => state.userSession);
 
@@ -50,10 +44,8 @@ const Login = (props) => {
     swal({
       title: user?.message,
       text: "Disfruta de nuestros Servicios",
-    }).then(() => {
-      localStorage.setItem("session", user["token"]);
-      window.location = "https://deploy-click-care.vercel.app/offers";
     });
+    localStorage.setItem("session", user["token"]);
     console.log(jwt.decode(localStorage.getItem("session")).id);
   } else if (user?.error) {
     swal({
