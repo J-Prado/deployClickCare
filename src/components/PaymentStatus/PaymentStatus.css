@@ -1,0 +1,23 @@
+.pay-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color: #24b8b8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%2324B8B8' width='11' height='11'/%3E%3Crect fill='%232cb9b9' x='10' width='11' height='11'/%3E%3Crect fill='%2333baba' y='10' width='11' height='11'/%3E%3Crect fill='%2339bbbb' x='20' width='11' height='11'/%3E%3Crect fill='%233fbcbc' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%2344bdbc' y='20' width='11' height='11'/%3E%3Crect fill='%2349bebd' x='30' width='11' height='11'/%3E%3Crect fill='%234ebfbe' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%2352c0bf' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%2357c1c0' y='30' width='11' height='11'/%3E%3Crect fill='%235bc1c1' x='40' width='11' height='11'/%3E%3Crect fill='%235fc2c2' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%2363c3c3' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%2366c4c4' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%236ac5c5' y='40' width='11' height='11'/%3E%3Crect fill='%236ec6c5' x='50' width='11' height='11'/%3E%3Crect fill='%2371c7c6' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%2375c8c7' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%2378c9c8' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%237bcac9' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%237fcbca' y='50' width='11' height='11'/%3E%3Crect fill='%2382cccb' x='60' width='11' height='11'/%3E%3Crect fill='%2385cdcc' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%2388cecd' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%238bcfce' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%238fcfcf' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%2392d0cf' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%2395d1d0' x='70' width='11' height='11'/%3E%3Crect fill='%2398d2d1' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%239bd3d2' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%239ed4d3' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%23a1d5d4' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%23a4d6d5' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23a6d7d6' x='80' width='11' height='11'/%3E%3Crect fill='%23a9d8d7' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23acd9d8' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23afdad9' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23b2dada' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23b5dbda' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23b8dcdb' x='90' width='11' height='11'/%3E%3Crect fill='%23badddc' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23bddedd' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23c0dfde' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23c3e0df' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23c5e1e0' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23c8e2e1' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23cbe3e2' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23cee3e3' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23d0e4e4' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23d3e5e5' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23d6e6e6' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23d9e7e7' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23dbe8e7' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23dee9e8' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23e1eae9' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23e3eaea' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23e6ebeb' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23e9ecec' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23ebeded' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23EEEEEE' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+.pay-text {
+  font-family: "Nunito", sans-serif;
+  color: var(--main-second-color);
+  font-size: 9rem;
+  text-shadow: -6px -4px 8px #403d3c;
+}
+.pay-text-validated {
+  font-size: 2rem;
+  color: var(--main-third-color);
+  text-shadow: -6px -4px 8px #403d3c;
+}

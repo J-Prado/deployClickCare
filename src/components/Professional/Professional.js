@@ -4,6 +4,8 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import swal from "sweetalert";
 import * as Yup from "yup";
+import jwt from "jsonwebtoken";
+import { profRegister } from "../../redux/action";
 
 const Professional = () => {
   //Input values
@@ -12,7 +14,7 @@ const Professional = () => {
     trainings: "",
     photo: "",
     cvu: "",
-    userId: 9,
+    userId: jwt.decode(localStorage?.getItem("session"))?.id,
   };
 
   //Hooks for Redux
@@ -37,6 +39,8 @@ const Professional = () => {
 
   //Handlers
   const onSubmit = (values, { resetForm }) => {
+    dispatch(profRegister(values));
+    resetForm();
     console.log(values);
   };
 

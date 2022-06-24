@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../images/logonavbar.png";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 import { logOut } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import swal from "sweetalert";
@@ -12,16 +12,17 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const out = useSelector((state) => state.userSession);
-  const [cookies, setCookie] = useCookies();
+  // const [cookies, setCookie, removeCookie] = useCookies();
 
   //Handlers
   const onClick = () => {
-    dispatch(logOut());
+    // dispatch(logOut());
+    window.localStorage.clear();
     swal({
       title: "Logout Success",
       text: "Gracias por usar ClickCare",
     }).then(() => {
-      window.location = "http://localhost:3000/login";
+      window.location = "https://deploy-click-care.vercel.app/login";
     });
   };
 
@@ -42,11 +43,19 @@ const Navbar = () => {
         </Link>
         <a href="#testimonials">Testimonio</a>
         <div className="containerButtonNav">
-          <Link to="/signin">
-            <button className="buttonOne buttonNav">Registrate</button>
-          </Link>
-          {cookies.sessionClickcare ? (
-            <button className="buttonOne buttonNavTwo" onClick={onClick}>
+          {localStorage?.getItem("session") ? (
+            <button className="buttonOne buttonNavTwo">Profile</button>
+          ) : (
+            <Link to="/signin">
+              <button className="buttonOne buttonNav">Registrate</button>
+            </Link>
+          )}
+
+          {localStorage?.getItem("session") ? (
+            <button
+              className="buttonOne buttonNavTwo"
+              onClick={() => onClick()}
+            >
               Salir
             </button>
           ) : (
