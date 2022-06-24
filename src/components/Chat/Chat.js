@@ -4,7 +4,7 @@ import Conversations from "../Conversation/Conversations";
 import Message from "../Message/Message";
 // import ChatOnline from "../ChatOnline/ChatOnline";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+import jwt from "jsonwebtoken";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getConversations, postMessage } from "../../redux/action";
@@ -14,10 +14,9 @@ export default function Chat() {
   console.log("me monto");
   const dispatch = useDispatch();
   // obtenemos el id de user
+  const user = jwt.decode(localStorage.getItem("session"));
 
-  const user = jwt_decode(useSelector((state) => state.userSession.token));
-
-  const id = user.id;
+  const id = user?.id;
   // obtenemos el estado conversations
   const conversations = useSelector((state) => state.conversations);
   //seteamos el current chat y message en estados locales
