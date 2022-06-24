@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { logOut } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import swal from "sweetalert";
+import jwt from "jsonwebtoken";
 
 const Navbar = () => {
   //Hooks
@@ -13,6 +14,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const out = useSelector((state) => state.userSession);
   // const [cookies, setCookie, removeCookie] = useCookies();
+
+  //Id
+  const idUser = jwt.decode(localStorage.getItem("session"))?.id;
 
   //Handlers
   const onClick = () => {
@@ -44,7 +48,9 @@ const Navbar = () => {
         <a href="#testimonials">Testimonio</a>
         <div className="containerButtonNav">
           {localStorage?.getItem("session") ? (
-            <button className="buttonOne buttonNavTwo">Profile</button>
+            <Link to={`/user/${idUser}`}>
+              <button className="buttonOne buttonNavTwo">Profile</button>
+            </Link>
           ) : (
             <Link to="/signin">
               <button className="buttonOne buttonNav">Registrate</button>
