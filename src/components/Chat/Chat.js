@@ -15,7 +15,7 @@ export default function Chat() {
   const dispatch = useDispatch();
   // obtenemos el id de user
   const user = jwt.decode(localStorage?.getItem("session"));
-
+  console.log(jwt.decode(localStorage?.getItem("session")));
   const id = user?.id;
   // obtenemos el estado conversations
   const conversations = useSelector((state) => state.conversations);
@@ -48,7 +48,7 @@ export default function Chat() {
   }, [arrivalMessage, currentChat, members?.member]);
 
   useEffect(() => {
-    socket.current.emit("addUser", user.id);
+    socket.current.emit("addUser", user?.id);
     socket.current.on("getUsers", (users) => {});
   }, [user]);
 
