@@ -343,3 +343,10 @@ export function getUserPostDetail(id) {
     });
   };
 }
+
+export function postUser(post) {
+  return async function (dispatch) {
+    // await axios.post('https://pf-api-rest.herokuapp.com/api/postgenerator', post)
+    await axios.post("/postgenerator", post);
+  };
+}
