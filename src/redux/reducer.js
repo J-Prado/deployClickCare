@@ -39,6 +39,8 @@ const initialState = {
   conversations: [],
   user_id: {},
   currentChatMessages: {},
+  userPostDetail: [],
+  userDetail: [],
 };
 
 //Reducers

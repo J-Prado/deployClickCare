@@ -32,3 +32,7 @@ export const GET_CONVERSATIONS = "GET_CONVERSATIONS";
 export const GET_USER_ID = "GET_USER_ID";
 export const GET_MESSAGES = "GET_MESSAGES";
 export const GET_CONTRACTS = "GET_CONTRACTS";
+
+//Profile
+export const GET_USER_POST_DETAIL = "GET_USER_POST_DETAIL";
+export const GET_USER_DETAIL = "GET_USER_DETAIL";

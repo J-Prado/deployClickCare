@@ -1,0 +1,39 @@
+.formRegConteiner{
+    width: 900px;
+    height: auto;
+    display: inline-flex;
+    justify-content: center;
+
+}
+.formProfContainerLeft{
+    width: 300px;
+    height: 500;
+    margin: 0.5rem;
+}
+.formProfContainerRight{
+    width: 300px;
+    height: 500;
+    margin: 0.5rem;
+}
+input[type=text], [type=date]{
+    width: 100%;
+    padding: 12px 20px ;
+    margin: 8px 0px 0rem 0px;
+    display: inline-block;
+    border: 1px solid rgba(204, 204, 204, 0.372);
+    border-radius: 25px;
+    -webkit-border-radius:25px;
+	-moz-border-radius:25px;
+    box-sizing: border-box;
+    background-color: rgba(0, 255, 255, 0.05);
+    color: var(--main-second-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.error-prof{
+    color: var(--main-extra-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+}

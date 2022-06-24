@@ -21,6 +21,8 @@ import {
   GET_USER_ID,
   GET_MESSAGES,
   GET_CONTRACTS,
+  GET_USER_POST_DETAIL,
+  GET_USER_DETAIL,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -317,5 +319,27 @@ export function getContracts(values) {
     } catch (error) {
       console.log("no hay current chat", error);
     }
+  };
+}
+
+export function getUserDetail(id) {
+  return async function (dispatch) {
+    const response = await axios.get(`/userProfessionalByID/` + id);
+    //console.log("DATA ID:", response)
+    return dispatch({
+      type: GET_USER_DETAIL,
+      payload: response.data,
+    });
+  };
+}
+
+export function getUserPostDetail(id) {
+  return async function (dispatch) {
+    const response = await axios.get(`/posteosUsersByUserID/` + id);
+    //console.log("DATA ID:", response)
+    return dispatch({
+      type: GET_USER_POST_DETAIL,
+      payload: response.data,
+    });
   };
 }

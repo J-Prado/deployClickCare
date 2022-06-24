@@ -4,33 +4,37 @@ import imguser1 from "../../Landingpage/Post/imgPost/imguser1.jpg";
 import { GoCalendar } from "react-icons/go";
 
 const Card = ({id, datPost, hourPost, whenIn, whenOut, startTime, endTime, city, state, needs, specialty,  name }) => {
-    
-    let datePos = datPost +" "+ hourPost 
-    let dateOne = new Date(datePos);
+    //Fecha Posteo
+    //let datePos = datPost +" "+ hourPost 
+    let dateOne = new Date(datPost);
     let dateNow = new Date()
     let difference= Math.abs(dateNow-dateOne);
     let postedAgo = difference/(1000 * 3600 * 24)
-    if (postedAgo >= 2){
+    if (postedAgo >= 2.5){
         postedAgo = "hace " + Math.round(postedAgo) + " dias"
-    }else if (postedAgo >1 ){
+    }else if (postedAgo >1.5 ){
         postedAgo = "hace "+Math.floor(postedAgo)+" dia"
     }else{
         postedAgo = "Hoy"
     }
-    
+    //Cuando Dia
     const startDate = whenIn => [
         'Lun','Mar','Mie','Jue','Vie','Sab','Dom',
     ][new Date(whenIn).getDay()];
     let dayNumIn = new Date(whenIn).getDate()
-    let monthNumIn = new Date(whenIn).getMonth() + 1
-    let startDateCard = startDate(whenIn) + " " + dayNumIn + "/" + monthNumIn
+    const textMonthin = whenIn => [
+        'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'
+    ][new Date(whenIn).getMonth()];
+    let startDateCard = startDate(whenIn) + " " + dayNumIn + "-" + textMonthin(whenIn)
 
     const endDate = whenOut => [
         'Lun','Mar','Mie','Jue','Vie','Sab','Dom',
     ][new Date(whenOut).getDay()];
     let dayNumOut = new Date(whenOut).getDate()
-    let monthNumOut = new Date(whenOut).getMonth() + 1
-    let endDateCard = endDate(whenOut)+" "+ dayNumOut+"/"+monthNumOut
+    const textMonthout = whenOut => [
+        'Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'
+    ][new Date(whenOut).getMonth()];
+    let endDateCard = endDate(whenOut)+" "+ dayNumOut+"-"+textMonthout(whenOut)
     
     let dateService = ""
     if(startDateCard === endDateCard ){
@@ -38,7 +42,7 @@ const Card = ({id, datPost, hourPost, whenIn, whenOut, startTime, endTime, city,
     }else{
         dateService +=  startDateCard+" - "+endDateCard
     }
-
+    //Cuando Hora
     let startHour = startTime+":00"
     let endHour = endTime+":00"
     let hourService = ""
@@ -48,24 +52,11 @@ const Card = ({id, datPost, hourPost, whenIn, whenOut, startTime, endTime, city,
         hourService +=  startHour+" - "+endHour
     }
 
+    //Parrafo
     let parrafo = needs
     let descrpcion = parrafo.slice(0,parrafo.length*.2)  
     
-    let numDay1 = new Date(whenIn).getDate();
-    let numDay2 = new Date(whenOut).getDate();
-    
-    
-    const startDay = (whenIn) => {
-        return [ 
-            'Dom','Lun', 'Mar', 'Mir','Jue', 'Vie', 'Sab', 
-        ][new Date(whenIn).getDay()];
-    }
-    const endDay = (whenOut) => {
-        return [ 
-            'Dom','Lun', 'Mar', 'Mir','Jue', 'Vie', 'Sab',
-        ][new Date(whenOut).getDay()];
-    }
-      
+          
 
   return (
     <div className='cardContainer'>
@@ -73,7 +64,7 @@ const Card = ({id, datPost, hourPost, whenIn, whenOut, startTime, endTime, city,
             <div className='containerDataRight'>
                 <h3 className='dateCard'>Publicado:<span className='dayCard'> {postedAgo}</span></h3>
                 <h1 className='nameCard'>{name}</h1>
-                <p className='despcriptioCard'>{descrpcion}<span>...</span></p>
+                <p className='despcriptioCard'>{}<span>{descrpcion}...</span></p>
                 <h2 className='dateCard serviceOffer' >Servicio:<br/><span className='dayCard'>{specialty}</span></h2>
                 <button className='buttonOne posBotton'>Aplicar</button>
                 <div className='containerDataBotton'>
