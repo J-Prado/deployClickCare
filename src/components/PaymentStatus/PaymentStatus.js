@@ -1,8 +1,10 @@
 import jwt from "jsonwebtoken";
 import React from "react";
 import "../PaymentStatus/PaymentStatus.css";
+import qs from "qs";
+const PaymentStatus = (props) => {
+  console.log(qs.parse(props.location.search, { ignoreQueryPrefix: true }));
 
-const PaymentStatus = () => {
   const idUs = jwt.decode(localStorage?.getItem("session"))?.id;
   return (
     <div className="pay-container">

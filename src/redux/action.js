@@ -16,6 +16,7 @@ import {
   GET_SPECIALTIES,
   POST_REGISTER,
   SIGN_UP_PROF,
+  VALIDATE_PREMIUM,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -221,6 +222,26 @@ export function profRegister(values) {
       console.log(error);
       return dispatch({
         type: SIGN_UP_PROF,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function validatePremium(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/validatePremium`, values);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: VALIDATE_PREMIUM,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: VALIDATE_PREMIUM,
         payload: error.response.data,
       });
     }

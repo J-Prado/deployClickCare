@@ -13,6 +13,7 @@ import {
   GET_SPECIALTIES,
   POST_REGISTER,
   SIGN_UP_PROF,
+  VALIDATE_PREMIUM,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -28,6 +29,7 @@ const initialState = {
   specialties: [],
   postRegister: {},
   profRegister: {},
+  premium: {},
 };
 
 //Reducers
@@ -121,6 +123,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         profRegister: action.payload,
+      };
+
+    case VALIDATE_PREMIUM:
+      return {
+        ...state,
+        premium: action.payload,
       };
 
     default:
