@@ -44,8 +44,10 @@ const Login = (props) => {
     swal({
       title: user?.message,
       text: "Disfruta de nuestros Servicios",
+    }).then(() => {
+      localStorage.setItem("session", user["token"]);
+      window.location = "https://deploy-click-care.vercel.app/offers";
     });
-    localStorage.setItem("session", user["token"]);
     console.log(jwt.decode(localStorage.getItem("session")).id);
   } else if (user?.error) {
     swal({
