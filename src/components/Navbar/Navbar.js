@@ -45,7 +45,7 @@ const Navbar = () => {
           <Link to="/signin">
             <button className="buttonOne buttonNav">Registrate</button>
           </Link>
-          {cookies.SessionUserClickCare ? (
+          {cookies.sessionClickcare ? (
             <button className="buttonOne buttonNavTwo" onClick={onClick}>
               Salir
             </button>

@@ -15,7 +15,7 @@ import swal from "sweetalert";
 const Login = (props) => {
   //Hooks needed
   const dispatch = useDispatch();
-  // const state = useSelector((state) => state.isLogged);
+  const state = useSelector((state) => state.isLogged);
   const [cookies, setCookie] = useCookies();
 
   const user = useSelector((state) => state.userSession);
@@ -42,7 +42,6 @@ const Login = (props) => {
   const onSubmit = (values, { resetForm }) => {
     dispatch(login(values));
     resetForm();
-    setCookie("name", 2);
   };
 
   const onClick = () => {
@@ -51,6 +50,7 @@ const Login = (props) => {
         title: user?.message,
         text: "Disfruta de nuestros Servicios",
       });
+      sessionStorage.setItem(state.token);
     } else if (user?.error) {
       swal({
         title: user?.error,

@@ -20,7 +20,7 @@ const Welcome = withRouter((props) => {
   }, [dispatch, props.match.params.id]);
 
   //Formik initial values
-  const initialValues = { email: "", password: "" };
+  const initialValues = { email: validation.mail, password: "" };
   const validationSchema = Yup.object({
     password: Yup.string()
       .required("Es necesario llenar este campo.")
@@ -73,16 +73,9 @@ const Welcome = withRouter((props) => {
           <br />
           <form onSubmit={formik.handleSubmit} className="log-form">
             <label className="label">
-              Por tu seguridad Ingresa tu Correo y Contraseña nuevamente:
+              Por tu seguridad Contraseña nuevamente o Inicia Sesión desde
+              nuestra App:
             </label>
-            <label className="label">Email:</label>
-            <input
-              className="email"
-              id="email"
-              type="email"
-              onChange={formik.handleChange}
-              value={formik.values.email}
-            />
             <label className="label">Password:</label>
             <input
               className="password1"
