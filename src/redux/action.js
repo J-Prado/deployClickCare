@@ -28,7 +28,7 @@ import {
 const axiosConfig = {
   withCredentials: true,
 };
-
+//Login & Logout Actions
 export function login(values) {
   return async function (dispatch) {
     try {
@@ -70,6 +70,7 @@ export function logOut() {
   };
 }
 
+//Register Professional and User
 export function signUp(values) {
   return async function (dispatch) {
     try {
@@ -84,6 +85,41 @@ export function signUp(values) {
       console.log(error);
       return dispatch({
         type: SIGN_UP,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function userValidationProcess(id) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/userValidationProcess/${id}`);
+      const json = await resp.data;
+      return dispatch({
+        type: USER_VALID,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function profRegister(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.post(`/profdbregistration`, values);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: SIGN_UP_PROF,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: SIGN_UP_PROF,
         payload: error.response.data,
       });
     }
@@ -135,26 +171,7 @@ export function GetCitiesByState(state) {
   };
 }
 
-export function userValidationProcess(id) {
-  return async function (dispatch) {
-    try {
-      const resp = await axios.get(`/userValidationProcess/${id}`);
-      const json = await resp.data;
-      return dispatch({
-        type: USER_VALID,
-        payload: json,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-
-export function clear() {
-  return function (dispatch) {
-    return dispatch({ type: CLEAR_STATE });
-  };
-}
+//Posts
 
 export function getAllPost() {
   return async function (dispatch) {
@@ -182,7 +199,7 @@ export function filterDatePost(datePost) {
 export function getSpecialties(state) {
   return async function (dispatch) {
     try {
-      const resp = await axios.get(`/specialty`);
+      const resp = await axios.get(`/getspecialty`);
       const json = await resp.data;
       return dispatch({
         type: GET_SPECIALTIES,
@@ -194,7 +211,7 @@ export function getSpecialties(state) {
   };
 }
 
-export function postRegister(values) {
+export function postUser(values) {
   return async function (dispatch) {
     try {
       const resp = await axios.post(`/postgenerator`, values);
@@ -214,26 +231,7 @@ export function postRegister(values) {
   };
 }
 
-export function profRegister(values) {
-  return async function (dispatch) {
-    try {
-      const resp = await axios.post(`/profdbregistration`, values);
-      const json = await resp.data;
-      console.log(json);
-      return dispatch({
-        type: SIGN_UP_PROF,
-        payload: json,
-      });
-    } catch (error) {
-      console.log(error);
-      return dispatch({
-        type: SIGN_UP_PROF,
-        payload: error.response.data,
-      });
-    }
-  };
-}
-
+//Premium or not validation
 export function validatePremium(values) {
   return async function (dispatch) {
     try {
@@ -254,8 +252,7 @@ export function validatePremium(values) {
   };
 }
 
-// This actions are for the chat
-
+// These actions are for the chat
 export function getConversations(values) {
   return async function (dispatch) {
     const resp = await axios.get(`/conversation/${values}`);
@@ -281,6 +278,7 @@ export function getUserId(values) {
     }
   };
 }
+
 export function getMessages(values) {
   return async function (dispatch) {
     try {
@@ -295,6 +293,7 @@ export function getMessages(values) {
     }
   };
 }
+
 export function postMessage(values) {
   return async function (dispatch) {
     try {
@@ -322,6 +321,7 @@ export function getContracts(values) {
   };
 }
 
+//User Profile Actions
 export function getUserDetail(id) {
   return async function (dispatch) {
     const response = await axios.get(`/userProfessionalByID/` + id);
@@ -344,9 +344,9 @@ export function getUserPostDetail(id) {
   };
 }
 
-export function postUser(post) {
-  return async function (dispatch) {
-    // await axios.post('https://pf-api-rest.herokuapp.com/api/postgenerator', post)
-    await axios.post("/postgenerator", post);
+//Clear an State
+export function clear() {
+  return function (dispatch) {
+    return dispatch({ type: CLEAR_STATE });
   };
 }

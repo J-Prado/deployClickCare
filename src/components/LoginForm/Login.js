@@ -9,12 +9,16 @@ import jwt from "jsonwebtoken";
 import image from "./helpImages/doctor_PNG15967.png";
 import * as Yup from "yup";
 import swal from "sweetalert";
+//Google
+import { useAuth0, withAuth0 } from "@auth0/auth0-react";
+import google from "../LoginForm/helpImages/google.png";
 
 const Login = (props) => {
   //Hooks needed
   const dispatch = useDispatch();
+  const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
 
-  const user = useSelector((state) => state.userSession);
+  const userlogged = useSelector((state) => state.userSession);
 
   //Formik initial values
   const initialValues = { email: "", password: "" };
@@ -40,18 +44,18 @@ const Login = (props) => {
     resetForm();
   };
 
-  if (user?.message) {
+  if (userlogged?.message) {
     swal({
-      title: user?.message,
+      title: userlogged?.message,
       text: "Disfruta de nuestros Servicios",
     }).then(() => {
-      localStorage.setItem("session", user["token"]);
+      localStorage.setItem("session", userlogged["token"]);
       window.location = "https://deploy-click-care.vercel.app/offers";
     });
     console.log(jwt.decode(localStorage.getItem("session"))?.id);
-  } else if (user?.error) {
+  } else if (userlogged?.error) {
     swal({
-      title: user?.error,
+      title: userlogged?.error,
       text: "Por Favor Intente Nuevamente",
     });
     dispatch(clear());
@@ -112,7 +116,14 @@ const Login = (props) => {
             <button className="buttonOne principalButton" type="submit">
               Inicia tu Sesión
             </button>
-
+          </form>
+          <div className="reg-space">
+            <span className="register">Inicia Sesión También con ➤</span>
+            <button className="logGoogle" onClick={() => loginWithRedirect()}>
+              <img className="google" src={google} alt="Google Login" />
+            </button>
+          </div>
+          <div>
             <Link className="link" to="/signin">
               <span className="register">
                 ¿Aún no haz creado tu cuenta?{" "}
@@ -120,7 +131,7 @@ const Login = (props) => {
               </span>
               <button className=" buttonOne regButton">➤</button>
             </Link>
-          </form>
+          </div>
         </div>
         <div className="container-img">
           <img className="sideImage" src={image} alt="Side help Ilustration" />

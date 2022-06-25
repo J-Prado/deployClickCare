@@ -19,12 +19,15 @@ export const SIGN_UP_PROF = "SIGN_UP_PROF";
 //Clear User State
 export const CLEAR_STATE = "CLEAR_STATE";
 
+//Posts
 export const GET_ALL_POST = "GET_ALL_POST";
 export const FILTER_DATE_POST = "FILTER_DATE_POST";
 
+//Post
 export const GET_SPECIALTIES = "GET_SPECIALTIES";
 export const POST_REGISTER = "POST_REGISTER";
 
+//Payment
 export const VALIDATE_PREMIUM = "ALIDATE_PREMIUM";
 
 //Chat Actions

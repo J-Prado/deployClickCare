@@ -1,5 +1,4 @@
-//<<<<<<< Juan-Form-LogIn
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import Landingpage from "./components/Landingpage/Landingpage.js";
 import Login from "./components/LoginForm/Login.js";
 import Navbar from "./components/Navbar/Navbar.js";
@@ -32,7 +31,13 @@ function App() {
       <Route exact path="/paymentStatus" component={PaymentStatus} />
       <Route exact path="/chat" component={Chat} />
       <Route exact path="/user/:id" component={Profile} />
-      <Route exact path="/postForm" component={PostForm} />
+      <Route exact path="/postForm">
+        {localStorage.getItem("session") ? (
+          <PostForm />
+        ) : (
+          <Redirect to="/login" />
+        )}
+      </Route>
     </div>
   );
 }

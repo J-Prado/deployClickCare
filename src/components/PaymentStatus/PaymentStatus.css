@@ -13,7 +13,7 @@
 .pay-text {
   font-family: "Nunito", sans-serif;
   color: var(--main-second-color);
-  font-size: 9rem;
+  font-size: 6rem;
   text-shadow: -6px -4px 8px #403d3c;
 }
 .pay-text-validated {
