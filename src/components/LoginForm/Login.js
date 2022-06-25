@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.css";
 import { useFormik } from "formik";
-import { clear, login } from "../../redux/action";
+import { clear, login, loginGoogle } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 // import { useCookies, Cookies } from "react-cookie";
 import { Link } from "react-router-dom";
@@ -16,9 +16,25 @@ import google from "../LoginForm/helpImages/google.png";
 const Login = (props) => {
   //Hooks needed
   const dispatch = useDispatch();
-  const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
+  const auth = useAuth0();
+
+  console.log(auth);
 
   const userlogged = useSelector((state) => state.userSession);
+  // useEffect(() => {
+  //   if (isAuthenticated === true) {
+  //     dispatch(loginGoogle());
+  //   }
+  // }, []);
+
+  const onClick = () => {
+    auth.loginWithPopup();
+    if (Object.keys(userlogged).length === 0) {
+      const { email } = auth.user;
+      const { isAuthenticated } = auth;
+      dispatch(loginGoogle({ email, isAuthenticated }));
+    }
+  };
 
   //Formik initial values
   const initialValues = { email: "", password: "" };
@@ -119,7 +135,7 @@ const Login = (props) => {
           </form>
           <div className="reg-space">
             <span className="register">Inicia Sesión También con ➤</span>
-            <button className="logGoogle" onClick={() => loginWithRedirect()}>
+            <button className="logGoogle" onClick={onClick}>
               <img className="google" src={google} alt="Google Login" />
             </button>
           </div>

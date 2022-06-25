@@ -21,6 +21,7 @@ import {
   GET_CONTRACTS,
   GET_USER_POST_DETAIL,
   GET_USER_DETAIL,
+  LOG_IN_GOOGLE,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -56,6 +57,12 @@ const reducer = (state = initialState, action) => {
       };
 
     case LOGIN:
+      return {
+        ...state,
+        userSession: action.payload,
+      };
+
+    case LOG_IN_GOOGLE:
       return {
         ...state,
         userSession: action.payload,

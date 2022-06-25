@@ -1,23 +1,23 @@
-import React from 'react'
-import Start from './Start/Start.js'
-import WhatDoWeDo from "./WhatDoWeDo/WhatDoWeDo.js"
-import "./Landingpage.css"
-import Services from './Services/Services.js'
-import ChooseUs from './ChooseUs/ChooseUs.js'
-import Post from './Post/Post.js'
-import Testimonials from './Testimonials/Testimonials.js'
-import Contact from './Contact/Contact.js'
-
+import React, { useEffect } from "react";
+import Start from "./Start/Start.js";
+import WhatDoWeDo from "./WhatDoWeDo/WhatDoWeDo.js";
+import "./Landingpage.css";
+import Services from "./Services/Services.js";
+import ChooseUs from "./ChooseUs/ChooseUs.js";
+import Post from "./Post/Post.js";
+import Testimonials from "./Testimonials/Testimonials.js";
+import Contact from "./Contact/Contact.js";
+// import { useAuth0 } from "@auth0/auth0-react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { loginGoogle } from "../../redux/action.js";
 
 function Home() {
-
-
   return (
-    <div className='containerHome' id={"firtsDiv"}  >
+    <div className="containerHome" id={"firtsDiv"}>
       <section className="section" id="start">
         <Start />
-      </section >
-      <section className="section" id="whatDoWeDo" >
+      </section>
+      <section className="section" id="whatDoWeDo">
         <WhatDoWeDo />
       </section>
       <section className="section" id="service">
@@ -36,7 +36,7 @@ function Home() {
         <Contact />
       </section>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

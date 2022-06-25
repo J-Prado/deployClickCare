@@ -23,6 +23,7 @@ import {
   GET_CONTRACTS,
   GET_USER_POST_DETAIL,
   GET_USER_DETAIL,
+  LOG_IN_GOOGLE,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -50,6 +51,26 @@ export function login(values) {
   };
 }
 
+export function loginGoogle(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.post(`/userdbloginGoogle`, values, axiosConfig);
+
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: LOG_IN_GOOGLE,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: LOGIN_FAIL,
+        payload: error.response.data,
+      });
+    }
+  };
+}
 export function logOut() {
   return async function (dispatch) {
     try {
