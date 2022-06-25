@@ -33,7 +33,6 @@ const Login = (props) => {
       const { email } = auth.user;
       const { isAuthenticated } = auth;
       dispatch(loginGoogle({ email, isAuthenticated }));
-      window.location.reload();
     }
   };
 
