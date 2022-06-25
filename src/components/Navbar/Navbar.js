@@ -7,12 +7,14 @@ import { logOut } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import swal from "sweetalert";
 import jwt from "jsonwebtoken";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
   //Hooks
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const out = useSelector((state) => state.userSession);
+  const auth = useAuth0();
   // const [cookies, setCookie, removeCookie] = useCookies();
 
   //Id
@@ -21,6 +23,7 @@ const Navbar = () => {
   //Handlers
   const onClick = () => {
     // dispatch(logOut());
+    auth.logout();
     window.localStorage.clear();
     swal({
       title: "Logout Success",

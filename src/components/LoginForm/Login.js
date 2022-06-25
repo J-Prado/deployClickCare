@@ -10,7 +10,7 @@ import image from "./helpImages/doctor_PNG15967.png";
 import * as Yup from "yup";
 import swal from "sweetalert";
 //Google
-import { useAuth0, withAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 import google from "../LoginForm/helpImages/google.png";
 
 const Login = (props) => {
