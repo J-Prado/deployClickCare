@@ -38,6 +38,10 @@ function App() {
           <Redirect to="/login" />
         )}
       </Route>
+
+      <Route path="*">
+        <Redirect to="/" replace />
+      </Route>
     </div>
   );
 }
