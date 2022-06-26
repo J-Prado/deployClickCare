@@ -39,9 +39,9 @@ function App() {
         )}
       </Route>
 
-      <Route path="*">
+      {/* <Route path="*">
         <Redirect to="/" replace />
-      </Route>
+      </Route> */}
     </div>
   );
 }

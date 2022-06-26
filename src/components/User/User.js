@@ -198,7 +198,7 @@ const UserRegister = () => {
                       console.log("File removed from widget");
                       setImage(null);
                     }
-                    file.done((fileInfo) => {
+                    file?.done((fileInfo) => {
                       console.log("File uploaded: ", fileInfo.cdnUrl);
                       setImage(fileInfo.cdnUrl);
                     });
