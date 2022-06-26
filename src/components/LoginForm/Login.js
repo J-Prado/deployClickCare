@@ -18,7 +18,7 @@ const Login = (props) => {
   const dispatch = useDispatch();
   const auth = useAuth0();
 
-  console.log(auth);
+  // console.log(auth);
 
   const userlogged = useSelector((state) => state.userSession);
   // useEffect(() => {

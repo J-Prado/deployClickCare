@@ -11,11 +11,11 @@ import { getConversations, postMessage } from "../../redux/action";
 import { io } from "socket.io-client";
 
 export default function Chat() {
-  console.log("me monto");
+  // console.log("me monto");
   const dispatch = useDispatch();
   // obtenemos el id de user
   const user = jwt.decode(localStorage?.getItem("session"));
-  console.log(jwt.decode(localStorage?.getItem("session")));
+  // console.log(jwt.decode(localStorage?.getItem("session")));
   const id = user?.id;
   // obtenemos el estado conversations
   const conversations = useSelector((state) => state.conversations);
@@ -29,28 +29,28 @@ export default function Chat() {
     ? { member: [currentChat.senderId, currentChat.receiverId] }
     : null;
 
-  console.log("a ver si esta si", arrivalMessage);
-  useEffect(() => {
-    socket.current = io("https://clickcarechat.herokuapp.com/");
-    socket.current.on("getMessage", (data) => {
-      setArrivalMessage({
-        sender: data.senderId,
-        text: data.text,
-        createdAt: Date.now(),
-      });
-    });
-  }, []);
-  console.log("testing", currentChat?.senderId);
+  // console.log("a ver si esta si", arrivalMessage);
+  // useEffect(() => {
+  //   socket.current = io("https://clickcarechat.herokuapp.com/");
+  //   socket.current.on("getMessage", (data) => {
+  //     setArrivalMessage({
+  //       sender: data.senderId,
+  //       text: data.text,
+  //       createdAt: Date.now(),
+  //     });
+  //   });
+  // }, []);
+  // console.log("testing", currentChat?.senderId);
   useEffect(() => {
     arrivalMessage &&
       members?.member.includes(arrivalMessage.sender) &&
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage, currentChat, members?.member]);
 
-  useEffect(() => {
-    socket.current.emit("addUser", user?.id);
-    socket.current.on("getUsers", (users) => {});
-  }, [user]);
+  // useEffect(() => {
+  //   socket.current.emit("addUser", user?.id);
+  //   socket.current.on("getUsers", (users) => {});
+  // }, [user]);
 
   useEffect(() => {
     dispatch(getConversations(id));
@@ -58,13 +58,11 @@ export default function Chat() {
 
   useEffect(() => {
     const getMessages = async () => {
-      try {
+      if (currentChat) {
         const res = await axios.get(
           `https://api-rest-pf-production.up.railway.app/api/allmessage/${currentChat?.id}`
         );
         setMessages(res.data);
-      } catch (err) {
-        console.log(err);
       }
     };
     getMessages();
