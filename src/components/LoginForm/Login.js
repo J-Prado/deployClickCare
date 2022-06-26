@@ -29,12 +29,15 @@ const Login = (props) => {
   // }
 
   const onClick = () => {
-    auth.loginWithPopup().then((e) => {
-      console.log(e);
-      const { email } = auth.user;
-      const { isAuthenticated } = auth;
-      dispatch(loginGoogle({ email, isAuthenticated }), [email]);
-    });
+    auth
+      .loginWithPopup()
+      .then((e) => {
+        console.log(e);
+        const { email } = auth.user;
+        const { isAuthenticated } = auth;
+        dispatch(loginGoogle({ email, isAuthenticated }), [email]);
+      })
+      .catch((e) => console.log(e));
   };
 
   //Formik initial values
