@@ -45,7 +45,7 @@ export default function Chat() {
     arrivalMessage &&
       members?.member.includes(arrivalMessage.sender) &&
       setMessages((prev) => [...prev, arrivalMessage]);
-  }, [arrivalMessage, currentChat, members?.member]);
+  }, [arrivalMessage, currentChat]);
 
   useEffect(() => {
     socket.current.emit("addUser", user?.id);
