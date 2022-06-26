@@ -70,6 +70,27 @@ const DataEdition = ({
     ][new Date(studyEnd).getMonth()];
   let studyedn = endDate(studyEnd) + "-" + new Date(studyEnd).getFullYear();
 
+  //Initial Values
+  const initialValues = {
+    name: name,
+    surname: lastName,
+    document: document,
+    age: birthday,
+    email: email,
+    city: city,
+    state: state,
+    country: country,
+    phone: phone,
+    phone2: phone2,
+    address: address,
+    titulo: title,
+    speciality,
+    institucion: institution,
+    date_inicioEstudio: studyStart,
+    date_finicioEstudio: studyEnd,
+    cvu: cvu,
+  };
+
   return (
     <Formik>
       <div className="dataUserIdConteiner">
@@ -138,53 +159,66 @@ const DataEdition = ({
           />
         </div>
 
-        {verificOne === 1 ? (
-          <div>
-            <div className="containerTextDataUser">
-              <label className="TitleDataUser">Nivel Educativo</label>
-              <label className="TitleDataUser">Institucion Educativa</label>
-              <label className="TitleDataUser">Titulo</label>
-            </div>
-            <div className="containerTextDataUser">
-              <Field
-                className="sign-inputs"
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Nombre"
-              />
-              <Field
-                className="sign-inputs"
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Nombre"
-              />
-              <Field
-                className="sign-inputs"
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Nombre"
-              />
-              <h3 className="infoDataUser">{speciality}</h3>
-              <h3 className="infoDataUser">{institution}</h3>
-              <h3 className="infoDataUser">{title}</h3>
-            </div>
-            <div className="containerTextDataUser">
-              <h3 className="TitleDataUser">Fecha de Inicio</h3>
-              <h3 className="TitleDataUser">Fecha de Finalizacion</h3>
-              <h3 className="TitleDataUser">Tarjeta profesional</h3>
-            </div>
-            <div className="containerTextDataUser">
-              <h3 className="infoDataUser">
-                {studyStart ? studyintial : null}
-              </h3>
-              <h3 className="infoDataUser">{studyEnd ? studyedn : null}</h3>
-              <h3 className="infoDataUser">{cvu}</h3>
-            </div>
+        {/* {verificOne === 1 ? ( */}
+        <div>
+          <div className="containerTextDataUser">
+            <label className="TitleDataUser">Nivel Educativo</label>
+            <label className="TitleDataUser">Institucion Educativa</label>
+            <label className="TitleDataUser">Titulo</label>
           </div>
-        ) : null}
+          <div className="containerTextDataUser">
+            <Field
+              className="infoDataUser"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Nombre"
+            />
+            <Field
+              className="infoDataUser"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Nombre"
+            />
+            <Field
+              className="infoDataUser"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Nombre"
+            />
+          </div>
+          <div className="containerTextDataUser">
+            <label className="TitleDataUser">Fecha de Inicio</label>
+            <label className="TitleDataUser">Fecha de Finalización</label>
+            <label className="TitleDataUser">Tarjeta Profesional</label>
+          </div>
+          <div className="containerTextDataUser">
+            <Field
+              className="infoDataUser"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Nombre"
+            />
+            <Field
+              className="infoDataUser"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Nombre"
+            />
+            <Field
+              className="infoDataUser"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Nombre"
+            />
+          </div>
+        </div>
+        {/* ) : null} */}
 
         <div className="containerTextDataUser">
           <label className="TitleDataUser threeTitleUser">Telefono:</label>

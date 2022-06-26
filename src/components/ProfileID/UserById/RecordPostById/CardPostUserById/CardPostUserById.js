@@ -52,14 +52,19 @@ if(startHour === endHour ){
 
   return (
     <div className='containerCardPostUserById'>
-        <div className='containerCardPostUserByIdLeft'>
-            <h3 className='subTitleCardPostUserByIdr'>Datos del Paciente</h3>
-            <h3 className='textCardPostUserById '>Nombre: </h3>
-            <h2 className='titleOneCardPostUserById'>{namePatient}</h2>
-            <h3 className='textCardPostUserById '>Edad: </h3>
-            <h3 className='titleOneCardPostUserById'>{agePatient}</h3>
-            <h3 className='textCardPostUserById '>Telefono: </h3>
-            <h3 className='titleOneCardPostUserById'>{contact_phone}</h3>
+        <div className='containerCardPostUserByIdLeftOne'>
+            <div className='containerCardPostUserByIdLeft'>
+                <h3 className='subTitleCardPostUserByIdr'>Datos del Paciente</h3>
+                <h3 className='textCardPostUserById '>Nombre: </h3>
+                <h2 className='titleOneCardPostUserById'>{namePatient}</h2>
+                <h3 className='textCardPostUserById '>Edad: </h3>
+                <h3 className='titleOneCardPostUserById'>{agePatient}</h3>
+                <h3 className='textCardPostUserById '>Telefono: </h3>
+                <h3 className='titleOneCardPostUserById'>{contact_phone}</h3>
+            </div>
+            <div>
+                <button className='buttonOne buttonOneCardPostUserById'>Eliminar Post</button>
+            </div>
         </div>
         <div className='containerCardPostUserByIdRight'>
             <div className='dateContCardPostUserById'>
@@ -70,19 +75,45 @@ if(startHour === endHour ){
             </div>
             <div className='CardPostUserByIdRightOne'>
                 <div className='containerSubDataByUser'>
-                    <h3 className='dateCard cardusByIdTe '>Direccion:</h3>
-                    <h3 className='dayCardPostByUser'>{addressPatient}</h3>
+                    <h3 className='dateCardPostByUser '>Especialidad: </h3>
+                    <h3 className='dayCardPostByUser'> {specialty}</h3>
                 </div>
             </div>
-                
+            <div className='CardPostUserByIdRightOne'>
                 <div className='containerSubDataByUser'>
-                  <h3 className='dateCardPostByUser'>Referecia: </h3>
-                  <h3 className='textPostByUser'>{locationReference}</h3>
+                    <h3 className='dateCardPostByUser'>Cuando: </h3>
+                    <h3 className='dayCardPostByUser'>{dateService}</h3>
                 </div>
-            <h3 className='dateCard' >Cuando: <span className='dayCard'>  {dateService}</span> Hora: <span className='dayCard'> {hourService} </span></h3>
-
+                <div className='containerSubDataByUser'>
+                    <h3 className='dateCardPostByUser'>Hora:</h3>
+                    <h3 className='dayCardPostByUser'>{hourService}</h3>
+                </div>
+            </div>
+            <div className='CardPostUserByIdRightOne'>
+                <div className='containerSubDataByUser'>
+                    <h3 className='dateCardPostByUser '>Direccion:</h3>
+                    <h3 className='dayCardPostByUser'>{addressPatient}</h3>
+                </div>
+                <div className='containerSubDataByUser'>
+                    <h3 className='dateCardPostByUser'>Referecia: </h3>
+                    <h3 className='dayCardPostByUser'>{locationReference}</h3>
+                </div>
+            </div>
+            <div className='CardPostUserByIdRightOne CardPostUserByIdRightTwo'>
+                <div className='containerSubDataByUser'>
+                    <h3 className='dateCardPostByUser '>Ciudad: </h3>
+                    <h3 className='dayCardPostByUser'>{city}</h3>
+                </div>
+                <div className='containerSubDataByUser'>
+                    <h3 className='dateCardPostByUser '>Estado / Provincia: </h3>
+                    <h3 className='dayCardPostByUser'>{state}</h3>
+                </div>
+                <div className='containerSubDataByUser'>
+                    <h3 className='dateCardPostByUser '>Pais: </h3>
+                    <h3 className='dayCardPostByUser'>{country}</h3>
+                </div>
+            </div>
         </div>
-      
     </div>
   )
 }
