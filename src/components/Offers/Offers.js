@@ -1,7 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { getAllPost, filterDate } from "../../redux/action.js";
+import {
+  getAllPost,
+  // filterDate,
+  locationFilter,
+  dateFilter,
+  onlySpectialties,
+} from "../../redux/action.js";
 import { HiArrowCircleRight } from "react-icons/hi";
 import { HiArrowCircleLeft } from "react-icons/hi";
 
@@ -10,6 +16,27 @@ import Card from "./Card/Card.js";
 import { Link } from "react-router-dom";
 
 function Offers() {
+  const usuario = useSelector((state) => state.userDetail);
+
+  let city = "";
+  let country = "";
+
+  //Do not know what is going on here
+  if (usuario.length > 0) {
+    city = usuario[0].city.name;
+    country = usuario[0].country.name;
+  }
+  console.log(city);
+
+  function changeLocation(location) {
+    if (city) {
+      dispatch(locationFilter({ location, city, country }), []);
+    } else {
+      return 0;
+    }
+    console.log(location);
+  }
+
   const dispatch = useDispatch();
   const post = useSelector((state) => state.post);
 
@@ -79,6 +106,15 @@ function Offers() {
   const citys = geoPos.map((d) => d.city);
   //console.log(citys)
 
+  function changeDate(date) {
+    console.log(date);
+    dispatch(dateFilter(date.target.value));
+  }
+  function filtroGeneral(e) {
+    console.log(e);
+    dispatch(onlySpectialties(e.target.value));
+  }
+
   return (
     <div className="pageOffers" onLoad={onLoad}>
       <div className="pageOffersIn">
@@ -101,18 +137,35 @@ function Offers() {
                 <legend className="titleFilters">Fecha de publicación</legend>
                 <label>
                   {" "}
-                  Hoy <input type="radio" name="date" value="Hoy" />
+                  Hoy{" "}
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={changeDate}
+                    value="Hoy"
+                  />
                 </label>
                 <br />
                 <label>
                   {" "}
                   Esta Semana{" "}
-                  <input type="radio" name="date" value="EstaSemana" />
+                  <input
+                    type="radio"
+                    onChange={changeDate}
+                    name="date"
+                    value="EstaSemana"
+                  />
                 </label>
                 <br />
                 <label>
                   {" "}
-                  Este Mes <input type="radio" name="date" value="EsteMes" />
+                  Este Mes{" "}
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={changeDate}
+                    value="EsteMes"
+                  />
                 </label>
                 <br />
               </form>
@@ -120,7 +173,17 @@ function Offers() {
             <div className="containerInputDate">
               <form onFocus={(e) => handleDateChange(e)}>
                 <legend className="titleFilters">Categoría</legend>
-
+                <label>
+                  {" "}
+                  Todos{" "}
+                  <input
+                    type="radio"
+                    name="date"
+                    value="ALL"
+                    onChange={filtroGeneral}
+                  />
+                </label>
+                <br />
                 <label>
                   {" "}
                   Acompañante Terapéutico{" "}
@@ -128,24 +191,41 @@ function Offers() {
                     type="radio"
                     name="date"
                     value="AcompañanteTerapéutico"
+                    onChange={filtroGeneral}
                   />
                 </label>
                 <br />
                 <label>
                   {" "}
                   Enfermería{" "}
-                  <input type="radio" name="date" value="Enfermería" />
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={filtroGeneral}
+                    value="Enfermería"
+                  />
                 </label>
                 <br />
                 <label>
                   {" "}
-                  Doctor <input type="radio" name="date" value="Doctor" />
+                  Doctor{" "}
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={filtroGeneral}
+                    value="Doctor"
+                  />
                 </label>
                 <br />
                 <label>
                   {" "}
                   Kinesiología{" "}
-                  <input type="radio" name="date" value="Kinesiología" />
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={filtroGeneral}
+                    value="Kinesiología"
+                  />
                 </label>
                 <br />
                 <label>
@@ -154,6 +234,7 @@ function Offers() {
                   <input
                     type="radio"
                     name="date"
+                    onChange={filtroGeneral}
                     value="AcompañantedeAdultoMayor"
                   />
                 </label>
@@ -161,7 +242,12 @@ function Offers() {
                 <label>
                   {" "}
                   Aplicaciones{" "}
-                  <input type="radio" name="date" value="Aplicaciones" />
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={filtroGeneral}
+                    value="Aplicaciones"
+                  />
                 </label>
                 <br />
               </form>
@@ -171,17 +257,35 @@ function Offers() {
                 <legend className="titleFilters">Ubicacion</legend>
                 <label>
                   {" "}
-                  Cerca de ti <input type="radio" name="date" value="Hoy" />
+                  Cerca de ti{" "}
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={changeLocation}
+                    value="Hoy"
+                  />
                 </label>
                 <br />
                 <label>
                   {" "}
-                  Tu Pais <input type="radio" name="date" value="EstaSemana" />
+                  Tu Pais{" "}
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={changeLocation}
+                    value="Esta Semana"
+                  />
                 </label>
                 <br />
                 <label>
                   {" "}
-                  Todos <input type="radio" name="date" value="EsteMes" />
+                  Todos{" "}
+                  <input
+                    type="radio"
+                    name="date"
+                    onChange={changeLocation}
+                    value="Este Mes"
+                  />
                 </label>
                 <br />
               </form>

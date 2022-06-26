@@ -1,16 +1,16 @@
-.containerProfileID{
-    width: 100%;
-    min-height:900px;
-    display: flex;
-    justify-content: center;
-    background-image: url("../../images/the-polygon.jpg");
-    background-size: cover  ;
-    background-repeat: no-repeat;
+.containerProfileID {
+  width: 100%;
+  min-height: 900px;
+  display: flex;
+  justify-content: center;
+  background-image: url("../../images/the-polygon.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 80px;
 }
-.containerProfileIdUs_Pro_Adm{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    
+.containerProfileIdUs_Pro_Adm {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }

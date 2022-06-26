@@ -26,6 +26,9 @@ import {
   LOG_IN_GOOGLE,
   POST_AUCTION,
   POST_AUCTION_FAILED,
+  FECHA,
+  FILTER_BY_SPEC,
+  LOCATION,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -396,3 +399,27 @@ export function postAuction(values) {
     }
   };
 }
+
+//Filters
+export const dateFilter = (value) => {
+  console.log(value);
+  return {
+    type: FECHA,
+    payload: value,
+  };
+};
+export function onlySpectialties(payload) {
+  console.log(payload);
+  return {
+    type: FILTER_BY_SPEC,
+    payload,
+  };
+}
+
+export const locationFilter = (value) => {
+  console.log(value);
+  return {
+    type: LOCATION,
+    payload: value,
+  };
+};

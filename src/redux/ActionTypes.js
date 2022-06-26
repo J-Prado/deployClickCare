@@ -23,6 +23,9 @@ export const CLEAR_STATE = "CLEAR_STATE";
 //Posts
 export const GET_ALL_POST = "GET_ALL_POST";
 export const FILTER_DATE_POST = "FILTER_DATE_POST";
+export const FILTER_BY_SPEC = "FILTER_BY_SPEC";
+export const FECHA = "FECHA";
+export const LOCATION = "LOCATION";
 
 //Post
 export const GET_SPECIALTIES = "GET_SPECIALTIES";

@@ -22,6 +22,9 @@ import {
   GET_USER_POST_DETAIL,
   GET_USER_DETAIL,
   LOG_IN_GOOGLE,
+  LOCATION,
+  FECHA,
+  FILTER_BY_SPEC,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -184,6 +187,105 @@ const reducer = (state = initialState, action) => {
         ...state,
         userDetail: action.payload,
       };
+    //FILTER
+    case LOCATION:
+      let copyLocation = state.copyPost;
+      // console.log(copyLocation)
+      let filterLocation = [];
+      if ("Tu País" === action.payload.location) {
+        filterLocation = copyLocation.filter(
+          (l) => l.country.name === action.payload.country
+        );
+        return {
+          ...state,
+          post: filterLocation,
+        };
+      }
+      if ("Cerca de ti" === action.payload.location) {
+        filterLocation = copyLocation.filter(
+          (l) => l.city.name === action.payload.city
+        ); ///===action.payload.city
+        // console.log(filterLocation)
+        return {
+          ...state,
+          post: filterLocation,
+        };
+      } else {
+        filterLocation = copyLocation;
+        return {
+          ...state,
+          post: filterLocation,
+        };
+      }
+
+    case FECHA:
+      let copiaDate = state.allPost;
+      const today = new Date();
+      const todayMinimo =
+        today.getFullYear() +
+        "-0" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate() +
+        "T00:00:00.000Z";
+      const diasMinimo =
+        today.getFullYear() +
+        "-0" +
+        (today.getMonth() + 1) +
+        "-" +
+        (today.getDate() - 7) +
+        "T00:00:00.000Z";
+      const mesMinimo =
+        today.getFullYear() +
+        "-0" +
+        today.getMonth() +
+        "-" +
+        today.getDate() +
+        "T00:00:00.000Z";
+      // console.log(typeof todayMinimo)
+      console.log(todayMinimo);
+      let filterDate = [];
+      if ("Hoy" === action.payload) {
+        filterDate = copiaDate.filter((d) => d.date_post === todayMinimo);
+        return {
+          ...state,
+          post: filterDate,
+        };
+      }
+      if ("Esta Semana" === action.payload) {
+        filterDate = copiaDate.filter((d) => d.date_post > diasMinimo);
+        return {
+          ...state,
+          post: filterDate,
+        };
+      }
+
+      if ("Este Mes" === action.payload) {
+        filterDate = copiaDate.filter((d) => d.date_post > mesMinimo);
+        return {
+          ...state,
+          post: filterDate,
+        };
+      } else {
+        filterDate = copiaDate;
+        return {
+          ...state,
+          post: filterDate,
+        };
+      }
+    case FILTER_BY_SPEC:
+      let copiaSpeciality = state.allPost;
+      const filterSpeciality =
+        action.payload === "ALL"
+          ? copiaSpeciality
+          : copiaSpeciality.filter((s) =>
+              s.specialty.specialty.includes(action.payload)
+            );
+      return {
+        ...state,
+        post: filterSpeciality,
+      };
+
     default:
       return { ...state };
   }
