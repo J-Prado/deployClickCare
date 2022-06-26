@@ -45,9 +45,6 @@ const Login = (props) => {
       });
   };
 
-  if (userlogged?.message) {
-    onClick();
-  }
 
   //Formik initial values
   const initialValues = { email: "", password: "" };

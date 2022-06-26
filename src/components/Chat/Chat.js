@@ -30,16 +30,16 @@ export default function Chat() {
     : null;
 
   // console.log("a ver si esta si", arrivalMessage);
-  // useEffect(() => {
-  //   socket.current = io("https://clickcarechat.herokuapp.com/");
-  //   socket.current.on("getMessage", (data) => {
-  //     setArrivalMessage({
-  //       sender: data.senderId,
-  //       text: data.text,
-  //       createdAt: Date.now(),
-  //     });
-  //   });
-  // }, []);
+  useEffect(() => {
+    socket.current = io("https://clickcarechat.herokuapp.com/");
+    socket.current.on("getMessage", (data) => {
+      setArrivalMessage({
+        sender: data.senderId,
+        text: data.text,
+        createdAt: Date.now(),
+      });
+    });
+  }, []);
   // console.log("testing", currentChat?.senderId);
   useEffect(() => {
     arrivalMessage &&
@@ -47,10 +47,10 @@ export default function Chat() {
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage, currentChat, members?.member]);
 
-  // useEffect(() => {
-  //   socket.current.emit("addUser", user?.id);
-  //   socket.current.on("getUsers", (users) => {});
-  // }, [user]);
+  useEffect(() => {
+    socket.current.emit("addUser", user?.id);
+    socket.current.on("getUsers", (users) => {});
+  }, [user]);
 
   useEffect(() => {
     dispatch(getConversations(id));
@@ -84,11 +84,11 @@ export default function Chat() {
         : currentChat.senderId
       : null;
 
-    // socket.current.emit("sendMessage", {
-    //   senderId: user.id,
-    //   receiverId: receiverId,
-    //   text: newMessage,
-    // });
+    socket.current.emit("sendMessage", {
+      senderId: user.id,
+      receiverId: receiverId,
+      text: newMessage,
+    });
     //linea para que se muestren los mensajes que vamos agregando
     setMessages([...message, messages]);
     dispatch(postMessage(messages));
