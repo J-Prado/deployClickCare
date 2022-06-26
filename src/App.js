@@ -11,8 +11,9 @@ import Welcome from "./components/Welcome/Welcome.js";
 import Professional from "./components/Professional/Professional.js";
 import PaymentStatus from "./components/PaymentStatus/PaymentStatus.js";
 import Chat from "./components/Chat/Chat.js";
-import Profile from "./components/ProfileID/Profile.js";
+import ProfileID from "./components/ProfileID/ProfileID.js";
 import PostForm from "./components/PostForm/PostForm.js";
+import DataEdition from "./components/DataEdition/DataEdition.js";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
       <Route exact path="/professional" component={Professional} />
       <Route exact path="/paymentStatus" component={PaymentStatus} />
       <Route exact path="/chat" component={Chat} />
-      <Route exact path="/user/:id" component={Profile} />
+      <Route exact path="/user/:id" component={ProfileID} />
       <Route exact path="/postForm">
         {localStorage.getItem("session") ? (
           <PostForm />
@@ -38,7 +39,7 @@ function App() {
           <Redirect to="/login" />
         )}
       </Route>
-
+      <Route exact path="/dataedition" component={DataEdition} />
       {/* <Route path="*">
         <Redirect to="/" replace />
       </Route> */}

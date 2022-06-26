@@ -1,0 +1,50 @@
+.containerInfoById{
+    min-width: 500px;
+    min-height: 500px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.823);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10.4px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding-left: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+.logonavbarInfoById{
+    width: 200px;
+    height: auto;
+}
+.containerTextDataUser{
+    display: flex;
+    text-align: left;
+}
+.TitleDataUser{
+    margin-top: 32px;
+    margin-right: 32px;
+    color: var(--main-first-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    width: 270px;
+}
+.infoDataUser{
+    margin-right: 32px;
+    color: var(--main-extra-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    width: 270px;
+    height: 30px;
+    background-color: rgba(0, 255, 255, 0.073);
+    padding: 3px;
+}
+.containerButtonInfoById{
+width: 100%;
+text-align: center;
+}
+.buttonInfoById{
+    margin-top: 2rem;
+    margin-right: 1rem;
+}

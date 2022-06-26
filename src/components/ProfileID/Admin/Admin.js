@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function CardPostUser() {
+function Admin() {
   return (
     <div>
-      post
+      admin
     </div>
   )
 }
+
+export default Admin

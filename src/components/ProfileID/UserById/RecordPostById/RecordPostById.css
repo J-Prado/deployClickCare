@@ -1,0 +1,41 @@
+.containerRecordPostById{
+    min-width: 500px;
+    min-height: 710px;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.823);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10.4px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.containerSubRecordPostById{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.sliceLeft{
+    width: 35px;
+    height: 35px;
+    margin-right: 1rem;
+  }
+  .sliceRight{
+    width: 35px;
+    height: 35px;
+    margin-left: 0;
+  }
+
+  .titleRecUserById{
+    color: var(--main-first-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    margin-right: 8px;
+  }
+  
+  

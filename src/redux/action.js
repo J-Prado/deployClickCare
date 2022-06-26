@@ -345,7 +345,7 @@ export function getContracts(values) {
 //User Profile Actions
 export function getUserDetail(id) {
   return async function (dispatch) {
-    const response = await axios.get(`/userProfessionalByID/` + id);
+    const response = await axios.get(`/userProfessionalByID/${id}`);
     //console.log("DATA ID:", response)
     return dispatch({
       type: GET_USER_DETAIL,
@@ -356,7 +356,7 @@ export function getUserDetail(id) {
 
 export function getUserPostDetail(id) {
   return async function (dispatch) {
-    const response = await axios.get(`/posteosUsersByUserID/` + id);
+    const response = await axios.get(`/posteosUsersByUserID/ ${id}`);
     //console.log("DATA ID:", response)
     return dispatch({
       type: GET_USER_POST_DETAIL,

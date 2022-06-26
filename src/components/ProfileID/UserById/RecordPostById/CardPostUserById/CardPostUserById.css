@@ -1,0 +1,110 @@
+.containerCardPostUserById{
+    width: 700px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.73);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    margin-left: 00.5rem;
+    margin-right: 00.5rem;
+    display: flex;
+}
+.containerCardPostUserByIdLeft{
+    position: relative;
+    top: -1rem;
+    left: -1rem;
+    width: 200px;
+    height: 220px;
+    justify-content: left;
+    text-align: left;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.682);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.407);
+}
+.subTitleCardPostUserByIdr{
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 32px;
+    color: var(--main-second-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    width: 270px;
+}
+.containerCardPostUserByIdRight{
+    width: 520px;
+    height: 300px;
+    padding-right: 1rem;
+    padding-top: 1rem;
+}
+.textCardPostUserById{
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-bottom: -5px;
+    color: var(--main-extra-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    width: 270px;
+}
+.titleOneCardPostUserById{
+    margin-left: 8px;
+    color: var(--main-first-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 25px;
+    width: 270px;
+}
+.dateContCardPostUserById{
+    width: 100%;
+    text-align: right;
+}
+.containerSubCardPostUserByIdRight{
+    text-align: left;
+    width: 450px;
+    height: 100px;
+    
+}
+.needCardPostUserById{
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-bottom: -5px;
+    color: var(--main-extra-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    width: 430px;
+}
+.CardPostUserByIdRightOne{
+    display: flex;
+    justify-content: left;
+
+}
+.cardusByIdTe{
+    margin-left: 1rem;
+}
+.dateCard{
+    font-family: 'Nunito', sans-serif;
+    color: var(--main-extra-color);
+    margin-left: 1rem;
+    margin-top: 0px;
+    margin-bottom: 0;
+}
+.dayCard{
+    color: var(--main-first-color);
+}
+.dateCardPostByUser{
+    color: var(--main-extra-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    
+}
+.dayCardPostByUser{
+    color: var(--main-first-color);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+}
