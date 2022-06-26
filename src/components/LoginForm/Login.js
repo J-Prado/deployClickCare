@@ -40,6 +40,7 @@ const Login = (props) => {
       .catch((e) => {
         const { email } = auth.user;
         const { isAuthenticated } = auth;
+
         dispatch(loginGoogle({ email, isAuthenticated }), [email]);
       });
   };
@@ -82,7 +83,7 @@ const Login = (props) => {
       title: userlogged?.error,
       text: "Por Favor Intente Nuevamente",
     });
-    dispatch(clear());
+    auth.logout();
   }
 
   //Setting Formik to be functional when calling
