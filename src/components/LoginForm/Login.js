@@ -32,7 +32,7 @@ const Login = (props) => {
     auth.loginWithPopup().then(() => {
       const { email } = auth.user;
       const { isAuthenticated } = auth;
-      dispatch(loginGoogle({ email, isAuthenticated }));
+      dispatch(loginGoogle({ email, isAuthenticated }), [email]);
     });
   };
 
