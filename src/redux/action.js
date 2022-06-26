@@ -24,6 +24,8 @@ import {
   GET_USER_POST_DETAIL,
   GET_USER_DETAIL,
   LOG_IN_GOOGLE,
+  POST_AUCTION,
+  POST_AUCTION_FAILED,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -369,5 +371,28 @@ export function getUserPostDetail(id) {
 export function clear() {
   return function (dispatch) {
     return dispatch({ type: CLEAR_STATE });
+  };
+}
+
+//Auctions
+export function postAuction(values) {
+  return async function (dispatch) {
+    try {
+      console.log("Addpostulates AXIOS OBJ:", values);
+      const resp = await axios.post(`/Addpostulates`, values, axiosConfig);
+
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: POST_AUCTION,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: POST_AUCTION_FAILED,
+        payload: error.response.data,
+      });
+    }
   };
 }

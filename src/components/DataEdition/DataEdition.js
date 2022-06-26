@@ -146,6 +146,27 @@ const DataEdition = ({
               <label className="TitleDataUser">Titulo</label>
             </div>
             <div className="containerTextDataUser">
+              <Field
+                className="sign-inputs"
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Nombre"
+              />
+              <Field
+                className="sign-inputs"
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Nombre"
+              />
+              <Field
+                className="sign-inputs"
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Nombre"
+              />
               <h3 className="infoDataUser">{speciality}</h3>
               <h3 className="infoDataUser">{institution}</h3>
               <h3 className="infoDataUser">{title}</h3>
