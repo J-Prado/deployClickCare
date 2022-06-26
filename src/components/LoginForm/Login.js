@@ -37,7 +37,11 @@ const Login = (props) => {
         const { isAuthenticated } = auth;
         dispatch(loginGoogle({ email, isAuthenticated }), [email]);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        const { email } = auth.user;
+        const { isAuthenticated } = auth;
+        dispatch(loginGoogle({ email, isAuthenticated }), [email]);
+      });
   };
 
   //Formik initial values
