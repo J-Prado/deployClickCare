@@ -95,8 +95,8 @@ const Card = ({
   }
 
   //Parrafo
-  let parrafo = needs;
-  let descrpcion = parrafo.slice(0, parrafo.length * 0.2);
+  // let parrafo = needs;
+  // let descrpcion = parrafo.slice(0, parrafo.length * 0.2);
 
   return (
     <div className="cardContainer">
@@ -108,7 +108,7 @@ const Card = ({
           <h1 className="nameCard">{name}</h1>
           <p className="despcriptioCard">
             {}
-            <span>{descrpcion}...</span>
+            <span>{needs}...</span>
           </p>
           <h2 className="dateCard serviceOffer">
             Servicio:
