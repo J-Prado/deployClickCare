@@ -21,13 +21,6 @@ function Offers() {
   let city = "";
   let country = "";
 
-  //Do not know what is going on here
-  if (usuario.length > 0) {
-    city = usuario[0].city.name;
-    country = usuario[0].country.name;
-  }
-  console.log(city);
-
   function changeLocation(location) {
     if (city) {
       dispatch(locationFilter({ location, city, country }), []);
@@ -36,6 +29,12 @@ function Offers() {
     }
     console.log(location);
   }
+  //Do not know what is going on here
+  if (usuario.length > 0) {
+    city = usuario[0].city.name;
+    country = usuario[0].country.name;
+  }
+  console.log(city);
 
   const dispatch = useDispatch();
   const post = useSelector((state) => state.post);

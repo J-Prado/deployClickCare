@@ -51,8 +51,10 @@ const DataEdition = ({
       "Nov",
       "Dic",
     ][new Date(studyStart).getMonth()];
+
   let studyintial =
     startDate(studyStart) + "-" + new Date(studyStart).getFullYear();
+
   const endDate = (studyEnd) =>
     [
       "Ene",
@@ -68,6 +70,7 @@ const DataEdition = ({
       "Nov",
       "Dic",
     ][new Date(studyEnd).getMonth()];
+
   let studyedn = endDate(studyEnd) + "-" + new Date(studyEnd).getFullYear();
 
   //Initial Values
@@ -99,7 +102,6 @@ const DataEdition = ({
         <br />
         <br />
         <br />
-
         <div className="containerTextDataUser">
           <label className="TitleDataUser">Nombres:</label>
           <label className="TitleDataUser">Apellidos:</label>
