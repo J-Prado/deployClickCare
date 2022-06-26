@@ -19,21 +19,21 @@ const Login = (props) => {
   const auth = useAuth0();
 
   // console.log(auth);
-
   const userlogged = useSelector((state) => state.userSession);
   // useEffect(() => {
   //   if (isAuthenticated === true) {
   //     dispatch(loginGoogle());
   //   }
   // }, []);
+  // if (Object.keys(userlogged).length === 0) {
+  // }
 
   const onClick = () => {
-    auth.loginWithPopup();
-    if (Object.keys(userlogged).length === 0) {
+    auth.loginWithPopup().then(() => {
       const { email } = auth.user;
       const { isAuthenticated } = auth;
       dispatch(loginGoogle({ email, isAuthenticated }));
-    }
+    });
   };
 
   //Formik initial values
