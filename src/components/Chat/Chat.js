@@ -84,11 +84,11 @@ export default function Chat() {
         : currentChat.senderId
       : null;
 
-    socket.current.emit("sendMessage", {
-      senderId: user.id,
-      receiverId: receiverId,
-      text: newMessage,
-    });
+    // socket.current.emit("sendMessage", {
+    //   senderId: user.id,
+    //   receiverId: receiverId,
+    //   text: newMessage,
+    // });
     //linea para que se muestren los mensajes que vamos agregando
     setMessages([...message, messages]);
     dispatch(postMessage(messages));
