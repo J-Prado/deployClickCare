@@ -24,7 +24,7 @@ const PaymentStatus = (props) => {
 
   useEffect(() => {
     dispatch(
-      validatePremium({ collection_id, collection_status, idPROFESIONAL: 3 })
+      validatePremium({ collection_id, collection_status, idPROFESIONAL })
     );
   }, [collection_id, collection_status, dispatch, idPROFESIONAL]);
 
