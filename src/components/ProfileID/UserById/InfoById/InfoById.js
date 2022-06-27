@@ -156,7 +156,7 @@ function InfoById({ idUs }) {
             Actualiza o Cambia Tu Info
           </button>
         </Link>
-        <button className="buttonOne buttonInfoById">Paga Tu Menbresia</button>
+        {/* <button className="buttonOne buttonInfoById">Paga Tu Menbresia</button> */}
       </div>
     </div>
   );

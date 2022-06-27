@@ -1,0 +1,125 @@
+.containerPostForm {
+  display: flex;
+  width: 100%;
+  padding-top: 10%;
+  justify-content: center;
+}
+/* contenDescription-----------------------------------------------------------------------------------*/
+.PostForm {
+  font-family: "Nunito", sans-serif;
+  /* display: inline-block;*/
+  width: 40%;
+  min-width: 550px;
+  height: auto;
+}
+.contenPostForm {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0px 0px 12px rgba(0, 45, 84, 0.1);
+  margin-bottom: 2%;
+  border: 1px solid #edeff1;
+  padding: 20px;
+}
+.titleDescription {
+  display: flex;
+}
+.titleDescription button {
+  display: flex;
+  padding: 8px 16px;
+  width: auto;
+  height: auto;
+  background: var(--main-first-color);
+  border-radius: 32px;
+  text-align: center;
+  justify-content: center;
+  color: white;
+}
+.formDescription {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.formDescription div {
+  width: 100%;
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
+.formDescription .profInput {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  border: 2px solid #edeff1;
+  box-shadow: 0px 2px 30px rgba(13, 52, 81, 0.05);
+  border-radius: 28px;
+  padding: 8px 15px;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+}
+.formDescription .profInput:focus {
+  border: 2px;
+  border-color: #edeff1;
+  border: 2px solid #edeff1;
+}
+.formDescription .textArea {
+  width: 100%;
+  height: auto;
+
+  background: #f9f9f9;
+  border: 2px solid #edeff1;
+  box-shadow: 0px 2px 30px rgba(13, 52, 81, 0.05);
+  border-radius: 10px;
+  padding: 8px 15px;
+}
+.formDescription ::placeholder {
+  color: #86939e;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+.secUno {
+  display: flex;
+}
+
+.ButtonPostFrom {
+  display: flex;
+  padding: 8px 16px;
+  width: 100%;
+  height: auto;
+  text-align: right;
+  justify-content: right;
+}
+.ButtonPostFrom button {
+  font-size: 14px;
+}
+.ButtonPostFrom .profInput {
+  font-size: 14px;
+  margin-left: 5%;
+}
+@media (max-width: 880px) {
+  .containerPostForm {
+    display: flex;
+    width: 100%;
+    padding-top: 18%;
+    justify-content: center;
+  }
+  .PostForm {
+    padding: 2% 10%;
+    width: 100%;
+    min-width: 450px;
+  }
+  .formDescription {
+    font-size: 15px;
+  }
+  .secUno {
+    display: inline-block;
+  }
+  .VideoContainer {
+    width: 100%;
+    padding: 1% 10%;
+  }
+  .video {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    border-radius: 80px 10px 80px 10px;
+  }
+}

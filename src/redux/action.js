@@ -30,6 +30,7 @@ import {
   FILTER_BY_SPEC,
   LOCATION,
   FORGET_PASSWORD,
+  MERCADOPAGO_PAYMENT,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -440,6 +441,29 @@ export function forgetPassword(values) {
       console.log(error);
       return dispatch({
         type: FORGET_PASSWORD,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+//Mercado Pago
+export function mercadoPagoPayment(values) {
+  return async function (dispatch) {
+    try {
+      console.log("Addpostulates AXIOS OBJ:", values);
+      const resp = await axios.post(`/checkoutPayment`, values, axiosConfig);
+
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: MERCADOPAGO_PAYMENT,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: MERCADOPAGO_PAYMENT,
         payload: error.response.data,
       });
     }

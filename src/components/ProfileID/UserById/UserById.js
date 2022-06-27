@@ -164,6 +164,24 @@ function UserById({ idUs }) {
         <Link to="/postForm">
           <button className="buttonOne doNotDeploysTwo">Crea una Oferta</button>
         </Link>
+        {verific === 0 ? (
+          <button
+            className={
+              userOptionState === 5
+                ? "buttonOne deploys"
+                : "buttonOne doNotDeploys"
+            }
+            onClick={() => toggleTab(5)}
+          >
+            Registrate como Profesional
+          </button>
+        ) : (
+          <Link to="/mercadopago">
+            <button className="buttonOne doNotDeploysTwo">
+              Paga tu membresía
+            </button>
+          </Link>
+        )}
       </div>
       <div className="containerUserByIRight">
         <div
@@ -192,6 +210,15 @@ function UserById({ idUs }) {
         <div
           className={
             userOptionState === 4 ? "active_deploy" : "inactive_deploy"
+          }
+        >
+          {detailUser.map((s) => (
+            <ProfRegiById key={s.id} idUsr={s.id} />
+          ))}
+        </div>
+        <div
+          className={
+            userOptionState === 5 ? "active_deploy" : "inactive_deploy"
           }
         >
           {detailUser.map((s) => (

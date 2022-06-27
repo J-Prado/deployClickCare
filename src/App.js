@@ -18,6 +18,7 @@ import OfferCardDetailed from "./components/Offers/OfferCardDetailed/OfferCardDe
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword.js";
 import Contract from "./components/Contratos/Contract.js";
 import Forbiden from "./components/Forbiden/Forbiden.js";
+import Mercadopago from "./components/ProfileID/UserById/mercadopago/mercadopago.js";
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
 
         <Route exact path="/contract" component={Contract} />
         <Route exact path="*" component={Forbiden} />
+        <Route exact path="/mercadopago" component={Mercadopago} />
       </Switch>
 
       {/* <Route path="/*">
