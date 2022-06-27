@@ -67,10 +67,9 @@ function App() {
             <Redirect to="/login" />
           )}
         </Route> */}
-
+        <Route exact path="/mercadopago" component={Mercadopago} />
         <Route exact path="/contract" component={Contract} />
         <Route exact path="*" component={Forbiden} />
-        <Route exact path="/mercadopago" component={Mercadopago} />
       </Switch>
 
       {/* <Route path="/*">
