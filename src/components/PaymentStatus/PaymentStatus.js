@@ -26,6 +26,7 @@ const PaymentStatus = (props) => {
     dispatch(
       validatePremium({ collection_id, collection_status, idPROFESIONAL })
     );
+    console.log({ collection_id, collection_status, idPROFESIONAL });
   }, [collection_id, collection_status, dispatch, idPROFESIONAL]);
 
   const state = useSelector((state) => state.premium);
