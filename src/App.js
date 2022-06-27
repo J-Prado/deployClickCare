@@ -68,8 +68,9 @@ function App() {
         </Route> */}
 
         <Route exact path="/contract" component={Contract} />
+        <Route exact path="*" component={Forbiden} />
       </Switch>
-      {/* <Route exact path="*" component={Forbiden} /> */}
+
       {/* <Route path="/*">
         <Redirect to="/" replace />
       </Route> */}

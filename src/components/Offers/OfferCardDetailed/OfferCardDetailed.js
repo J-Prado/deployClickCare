@@ -11,7 +11,7 @@ import { WhenInWhenOut, startTimeEndTime } from "../datefunctions.js";
 
 export default function OfferCardDetailed(props) {
   const InitialValues = {
-    id: props.match.params.id,
+    id: props.match.params?.id,
     post: {},
     aplica: false,
   };
