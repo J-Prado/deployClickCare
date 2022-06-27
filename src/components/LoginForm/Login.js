@@ -136,7 +136,7 @@ const Login = (props) => {
           </form>
           <div className="reg-space">
             <span className="register">Inicia Sesión También con ➤</span>
-            <button className="logGoogle" onFocus={onClick}>
+            <button className="logGoogle" onClick={onClick}>
               <img className="google" src={google} alt="Google Login" />
             </button>
           </div>
