@@ -16,6 +16,7 @@ import PostForm from "./components/PostForm/PostForm.js";
 import DataEdition from "./components/DataEdition/DataEdition.js";
 import OfferCardDetailed from "./components/Offers/OfferCardDetailed/OfferCardDetailed.js"; //DETALLE
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword.js";
+import Contract from "./components/Contratos/Contract.js";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         path="/OfferCardDetailed/:id"
         component={OfferCardDetailed}
       />
+      <Route exact path="/contract" component={Contract} />
       {/* <Route path="*">
         <Redirect to="/" replace />
       </Route> */}

@@ -1,0 +1,55 @@
+.ContractContainerGeneral{
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: 10px;
+    background-color: white;
+    
+}
+
+.contractContainer{
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+.professionalInfo{
+    margin-top: 20px;
+    border-top: 1px solid;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: left;
+}
+.userInfoContainer{
+    margin-top: 20px;
+    border-top: 1px solid;
+    margin-left: 30px;
+    margin-right: 30px;
+    text-align: left;
+}
+.contractText{
+    background-color:#b6e4e9; 
+    background-size: cover;
+    width: 95%;
+    font-family: "Nunito", sans-serif;
+}
+
+.imagenContract{
+    width: 150px;
+    height: 250px;
+    border-radius: 19px;
+}
+.contractTextTitle{
+    background-color:#b6e4e9; ;
+    text-decoration: underline;
+    font-family: "Nunito", sans-serif;
+    width: 95%;
+}
+.containerImgContract{
+    border: 3px solid;
+    width: 150px;
+    height: 250px;
+    border-radius: 20px;
+}
