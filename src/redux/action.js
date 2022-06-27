@@ -29,6 +29,7 @@ import {
   FECHA,
   FILTER_BY_SPEC,
   LOCATION,
+  FORGET_PASSWORD,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -423,3 +424,24 @@ export const locationFilter = (value) => {
     payload: value,
   };
 };
+
+// Forget password
+export function forgetPassword(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/validatePremium`, values);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: FORGET_PASSWORD,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: FORGET_PASSWORD,
+        payload: error.response.data,
+      });
+    }
+  };
+}

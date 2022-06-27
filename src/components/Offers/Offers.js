@@ -27,14 +27,14 @@ function Offers() {
     } else {
       return 0;
     }
-    console.log(location);
   }
+
   //Do not know what is going on here
   if (usuario.length > 0) {
     city = usuario[0].city.name;
     country = usuario[0].country.name;
   }
-  console.log(city);
+  // console.log(city);
 
   const dispatch = useDispatch();
   const post = useSelector((state) => state.post);

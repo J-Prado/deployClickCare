@@ -15,6 +15,7 @@ import ProfileID from "./components/ProfileID/ProfileID.js";
 import PostForm from "./components/PostForm/PostForm.js";
 import DataEdition from "./components/DataEdition/DataEdition.js";
 import OfferCardDetailed from "./components/Offers/OfferCardDetailed/OfferCardDetailed.js"; //DETALLE
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword.js";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         )}
       </Route>
       <Route exact path="/dataedition" component={DataEdition} />
+      <Route exact path="/forgetpassword" component={ForgotPassword} />
       <Route
         exact
         path="/OfferCardDetailed/:id"

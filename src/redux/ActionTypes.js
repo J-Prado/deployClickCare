@@ -7,6 +7,9 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOG_OUT = "LOG_OUT";
 export const LOG_IN_GOOGLE = "LOG_IN_GOOGLE";
 
+//Forget Password
+export const FORGET_PASSWORD = "FORGET_PASSWORD";
+
 //Action types for user registration
 export const SIGN_UP = "SIGN_UP";
 export const GET_CITIES_BY_STATE = "GET_CITIES_BY_STATE";

@@ -25,6 +25,7 @@ import {
   LOCATION,
   FECHA,
   FILTER_BY_SPEC,
+  FORGET_PASSWORD,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -47,6 +48,7 @@ const initialState = {
   currentChatMessages: {},
   userPostDetail: [],
   userDetail: [],
+  newPassword: "",
 };
 
 //Reducers
@@ -284,6 +286,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         post: filterSpeciality,
+      };
+
+    case FORGET_PASSWORD:
+      return {
+        ...state,
+        newPassword: action.payload,
       };
 
     default:
