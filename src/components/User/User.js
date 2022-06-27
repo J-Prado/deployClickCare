@@ -13,6 +13,7 @@ import swal from "sweetalert";
 import "../User/User.css";
 import { Widget } from "@uploadcare/react-widget";
 import styled, { css } from "styled-components";
+import profile from "../../images/imgProfile.png";
 
 const UploadWrapper = styled.div`
   display: flex;
@@ -45,9 +46,11 @@ const UploadWrapper = styled.div`
         `}
 
   & .uploadcare--widget__button_type_open {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     border-radius: 100%;
+    background: none;
+    color: var(--main-extra-color);
   }
 `;
 const UserRegister = () => {
@@ -61,7 +64,7 @@ const UserRegister = () => {
     buttons: {
       choose: {
         images: {
-          one: '<div className="image"><img src="http://assets.stickpng.com/images/584abf3a2912007028bd9336.png" width="100px" alt="camera" /><br/>Upload photo</div>',
+          one: `<div className="image"><img src=${profile} width="100px" alt="camera" /><br/>Upload photo</div>`,
         },
       },
     },

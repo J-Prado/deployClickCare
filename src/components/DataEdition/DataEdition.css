@@ -8,3 +8,23 @@
   background-repeat: no-repeat;
   padding-top: 80px;
 }
+.formEditContainer {
+  display: inline-flex;
+}
+
+.containerEditLeft {
+  padding: 1rem;
+  /* width: 400px;
+  height: 800px;
+
+  display: block;
+  text-align: center;
+  justify-content: center;
+  /* background: rgba(255, 255, 255, 0.4); */
+  /* border-radius: 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  z-index: 2; */
+}
