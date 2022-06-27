@@ -29,9 +29,9 @@ function Home() {
       <section className="section" id="chooseUs">
         <Post />
       </section>
-      <section className="section" id="testimonials">
+      {/* <section className="section" id="testimonials">
         <Testimonials />
-      </section>
+      </section> */}
       <section className="section" id="contact">
         <Contact />
       </section>

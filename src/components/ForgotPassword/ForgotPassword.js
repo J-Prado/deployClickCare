@@ -3,8 +3,13 @@ import React from "react";
 import "../ForgotPassword/ForgotPassword.css";
 import * as Yup from "yup";
 import swal from "sweetalert";
+import { forgetPassword } from "../../redux/action";
+import { useDispatch, useSelector } from "react-redux";
 
 const ForgotPassword = () => {
+  const dispatch = useDispatch();
+  const forget = useSelector((state) => state.newPassword);
+
   const initialValues = {
     email: "",
     document: "",
@@ -31,19 +36,22 @@ const ForgotPassword = () => {
 
   //Handlers
   const onSubmit = (values, { resetForm }) => {
-    // dispatch();
-    // resetForm();
+    dispatch(forgetPassword(values));
+    resetForm();
     console.log(values);
   };
+  const onClick = () => {
+    if (forget) {
+      swal({
+        title: forget,
+      });
+    }
+  };
+  onClick();
 
   return (
     <div className="container-forget">
       <div className="container-img-form">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -66,8 +74,7 @@ const ForgotPassword = () => {
                     render={(msg) => <div className="error">{msg}</div>}
                     name="email"
                   />
-                </div>
-                <div className="sign-spaces">
+
                   <label className="sign-label">Documento:</label>
                   <Field
                     className="sign-inputs"
@@ -80,8 +87,7 @@ const ForgotPassword = () => {
                     render={(msg) => <div className="error">{msg}</div>}
                     name="document"
                   />
-                </div>
-                <div className="sign-spaces">
+
                   <label className="sign-label">Contraseña:</label>
                   <Field
                     className="sign-inputs"
@@ -94,15 +100,15 @@ const ForgotPassword = () => {
                     render={(msg) => <div className="error">{msg}</div>}
                     name="password"
                   />
-                </div>
-                <div className="sign-button">
-                  <button
-                    className="buttonOne principalButton"
-                    type="submit"
-                    onSubmit={onSubmit}
-                  >
-                    Enviar
-                  </button>
+                  <div className="sign-button">
+                    <button
+                      className="buttonOne principalButton"
+                      type="submit"
+                      onSubmit={onSubmit}
+                    >
+                      Enviar
+                    </button>
+                  </div>
                 </div>
               </Form>
             );

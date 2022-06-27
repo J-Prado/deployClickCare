@@ -17,6 +17,7 @@ import DataEdition from "./components/DataEdition/DataEdition.js";
 import OfferCardDetailed from "./components/Offers/OfferCardDetailed/OfferCardDetailed.js"; //DETALLE
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword.js";
 import Contract from "./components/Contratos/Contract.js";
+import Forbiden from "./components/Forbiden/Forbiden.js";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
       <Route exact path="/professional" component={Professional} />
       <Route exact path="/paymentStatus" component={PaymentStatus} />
       <Route exact path="/chat" component={Chat} />
-      <Route exact path="/user/:id" component={ProfileID} />
+      {/* <Route exact path="/user/:id" component={ProfileID} /> */}
       <Route exact path="/postForm">
         {localStorage.getItem("session") ? (
           <PostForm />
@@ -44,13 +45,31 @@ function App() {
       </Route>
       <Route exact path="/dataedition" component={DataEdition} />
       <Route exact path="/forgetpassword" component={ForgotPassword} />
-      <Route
+      {/* <Route
         exact
         path="/OfferCardDetailed/:id"
         component={OfferCardDetailed}
-      />
+      /> */}
+      <Route exact path="/OfferCardDetailed/:id">
+        {localStorage.getItem("session") ? (
+          <OfferCardDetailed />
+        ) : (
+          <Redirect to="/login" />
+        )}
+      </Route>
+
+      <Route exact path="/user/:id">
+        {localStorage.getItem("session") ? (
+          <ProfileID />
+        ) : (
+          <Redirect to="/login" />
+        )}
+      </Route>
+
+      {/* <Route exact path="*" component={Forbiden} /> */}
       <Route exact path="/contract" component={Contract} />
-      {/* <Route path="*">
+
+      {/* <Route path="/*">
         <Redirect to="/" replace />
       </Route> */}
     </div>

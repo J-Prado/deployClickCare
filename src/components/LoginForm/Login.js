@@ -126,9 +126,11 @@ const Login = (props) => {
                 <input className="box" type="checkbox" />
                 Recuerdame.
               </label>
-              <button className="buttonOne forget">
-                ¿Olvidaste tu contraseña?
-              </button>
+              <Link to="/forgetpassword">
+                <button className="buttonOne forget">
+                  ¿Olvidaste tu contraseña?
+                </button>
+              </Link>
             </div>
 
             <button className="buttonOne principalButton" type="submit">

@@ -48,7 +48,7 @@ const Navbar = () => {
         <Link to="/offers">
           <span>Ofertas</span>
         </Link>
-        <a href="#testimonials">Testimonio</a>
+        {/* <a href="#testimonials">Testimonio</a> */}
         <div className="containerButtonNav">
           {localStorage?.getItem("session") ? (
             <Link to={`/user/${idUser}`}>
