@@ -11,7 +11,9 @@ const PaymentStatus = (props) => {
   const collection_status = qs.parse(props.location.search, {
     ignoreQueryPrefix: true,
   }).collection_status;
-  const idPROFESIONAL = jwt.decode(localStorage?.getItem("session"))?.id;
+  const idPROFESIONAL = jwt.decode(
+    localStorage?.getItem("session")
+  )?.professionalId;
 
   // console.log(
   //   qs.parse(props.location.search, { ignoreQueryPrefix: true }).collection_id
