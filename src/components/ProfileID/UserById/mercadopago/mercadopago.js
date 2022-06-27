@@ -12,9 +12,9 @@ export default function Mercadopago() {
 
   // SE SUPONE QUE SI ESTA ACA ES PROFESIONAL. ***************************************************************************
   let fechaPago;
-  if (userData[0].professionals[0]) {
-    fechaPago = String(userData[0].professionals[0].fecha_nacimiento)
-      ? String(userData[0].professionals[0].fecha_nacimiento).substring(0, 10)
+  if (userData[0]?.professionals[0]) {
+    fechaPago = String(userData[0]?.professionals[0].fecha_nacimiento)
+      ? String(userData[0]?.professionals[0].fecha_nacimiento).substring(0, 10)
       : null;
   }
 

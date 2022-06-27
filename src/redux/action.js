@@ -430,7 +430,7 @@ export const locationFilter = (value) => {
 export function forgetPassword(values) {
   return async function (dispatch) {
     try {
-      const resp = await axios.put(`/validatePremium`, values);
+      const resp = await axios.put(`/forgetpassword`, values, axiosConfig);
       const json = await resp.data;
       console.log(json);
       return dispatch({

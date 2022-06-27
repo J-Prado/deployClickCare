@@ -1,10 +1,18 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React from "react";
+import React, { useEffect } from "react";
 import "../DataEdition/DataEdition.css";
 import { Widget } from "@uploadcare/react-widget";
 import styled, { css } from "styled-components";
 import profile from "../../images/imgProfile.png";
-
+import * as Yup from "yup";
+import swal from "sweetalert";
+import jwt from "jsonwebtoken";
+import {
+  GetCitiesByState,
+  getCountry,
+  GetStatebyCountry,
+} from "../../redux/action";
+import { useDispatch, useSelector } from "react-redux";
 const UploadWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,30 +53,7 @@ const UploadWrapper = styled.div`
   }
 `;
 
-const DataEdition = ({
-  email,
-  password,
-  name,
-  surname,
-  phone,
-  address,
-  age,
-  document,
-  phone2,
-  userId, //id_user
-  tuition,
-  trainings,
-  photo,
-  cvu,
-  state,
-  city,
-  country,
-  nivelDeEstudio,
-  institucion,
-  titulo,
-  date_inicioEstudio,
-  date_finicioEstudio,
-}) => {
+const DataEdition = () => {
   const [image, setImage] = React.useState(null);
   const [url, seturl] = React.useState(null);
   const widgetApi = React.useRef();
@@ -85,33 +70,57 @@ const DataEdition = ({
 
   //Initial Values
   const initialValues = {
-    email: email,
-    password: password,
-    name: name, //
-    surname: surname, //
-    phone: phone,
-    address: address,
-    age: age, //
-    document: document, //
-    phone2: phone2,
-    userId: userId, //id_user
-    tuition: tuition,
-    trainings: trainings,
-    photo: photo,
-    cvu: cvu,
-    state: state,
-    city: city,
-    country: country,
-    nivelDeEstudio: nivelDeEstudio,
-    institucion: institucion,
-    titulo: titulo,
-    date_inicioEstudio: date_inicioEstudio,
-    date_finicioEstudio: date_finicioEstudio,
+    email: "", //
+    password: "", //
+    name: "", //
+    surname: "", //
+    phone: "", //
+    address: "",
+    age: "", //
+    document: "", //
+    phone2: "", //
+    userId: jwt.decode(localStorage.getItem("session"))?.id, //id_user
+    tuition: "",
+    trainings: "",
+    photo: "", //
+    cvu: "",
+    state: "",
+    city: "",
+    country: "",
+    nivelDeEstudio: "",
+    institucion: "",
+    titulo: "",
+    date_inicioEstudio: "",
+    date_finicioEstudio: "",
   };
+
+  //Hooks
+  const dispatch = useDispatch();
+  const country = useSelector((state) => state.country);
+  const states = useSelector((state) => state.states);
+  const cities = useSelector((state) => state.cities);
+  const register = useSelector((state) => state.userRegister);
+
+  useEffect(() => {
+    dispatch(getCountry());
+  }, [dispatch]);
+
+  //Handlers
+  const onSubmit = (values, { resetForm }) => {
+    // resetForm();
+    console.log(values);
+  };
+
+  //Validation using Yup
+  const validationSchema = Yup.object({});
 
   return (
     <div className="container-edit">
-      <Formik>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
         {(props) => {
           const { values, setFieldValue } = props;
           return (
@@ -183,8 +192,10 @@ const DataEdition = ({
                     />
                   </div>
                   <div className="containerTextDataUser">
-                    <label className="TitleDataUser">Fecha naciemiento:</label>
-                    <label className="TitleDataUser oneTitleUser">Edad:</label>
+                    <label className="TitleDataUser">Fecha nacimiento:</label>
+                    <label className="TitleDataUser oneTitleUser">
+                      Contraseña:
+                    </label>
                     <label className="TitleDataUser twoTitleUser">
                       Correo Electronico:
                     </label>
@@ -198,17 +209,17 @@ const DataEdition = ({
                     />
                     <Field
                       className="infoDataUser oneTitleUser"
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Nombre"
+                      id="password"
+                      name="password"
+                      type="password"
+                      placeholder="Contraseña"
                     />
                     <Field
                       className="infoDataUser twoTitleUser"
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Nombre"
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Correo Electrónico"
                     />
                   </div>
 
@@ -293,24 +304,24 @@ const DataEdition = ({
                   <div className="containerTextDataUser">
                     <Field
                       className="infoDataUser threeTitleUser"
-                      id="name"
-                      name="name"
+                      id="phone"
+                      name="phone"
                       type="text"
-                      placeholder="Nombre"
+                      placeholder="Teléfono"
                     />
                     <Field
                       className="infoDataUser threeTitleUser"
-                      id="name"
-                      name="name"
+                      id="phone2"
+                      name="phone2"
                       type="text"
-                      placeholder="Nombre"
+                      placeholder="Movil"
                     />
                     <Field
                       className="infoDataUser forTitleUser"
-                      id="name"
-                      name="name"
+                      id="address"
+                      name="address"
                       type="text"
-                      placeholder="Nombre"
+                      placeholder="Dirección"
                     />
                   </div>
                   <div className="containerTextDataUser">
@@ -321,25 +332,65 @@ const DataEdition = ({
                   <div className="containerTextDataUser">
                     <Field
                       className="infoDataUser"
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Nombre"
-                    />
+                      as="select"
+                      name="country"
+                      id="country"
+                      value={values.country}
+                      onChange={(e) => {
+                        const { value } = e.target;
+                        setFieldValue("country", value);
+                        dispatch(GetStatebyCountry(value));
+                      }}
+                    >
+                      <option value="" key="paises" disabled>
+                        Selecciona tu país.
+                      </option>
+                      {country?.map((country) => (
+                        <option value={country.name} key={country.id}>
+                          {country.name}
+                        </option>
+                      ))}
+                    </Field>
                     <Field
                       className="infoDataUser"
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Nombre"
-                    />
+                      as="select"
+                      name="state"
+                      value={values.state}
+                      onChange={(e) => {
+                        const { value } = e.target;
+                        setFieldValue("state", value);
+                        dispatch(GetCitiesByState(value));
+                      }}
+                    >
+                      <option value="" key="estados" disabled>
+                        Selecciona tu estado.
+                      </option>
+                      {states?.map((state) => (
+                        <option value={state.name} key={state.id}>
+                          {state.name}
+                        </option>
+                      ))}
+                    </Field>
                     <Field
                       className="infoDataUser"
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Nombre"
-                    />
+                      as="select"
+                      name="city"
+                      id="city"
+                      value={values.city}
+                      onChange={(e) => {
+                        const { value } = e.target;
+                        setFieldValue("city", value);
+                      }}
+                    >
+                      <option value="" key="ciudades" disabled>
+                        Selecciona tu ciudad.
+                      </option>
+                      {cities[0]?.cities?.map((city) => (
+                        <option value={city.name} key={city.id}>
+                          {city.name}
+                        </option>
+                      ))}
+                    </Field>
                   </div>
                   <div className="containerButtonInfoById">
                     <button className="buttonOne buttonInfoById">Enviar</button>

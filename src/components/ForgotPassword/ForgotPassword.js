@@ -88,7 +88,7 @@ const ForgotPassword = () => {
                     name="document"
                   />
 
-                  <label className="sign-label">Contraseña:</label>
+                  <label className="sign-label">Nueva Contraseña:</label>
                   <Field
                     className="sign-inputs"
                     id="password"
