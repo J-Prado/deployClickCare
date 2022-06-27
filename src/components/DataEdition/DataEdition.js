@@ -11,6 +11,7 @@ import {
   GetCitiesByState,
   getCountry,
   GetStatebyCountry,
+  getUserDetail,
 } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 const UploadWrapper = styled.div`
@@ -54,6 +55,24 @@ const UploadWrapper = styled.div`
 `;
 
 const DataEdition = () => {
+  //Hooks
+  const dispatch = useDispatch();
+
+  const detailUser = useSelector((state) => state.userDetail);
+  const idValidate = detailUser[0]?.professionals[0]?.id;
+
+  const id = jwt.decode(localStorage.getItem("session"))?.id;
+
+  useEffect(() => {
+    dispatch(getCountry());
+    dispatch(getUserDetail(id));
+  }, [dispatch, id]);
+
+  const country = useSelector((state) => state.country);
+  const states = useSelector((state) => state.states);
+  const cities = useSelector((state) => state.cities);
+  const register = useSelector((state) => state.userRegister);
+
   const [image, setImage] = React.useState(null);
   const [url, seturl] = React.useState(null);
   const widgetApi = React.useRef();
@@ -70,7 +89,7 @@ const DataEdition = () => {
 
   //Initial Values
   const initialValues = {
-    email: "", //
+    email: jwt.decode(localStorage.getItem("session"))?.email, //
     password: "", //
     name: "", //
     surname: "", //
@@ -79,7 +98,7 @@ const DataEdition = () => {
     age: "", //
     document: "", //
     phone2: "", //
-    userId: jwt.decode(localStorage.getItem("session"))?.id, //id_user
+    userId: id, //id_user
     tuition: "",
     trainings: "",
     photo: "", //
@@ -94,16 +113,7 @@ const DataEdition = () => {
     date_finicioEstudio: "",
   };
 
-  //Hooks
-  const dispatch = useDispatch();
-  const country = useSelector((state) => state.country);
-  const states = useSelector((state) => state.states);
-  const cities = useSelector((state) => state.cities);
-  const register = useSelector((state) => state.userRegister);
-
-  useEffect(() => {
-    dispatch(getCountry());
-  }, [dispatch]);
+  console.log(initialValues);
 
   //Handlers
   const onSubmit = (values, { resetForm }) => {
@@ -325,9 +335,9 @@ const DataEdition = () => {
                     />
                   </div>
                   <div className="containerTextDataUser">
-                    <label className="TitleDataUser">Ciudad:</label>
+                    <label className="TitleDataUser">País:</label>
                     <label className="TitleDataUser">Estado/Provincia:</label>
-                    <label className="TitleDataUser">Pais:</label>
+                    <label className="TitleDataUser">Ciudad:</label>
                   </div>
                   <div className="containerTextDataUser">
                     <Field
@@ -343,7 +353,7 @@ const DataEdition = () => {
                       }}
                     >
                       <option value="" key="paises" disabled>
-                        Selecciona tu país.
+                        {detailUser[0]?.country.name}
                       </option>
                       {country?.map((country) => (
                         <option value={country.name} key={country.id}>
@@ -363,7 +373,7 @@ const DataEdition = () => {
                       }}
                     >
                       <option value="" key="estados" disabled>
-                        Selecciona tu estado.
+                        {detailUser[0]?.state.name}
                       </option>
                       {states?.map((state) => (
                         <option value={state.name} key={state.id}>
@@ -383,7 +393,7 @@ const DataEdition = () => {
                       }}
                     >
                       <option value="" key="ciudades" disabled>
-                        Selecciona tu ciudad.
+                        {detailUser[0]?.city.name}
                       </option>
                       {cities[0]?.cities?.map((city) => (
                         <option value={city.name} key={city.id}>

@@ -31,10 +31,7 @@ const Login = (props) => {
         dispatch(loginGoogle({ email, isAuthenticated }), [email]);
       })
       .catch((e) => {
-        const { email } = auth.user;
-        const { isAuthenticated } = auth;
-
-        dispatch(loginGoogle({ email, isAuthenticated }), [email]);
+        console.log(e);
       });
   };
 
