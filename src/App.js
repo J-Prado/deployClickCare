@@ -1,4 +1,4 @@
-import { Redirect, Route } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Landingpage from "./components/Landingpage/Landingpage.js";
 import Login from "./components/LoginForm/Login.js";
 import Navbar from "./components/Navbar/Navbar.js";
@@ -23,52 +23,53 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Route exact path="/" component={Landingpage} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/signin" component={Signin} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/offers" component={Offers} />
-      <Route exact path="/dowloadApp" component={DowloadApp} />
-      <Route exact path="/contactUs" component={ContactUs} />
-      <Route exact path="/welcome/:id" component={Welcome} />
-      <Route exact path="/welcome" component={Welcome} />
-      <Route exact path="/professional" component={Professional} />
-      <Route exact path="/paymentStatus" component={PaymentStatus} />
-      <Route exact path="/chat" component={Chat} />
-      {/* <Route exact path="/user/:id" component={ProfileID} /> */}
-      <Route exact path="/postForm">
-        {localStorage.getItem("session") ? (
-          <PostForm />
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
-      <Route exact path="/dataedition" component={DataEdition} />
-      <Route exact path="/forgetpassword" component={ForgotPassword} />
-      {/* <Route
-        exact
-        path="/OfferCardDetailed/:id"
-        component={OfferCardDetailed}
-      /> */}
-      <Route exact path="/OfferCardDetailed/:id">
-        {localStorage.getItem("session") ? (
-          <OfferCardDetailed />
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
+      <Switch>
+        <Route exact path="/" component={Landingpage} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signin" component={Signin} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/offers" component={Offers} />
+        <Route exact path="/dowloadApp" component={DowloadApp} />
+        <Route exact path="/contactUs" component={ContactUs} />
+        <Route exact path="/welcome/:id" component={Welcome} />
+        <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/professional" component={Professional} />
+        <Route exact path="/paymentStatus" component={PaymentStatus} />
+        <Route exact path="/chat" component={Chat} />
+        <Route exact path="/user/:id" component={ProfileID} />
+        <Route exact path="/postForm">
+          {localStorage.getItem("session") ? (
+            <PostForm />
+          ) : (
+            <Redirect to="/login" />
+          )}
+        </Route>
+        <Route exact path="/dataedition" component={DataEdition} />
+        <Route exact path="/forgetpassword" component={ForgotPassword} />
+        <Route
+          exact
+          path="/OfferCardDetailed/:id"
+          component={OfferCardDetailed}
+        />
+        {/* <Route exact path="/OfferCardDetailed/:id">
+          {localStorage.getItem("session") ? (
+            <OfferCardDetailed />
+          ) : (
+            <Redirect to="/login" />
+          )}
+        </Route> */}
 
-      <Route exact path="/user/:id">
-        {localStorage.getItem("session") ? (
-          <ProfileID />
-        ) : (
-          <Redirect to="/login" />
-        )}
-      </Route>
+        {/* <Route exact path="/user/:id">
+          {localStorage.getItem("session") ? (
+            <ProfileID />
+          ) : (
+            <Redirect to="/login" />
+          )}
+        </Route> */}
 
+        <Route exact path="/contract" component={Contract} />
+      </Switch>
       {/* <Route exact path="*" component={Forbiden} /> */}
-      <Route exact path="/contract" component={Contract} />
-
       {/* <Route path="/*">
         <Redirect to="/" replace />
       </Route> */}
