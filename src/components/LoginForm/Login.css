@@ -160,6 +160,7 @@
   background: none;
   width: 50px;
   align-self: center;
+  border-radius: 50%;
 }
 .logGoogle:hover {
   cursor: pointer;

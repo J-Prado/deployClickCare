@@ -151,33 +151,33 @@ const DataEdition = () => {
   //Handlers
   const onSubmit = (values, { resetForm }) => {
     // resetForm();
-    console.log(values);
-    swal({
-      text: "Para Confirmar Introduce tu Contraseña",
-      content: "input",
-      attributes: {
-        type: "password",
-      },
-      button: {
-        text: "Validar",
-        closeModal: false,
-      },
-    }).then((password) => {
-      if (
-        verific === 1 &&
-        password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
-      ) {
-        dispatch(profEdition(values));
-        console.log("despache1");
-      } else if (
-        verific === 0 &&
-        password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
-      ) {
-        dispatch(userEdition(values));
-        console.log("despache2");
-      }
-      return swal("No se han validado los datos correctamente");
-    });
+    // console.log(values);
+    dispatch(userEdition(values));
+
+    // swal({
+    //   text: "Para Confirmar Introduce tu Contraseña",
+    //   content: "input",
+    //   attributes: {},
+    //   button: {
+    //     text: "Validar",
+    //     closeModal: false,
+    //   },
+    // }).then((password) => {
+    //   if (
+    //     verific === 1 &&
+    //     password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
+    //   ) {
+    //     dispatch(profEdition(values));
+    //     console.log("despache1");
+    //   } else if (
+    //     verific === 0 &&
+    //     password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
+    //   ) {
+    //     dispatch(userEdition(values));
+    //     console.log("despache2");
+    //   }
+    //   return swal("No se han validado los datos correctamente");
+    // });
   };
 
   //Validation using Yup
