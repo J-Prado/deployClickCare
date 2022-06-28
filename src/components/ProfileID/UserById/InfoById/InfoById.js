@@ -156,15 +156,7 @@ function InfoById({ idUs }) {
             Actualiza o Cambia Tu Info
           </button>
         </Link>
-        {verific === 1?
-          <Link to="/mercadopago">
-            <button className="buttonOne ">
-              Paga tu membresía
-            </button>
-        </Link>
-        :null}
-        
-        
+        {/* <button className="buttonOne buttonInfoById">Paga Tu Menbresia</button> */}
       </div>
     </div>
   );

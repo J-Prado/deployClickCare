@@ -7,7 +7,6 @@ import sliceRight from "../../../../images/sliceRight.png"
 import sliceLeft from "../../../../images//sliceLeft.png"
 import "./RecordPostById.css"
 
-
 function RecordPostById({idUsp}) {
 
     const dispatch = useDispatch();
@@ -17,7 +16,7 @@ function RecordPostById({idUsp}) {
     }, [dispatch, idUsp]);
 
     const detailPostUser = useSelector(state => state.userPostDetail);
-    
+
     const [page, setPage] = useState(1);
     const [PostPage, setPostPage] = useState(1);
 
@@ -25,7 +24,7 @@ function RecordPostById({idUsp}) {
     const firstPostPage = PostPagOne - PostPage;
     const PostByPage = detailPostUser.slice(firstPostPage, PostPagOne);
     const maxPages = Math.ceil(detailPostUser.length / PostPagOne);
-    
+
     function pageNum(e) {
         alert(page);
         document.getElementById("paginas").innerText = `${page}`;
@@ -48,17 +47,16 @@ function RecordPostById({idUsp}) {
         document.getElementById("unadetantas").innerText = ` /${maxPages}`;
         e.target.value ? setPage(e.target.value) : setPage(1);
       };
-
-      
+    
   return (
     <div className='containerRecordPostById'>
-          <div className='containerSubRecordPostById'>
+        <div className='containerSubRecordPostById'>
             <h3 className='titleRecUserById'>Mira Tus </h3><h3 className='titleRecUserById nameUserByIdSecond'> Publicaciones</h3> 
-          </div>
-          <div className='containerSubRecordPostById'>
+        </div>
+        <div className='containerSubRecordPostById'>
             {detailPostUser.length>1?<h3 className="countPag"><span  id="paginas">Post 1</span>/{detailPostUser.length}</h3>:null}
-          </div>
-          <div className='containerSubRecordPostById'>
+        </div>
+        <div className='containerSubRecordPostById'>
             {detailPostUser.length>1?<img className='sliceLeft' src={sliceLeft} alt="sliceLeft" onClick={(e) => anterior(e)} />:null}
             <div>
             {PostByPage.map((d) => (<CardPostUserById
@@ -79,12 +77,16 @@ function RecordPostById({idUsp}) {
                 city={d.city.name}
                 state={d.state.name}
                 country={d.country.name}
-              />))}    
+
+                datePostulation={d.auctions[0]?.date}
+                offerPostulation={d.auctions[0]?.offer}
+                commentPostulation={d.auctions[0]?.comment}
+                professionalPostulation={d.auctions[0]?.professional.id}
+                />))}
             </div>
             {detailPostUser.length>1?<img className='sliceRight' src={sliceRight} alt="sliceRight" onClick={(e) => siguiente(e)} />:null}
-          </div>
-          
-      </div>
+        </div>
+    </div>
   )
 }
 

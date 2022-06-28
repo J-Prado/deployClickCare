@@ -1,7 +1,6 @@
 .containerCardPostUserById{
     width: 750px;
-    height: 410px;
-    box-sizing: border-box;
+    height: 400px;
     background: rgba(255, 255, 255, 0.73);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -10,10 +9,8 @@
     border: 1px solid rgba(255, 255, 255, 0.09);
     margin-left: 00.5rem;
     margin-right: 00.5rem;
-    -webkit-animation:slide-in-top .5s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-top .5s cubic-bezier(.25,.46,.45,.94) both;
-}
-.containerCardPostUserByIdOne{
     display: flex;
+    -webkit-animation:slide-in-top .5s cubic-bezier(.25,.46,.45,.94) both;animation:slide-in-top .5s cubic-bezier(.25,.46,.45,.94) both
 }
 .containerCardPostUserByIdLeftOne{
     width: 170px;
@@ -48,7 +45,7 @@
 }
 .containerCardPostUserByIdRight{
     width: 520px;
-    height: 380px;
+    height: 300px;
     padding-right: 1rem;
     padding-top: 1rem;
 }
@@ -109,22 +106,19 @@
     color: var(--main-first-color);
 }
 .dateCardPostByUser{
-    color: var(--main-first-color);
+    color: var(--main-extra-color);
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 18px;
     
 }
 .dayCardPostByUser{
-    color: var(--main-extra-color);
+    color: var(--main-first-color);
     font-family: 'Nunito', sans-serif;
     font-weight: 800;
     font-size: 18px;
     width: 250px;
-    
-}
-.dateCardPostByUsertwo{
-    width: 220px;
+    background-color: rgba(0, 255, 255, 0.044);
 }
 .containerSubDataByUser{
     text-align: left;
@@ -134,7 +128,6 @@
 }
 .CardPostUserByIdRightTwo{
     margin-left: -12rem;
-    margin-bottom: 1rem;
 }
 .buttonOneCardPostUserById:hover{
     background-color: rgb(173, 33, 33);
@@ -142,15 +135,8 @@
     /* color: var(--main-first-color); */
     filter: none;
   }
-  .containerCardPostUserByIdBotton{
-    width: 700px;
-    height: 180px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    
-}
+  .dateContCardPostUserById{
+
+  }
 
  @-webkit-keyframes slide-in-top{0%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);opacity:0}100%{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}@keyframes slide-in-top{0%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);opacity:0}100%{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}

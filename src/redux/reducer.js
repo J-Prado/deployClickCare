@@ -28,7 +28,6 @@ import {
   FORGET_PASSWORD,
   USER_EDITION,
   PROF_EDITION,
-  GET_POST_DETAIL_AUCTION,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -53,7 +52,6 @@ const initialState = {
   userDetail: [],
   newPassword: "",
   messagesEdition: "",
-  postDetailAuctions: [],
 };
 
 //Reducers
@@ -188,11 +186,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         userPostDetail: action.payload,
-      };
-    case GET_POST_DETAIL_AUCTION:
-      return {
-        ...state,
-        postDetailAuctions: action.payload,
       };
     case GET_USER_DETAIL:
       return {
