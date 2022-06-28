@@ -47,7 +47,7 @@ const Login = (props) => {
     password: Yup.string()
       .required("Es necesario llenar este campo.")
       .matches(
-        /^.*(?=.{4,})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+        /^.*(?=.{4})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
         " La contraseña debe ser alfanumérica de min 4 Caracteres."
       )
       .trim("Elimine los espacios"),
@@ -56,6 +56,7 @@ const Login = (props) => {
   //Handlers
   const onSubmit = (values, { resetForm }) => {
     dispatch(login(values));
+    localStorage.setItem("accessBlocked", jwt.sign(values, "Goool"));
     resetForm();
   };
 
@@ -136,7 +137,7 @@ const Login = (props) => {
           </form>
           <div className="reg-space">
             <span className="register">Inicia Sesión También con ➤</span>
-            <button className="logGoogle" onClick={onClick}>
+            <button className="logGoogle" onFocus={onClick}>
               <img className="google" src={google} alt="Google Login" />
             </button>
           </div>

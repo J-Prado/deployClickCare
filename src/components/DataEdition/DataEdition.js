@@ -56,22 +56,27 @@ const UploadWrapper = styled.div`
 
 const DataEdition = () => {
   //Hooks
+  const id = jwt.decode(localStorage.getItem("session"))?.id;
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCountry());
+  }, [dispatch]);
 
   const detailUser = useSelector((state) => state.userDetail);
   const idValidate = detailUser[0]?.professionals[0]?.id;
 
-  const id = jwt.decode(localStorage.getItem("session"))?.id;
-
-  useEffect(() => {
-    dispatch(getCountry());
-    dispatch(getUserDetail(id));
-  }, [dispatch, id]);
+  let verific = 0;
+  if (idValidate !== undefined) {
+    verific = +1;
+  }
 
   const country = useSelector((state) => state.country);
   const states = useSelector((state) => state.states);
   const cities = useSelector((state) => state.cities);
   const register = useSelector((state) => state.userRegister);
+  let usuario = {};
 
   const [image, setImage] = React.useState(null);
   const [url, seturl] = React.useState(null);
@@ -86,34 +91,57 @@ const DataEdition = () => {
       },
     },
   };
+  if (detailUser[0]) {
+    usuario = detailUser[0];
+    console.log("llegué");
+  }
 
   //Initial Values
-  const initialValues = {
-    email: jwt.decode(localStorage.getItem("session"))?.email, //
-    password: "", //
-    name: "", //
-    surname: "", //
-    phone: "", //
-    address: "",
-    age: "", //
-    document: "", //
-    phone2: "", //
-    userId: id, //id_user
-    tuition: "",
-    trainings: "",
-    photo: "", //
-    cvu: "",
-    state: "",
-    city: "",
-    country: "",
-    nivelDeEstudio: "",
-    institucion: "",
-    titulo: "",
-    date_inicioEstudio: "",
-    date_finicioEstudio: "",
+  const initialValues = (usuario) => {
+    return verific === 1
+      ? {
+          email: usuario?.email,
+          password: jwt.decode(localStorage.getItem("accessBlocked"))?.password, //
+          name: usuario?.name, //
+          surname: usuario?.surname, //
+          phone: usuario?.phone, //
+          address: usuario?.address,
+          age: usuario?.age, //
+          document: usuario?.document, //
+          phone2: usuario?.phone2, //
+          id: id, //id_user
+          photo: usuario?.photo, //
+          cvu: detailUser[0]?.professionals[0]?.cvu,
+          state: usuario?.state,
+          city: usuario?.city,
+          country: usuario?.country,
+          nivelDeEstudio: detailUser[0]?.professionals[0]?.nivelDeEstudio,
+          institucion: detailUser[0]?.professionals[0]?.institucion,
+          titulo: detailUser[0]?.professionals[0]?.titulo,
+          date_inicioEstudio:
+            detailUser[0]?.professionals[0]?.date_inicioEstudio,
+          date_finicioEstudio:
+            detailUser[0]?.professionals[0]?.date_finicioEstudio,
+        }
+      : {
+          id: id,
+          email: usuario?.email,
+          password: jwt.decode(localStorage.getItem("accessBlocked"))?.password,
+          name: usuario?.name,
+          surname: usuario?.surname,
+          phone: usuario?.phone,
+          address: usuario?.address,
+          age: usuario?.age,
+          document: usuario?.document,
+          phone2: usuario?.phone2,
+          state: usuario?.state,
+          city: usuario?.city,
+          country: usuario?.country,
+          photo: usuario?.photo,
+        };
   };
 
-  console.log(initialValues);
+  // console.log("Valores", usuario);
 
   //Handlers
   const onSubmit = (values, { resetForm }) => {
@@ -127,7 +155,7 @@ const DataEdition = () => {
   return (
     <div className="container-edit">
       <Formik
-        initialValues={initialValues}
+        initialValues={usuario ? initialValues(usuario) : initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
@@ -184,21 +212,21 @@ const DataEdition = () => {
                       id="name"
                       name="name"
                       type="text"
-                      placeholder="Nombre"
+                      placeholder={usuario?.name}
                     />
                     <Field
                       className="infoDataUser"
                       id="surname"
                       name="surname"
                       type="text"
-                      placeholder="Apellidos"
+                      placeholder={detailUser[0]?.surname}
                     />
                     <Field
                       className="infoDataUser"
                       id="document"
                       name="document"
                       type="text"
-                      placeholder="Documento de Identidad"
+                      placeholder={detailUser[0]?.document}
                     />
                   </div>
                   <div className="containerTextDataUser">
@@ -215,7 +243,9 @@ const DataEdition = () => {
                       className="infoDataUser"
                       id="age"
                       name="age"
-                      type="date"
+                      type="text"
+                      placeholder={detailUser[0]?.age}
+                      disabled
                     />
                     <Field
                       className="infoDataUser oneTitleUser"
@@ -223,82 +253,91 @@ const DataEdition = () => {
                       name="password"
                       type="password"
                       placeholder="Contraseña"
+                      disabled
                     />
                     <Field
                       className="infoDataUser twoTitleUser"
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="Correo Electrónico"
+                      placeholder={usuario?.email}
                     />
                   </div>
 
-                  {/* {verificOne === 1 ? ( */}
-                  <div>
-                    <div className="containerTextDataUser">
-                      <label className="TitleDataUser">Nivel Educativo</label>
-                      <label className="TitleDataUser">
-                        Institucion Educativa
-                      </label>
-                      <label className="TitleDataUser">Titulo</label>
+                  {verific === 1 ? (
+                    <div>
+                      <div className="containerTextDataUser">
+                        <label className="TitleDataUser">Nivel Educativo</label>
+                        <label className="TitleDataUser">
+                          Institucion Educativa
+                        </label>
+                        <label className="TitleDataUser">Titulo</label>
+                      </div>
+                      <div className="containerTextDataUser">
+                        <Field
+                          className="infoDataUser"
+                          id="nivelDeEstudio"
+                          name="nivelDeEstudio"
+                          type="text"
+                          placeholder={
+                            detailUser[0]?.professionals[0]?.nivelDeEstudio
+                          }
+                        />
+                        <Field
+                          className="infoDataUser"
+                          id="institucion"
+                          name="institucion"
+                          type="text"
+                          placeholder={
+                            detailUser[0]?.professionals[0]?.institucion
+                          }
+                        />
+                        <Field
+                          className="infoDataUser"
+                          id="titulo"
+                          name="titulo"
+                          type="text"
+                          placeholder={detailUser[0]?.professionals[0]?.titulo}
+                        />
+                      </div>
+                      <div className="containerTextDataUser">
+                        <label className="TitleDataUser">Fecha de Inicio</label>
+                        <label className="TitleDataUser">
+                          Fecha de Finalización
+                        </label>
+                        <label className="TitleDataUser">
+                          Tarjeta Profesional
+                        </label>
+                      </div>
+                      <div className="containerTextDataUser">
+                        <Field
+                          className="infoDataUser"
+                          id="date_inicioEstudio"
+                          name="date_inicioEstudio"
+                          type="text"
+                          placeholder={
+                            detailUser[0]?.professionals[0]?.date_inicioEstudio
+                          }
+                        />
+                        <Field
+                          className="infoDataUser"
+                          id="date_finicioEstudio"
+                          name="date_finicioEstudio"
+                          type="text"
+                          placeholder={
+                            detailUser[0]?.professionals[0]?.date_finicioEstudio
+                          }
+                        />
+                        <Field
+                          className="infoDataUser"
+                          id="cvu"
+                          name="cvu"
+                          type="text"
+                          placeholder={detailUser[0]?.professionals[0]?.cvu}
+                        />
+                      </div>
                     </div>
-                    <div className="containerTextDataUser">
-                      <Field
-                        className="infoDataUser"
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Nombre"
-                      />
-                      <Field
-                        className="infoDataUser"
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Nombre"
-                      />
-                      <Field
-                        className="infoDataUser"
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Nombre"
-                      />
-                    </div>
-                    <div className="containerTextDataUser">
-                      <label className="TitleDataUser">Fecha de Inicio</label>
-                      <label className="TitleDataUser">
-                        Fecha de Finalización
-                      </label>
-                      <label className="TitleDataUser">
-                        Tarjeta Profesional
-                      </label>
-                    </div>
-                    <div className="containerTextDataUser">
-                      <Field
-                        className="infoDataUser"
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Nombre"
-                      />
-                      <Field
-                        className="infoDataUser"
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Nombre"
-                      />
-                      <Field
-                        className="infoDataUser"
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Nombre"
-                      />
-                    </div>
-                  </div>
-                  {/* ) : null} */}
+                  ) : null}
 
                   <div className="containerTextDataUser">
                     <label className="TitleDataUser threeTitleUser">
@@ -314,24 +353,24 @@ const DataEdition = () => {
                   <div className="containerTextDataUser">
                     <Field
                       className="infoDataUser threeTitleUser"
-                      id="phone"
-                      name="phone"
-                      type="text"
-                      placeholder="Teléfono"
-                    />
-                    <Field
-                      className="infoDataUser threeTitleUser"
                       id="phone2"
                       name="phone2"
                       type="text"
-                      placeholder="Movil"
+                      placeholder={detailUser[0]?.phone2}
+                    />
+                    <Field
+                      className="infoDataUser threeTitleUser"
+                      id="phone"
+                      name="phone"
+                      type="text"
+                      placeholder={detailUser[0]?.phone}
                     />
                     <Field
                       className="infoDataUser forTitleUser"
                       id="address"
                       name="address"
                       type="text"
-                      placeholder="Dirección"
+                      placeholder={detailUser[0]?.address}
                     />
                   </div>
                   <div className="containerTextDataUser">
@@ -352,8 +391,8 @@ const DataEdition = () => {
                         dispatch(GetStatebyCountry(value));
                       }}
                     >
-                      <option value="" key="paises" disabled>
-                        {detailUser[0]?.country.name}
+                      <option value="" key="paises">
+                        Cambia tu país
                       </option>
                       {country?.map((country) => (
                         <option value={country.name} key={country.id}>
@@ -372,8 +411,8 @@ const DataEdition = () => {
                         dispatch(GetCitiesByState(value));
                       }}
                     >
-                      <option value="" key="estados" disabled>
-                        {detailUser[0]?.state.name}
+                      <option value="" key="estados">
+                        Cambia tu Estado
                       </option>
                       {states?.map((state) => (
                         <option value={state.name} key={state.id}>
@@ -392,8 +431,8 @@ const DataEdition = () => {
                         setFieldValue("city", value);
                       }}
                     >
-                      <option value="" key="ciudades" disabled>
-                        {detailUser[0]?.city.name}
+                      <option value="" key="ciudades">
+                        Cambia tu Ciudad
                       </option>
                       {cities[0]?.cities?.map((city) => (
                         <option value={city.name} key={city.id}>
@@ -403,7 +442,9 @@ const DataEdition = () => {
                     </Field>
                   </div>
                   <div className="containerButtonInfoById">
-                    <button className="buttonOne buttonInfoById">Enviar</button>
+                    <button className="buttonOne buttonInfoById">
+                      Validar los Cambios
+                    </button>
                   </div>
                 </div>
               </div>
