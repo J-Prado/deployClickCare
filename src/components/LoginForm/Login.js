@@ -12,7 +12,7 @@ import swal from "sweetalert";
 //Google
 import { useAuth0 } from "@auth0/auth0-react";
 import google from "../LoginForm/helpImages/google.png";
-import { GoogleLogin } from "react-google-login";
+
 const Login = (props) => {
   //Hooks needed
   const dispatch = useDispatch();
@@ -20,13 +20,6 @@ const Login = (props) => {
 
   // console.log(auth);
   const userlogged = useSelector((state) => state.userSession);
-
-  const onSucess = (res) => {
-    const email = res.profileObj.email;
-    const isAuthenticated = true;
-    dispatch(loginGoogle({ email, isAuthenticated }), [email]);
-  };
-  const onFailure = (res) => {};
 
   const onClick = () => {
     auth
@@ -144,21 +137,9 @@ const Login = (props) => {
           </form>
           <div className="reg-space">
             <span className="register">Inicia Sesión También con ➤</span>
-
-            <GoogleLogin
-              clientId={
-                "902348215403-lfbk7h4s4vd64ot8kf1gj4eujcgd0soa.apps.googleusercontent.com"
-              }
-              icon={false}
-              className="logGoogle"
-              buttonText=""
-              onSuccess={onSucess}
-              onFailure={onFailure}
-              cookiePolicy={"single_host_origin"}
-              style={{ backgroundImage: google, width: 50, height: 50 }}
-            >
+            <button className="logGoogle" onFocus={onClick}>
               <img className="google" src={google} alt="Google Login" />
-            </GoogleLogin>
+            </button>
           </div>
           <div>
             <Link className="link" to="/signin">

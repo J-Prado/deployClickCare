@@ -19,22 +19,8 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword.js";
 import Contract from "./components/Contratos/Contract.js";
 import Forbiden from "./components/Forbiden/Forbiden.js";
 import Mercadopago from "./components/ProfileID/UserById/mercadopago/mercadopago.js";
-import { useEffect } from "react";
-import { gapi } from "gapi-script";
 
 function App() {
-  const client =
-    "902348215403-lfbk7h4s4vd64ot8kf1gj4eujcgd0soa.apps.googleusercontent.com";
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId: client,
-        scope: "",
-      });
-    }
-    gapi.load("client:auth2", start);
-  });
-
   return (
     <div>
       <Navbar />
