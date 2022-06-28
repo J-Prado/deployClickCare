@@ -1,6 +1,6 @@
 .containerRecordPostById{
     min-width: 500px;
-    min-height: 710px;
+    min-height: 570px;
     justify-content: center;
     text-align: center;
     background: rgba(255, 255, 255, 0.823);
@@ -18,6 +18,7 @@
     text-align: center;
     align-items: center;
     margin-top: 1rem;
+    /* background-color: aqua; */
 }
 .sliceLeft{
     width: 35px;
