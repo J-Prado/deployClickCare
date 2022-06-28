@@ -93,7 +93,7 @@ const DataEdition = () => {
   };
   if (detailUser[0]) {
     usuario = detailUser[0];
-    console.log("llegué");
+    // console.log("llegué");
   }
 
   //Initial Values
@@ -111,7 +111,7 @@ const DataEdition = () => {
           phone2: usuario?.phone2, //
           id: id, //id_user
           photo: usuario?.photo, //
-          cvu: detailUser[0]?.professionals[0]?.cvu,
+
           state: usuario?.state,
           city: usuario?.city,
           country: usuario?.country,
@@ -122,6 +122,7 @@ const DataEdition = () => {
             detailUser[0]?.professionals[0]?.date_inicioEstudio,
           date_finicioEstudio:
             detailUser[0]?.professionals[0]?.date_finicioEstudio,
+          cvu: detailUser[0]?.professionals[0]?.cvu,
         }
       : {
           id: id,
@@ -150,7 +151,93 @@ const DataEdition = () => {
   };
 
   //Validation using Yup
-  const validationSchema = Yup.object({});
+  const validationSchema = Yup.object(
+    verific === 1
+      ? {
+          email: Yup.string()
+            .required("Es necesario llenar este campo")
+            .email("El email no es válido")
+            .trim("Elimine los espacios"),
+          password: Yup.string()
+            .required("Es necesario llenar este campo.")
+            .matches(
+              /^.*(?=.{4,})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+              " La contraseña debe ser alfanumérica de min 4 Caracteres."
+            )
+            .trim("Elimine los espacios"),
+          name: Yup.string().required("Es necesario llenar este campo"),
+          surname: Yup.string().required("Es necesario llenar este campo"),
+          phone: Yup.string()
+            .matches(
+              /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+              "El número no es válido."
+            )
+            .required("Es necesario llenar este campo.")
+            .trim("Elimine los espacios"),
+          address: Yup.string().required("Es necesario llenar este campo."),
+          age: Yup.string().required("Es necesario llenar este campo."),
+          document: Yup.string()
+            .required("Es necesario llenar este campo.")
+            .trim("Elimine los espacios"),
+          phone2: Yup.string()
+            .matches(
+              /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+              "El número no es válido."
+            )
+            .trim("Elimine los espacios"),
+          state: Yup.string().required("Es necesario llenar este campo."),
+          city: Yup.string().required("Es necesario llenar este campo."),
+          country: Yup.string().required("Es necesario llenar este campo."),
+          nivelDeEstudio: Yup.string().required(
+            "Es necesario llenar este campo."
+          ),
+          institucion: Yup.string().required("Es necesario llenar este campo."),
+          titulo: Yup.string().required("Es necesario llenar este campo."),
+          date_inicioEstudio: Yup.string().required(
+            "Es necesario llenar este campo."
+          ),
+          date_finicioEstudio: Yup.string().required(
+            "Es necesario llenar este campo."
+          ),
+          cvu: Yup.string().required("Es necesario llenar este campo."),
+        }
+      : {
+          email: Yup.string()
+            .required("Es necesario llenar este campo")
+            .email("El email no es válido")
+            .trim("Elimine los espacios"),
+          password: Yup.string()
+            .required("Es necesario llenar este campo.")
+            .matches(
+              /^.*(?=.{4,})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+              " La contraseña debe ser alfanumérica de min 4 Caracteres."
+            )
+            .trim("Elimine los espacios"),
+          name: Yup.string().required("Es necesario llenar este campo"),
+          surname: Yup.string().required("Es necesario llenar este campo"),
+          phone: Yup.string()
+            .matches(
+              /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+              "El número no es válido."
+            )
+            .required("Es necesario llenar este campo.")
+            .trim("Elimine los espacios"),
+          address: Yup.string().required("Es necesario llenar este campo."),
+          age: Yup.string().required("Es necesario llenar este campo."),
+          document: Yup.string()
+            .required("Es necesario llenar este campo.")
+            .trim("Elimine los espacios"),
+          phone2: Yup.string()
+            .matches(
+              /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+              "El número no es válido."
+            )
+            .trim("Elimine los espacios"),
+          state: Yup.string().required("Es necesario llenar este campo."),
+          city: Yup.string().required("Es necesario llenar este campo."),
+          country: Yup.string().required("Es necesario llenar este campo."),
+        }
+  );
 
   return (
     <div className="container-edit">
@@ -214,6 +301,7 @@ const DataEdition = () => {
                       type="text"
                       placeholder={usuario?.name}
                     />
+
                     <Field
                       className="infoDataUser"
                       id="surname"
@@ -221,12 +309,28 @@ const DataEdition = () => {
                       type="text"
                       placeholder={detailUser[0]?.surname}
                     />
+
                     <Field
                       className="infoDataUser"
                       id="document"
                       name="document"
                       type="text"
                       placeholder={detailUser[0]?.document}
+                    />
+                  </div>
+                  <div>
+                    {" "}
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="name"
+                    />
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="surname"
+                    />
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="document"
                     />
                   </div>
                   <div className="containerTextDataUser">
@@ -247,6 +351,7 @@ const DataEdition = () => {
                       placeholder={detailUser[0]?.age}
                       disabled
                     />
+
                     <Field
                       className="infoDataUser oneTitleUser"
                       id="password"
@@ -255,6 +360,7 @@ const DataEdition = () => {
                       placeholder="Contraseña"
                       disabled
                     />
+
                     <Field
                       className="infoDataUser twoTitleUser"
                       id="email"
@@ -263,7 +369,21 @@ const DataEdition = () => {
                       placeholder={usuario?.email}
                     />
                   </div>
-
+                  <div>
+                    {" "}
+                    {/* <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="age"
+                    /> */}
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="password"
+                    />
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="email"
+                    />
+                  </div>
                   {verific === 1 ? (
                     <div>
                       <div className="containerTextDataUser">
@@ -283,6 +403,7 @@ const DataEdition = () => {
                             detailUser[0]?.professionals[0]?.nivelDeEstudio
                           }
                         />
+
                         <Field
                           className="infoDataUser"
                           id="institucion"
@@ -292,12 +413,28 @@ const DataEdition = () => {
                             detailUser[0]?.professionals[0]?.institucion
                           }
                         />
+
                         <Field
                           className="infoDataUser"
                           id="titulo"
                           name="titulo"
                           type="text"
                           placeholder={detailUser[0]?.professionals[0]?.titulo}
+                        />
+                      </div>
+                      <div>
+                        {" "}
+                        <ErrorMessage
+                          render={(msg) => <div className="error">{msg}</div>}
+                          name="nivelDeEstudio"
+                        />
+                        <ErrorMessage
+                          render={(msg) => <div className="error">{msg}</div>}
+                          name="institucion"
+                        />
+                        <ErrorMessage
+                          render={(msg) => <div className="error">{msg}</div>}
+                          name="titulo"
                         />
                       </div>
                       <div className="containerTextDataUser">
@@ -319,6 +456,7 @@ const DataEdition = () => {
                             detailUser[0]?.professionals[0]?.date_inicioEstudio
                           }
                         />
+
                         <Field
                           className="infoDataUser"
                           id="date_finicioEstudio"
@@ -328,12 +466,28 @@ const DataEdition = () => {
                             detailUser[0]?.professionals[0]?.date_finicioEstudio
                           }
                         />
+
                         <Field
                           className="infoDataUser"
                           id="cvu"
                           name="cvu"
                           type="text"
                           placeholder={detailUser[0]?.professionals[0]?.cvu}
+                        />
+                      </div>
+                      <div>
+                        {" "}
+                        <ErrorMessage
+                          render={(msg) => <div className="error">{msg}</div>}
+                          name="date_inicioEstudio"
+                        />
+                        <ErrorMessage
+                          render={(msg) => <div className="error">{msg}</div>}
+                          name="date_finicioEstudio"
+                        />
+                        <ErrorMessage
+                          render={(msg) => <div className="error">{msg}</div>}
+                          name="cvu"
                         />
                       </div>
                     </div>
@@ -358,6 +512,7 @@ const DataEdition = () => {
                       type="text"
                       placeholder={detailUser[0]?.phone2}
                     />
+
                     <Field
                       className="infoDataUser threeTitleUser"
                       id="phone"
@@ -365,12 +520,27 @@ const DataEdition = () => {
                       type="text"
                       placeholder={detailUser[0]?.phone}
                     />
+
                     <Field
                       className="infoDataUser forTitleUser"
                       id="address"
                       name="address"
                       type="text"
                       placeholder={detailUser[0]?.address}
+                    />
+                  </div>
+                  <div>
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="phone2"
+                    />
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="phone"
+                    />
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="address"
                     />
                   </div>
                   <div className="containerTextDataUser">
@@ -400,6 +570,7 @@ const DataEdition = () => {
                         </option>
                       ))}
                     </Field>
+
                     <Field
                       className="infoDataUser"
                       as="select"
@@ -420,6 +591,7 @@ const DataEdition = () => {
                         </option>
                       ))}
                     </Field>
+
                     <Field
                       className="infoDataUser"
                       as="select"
@@ -440,6 +612,21 @@ const DataEdition = () => {
                         </option>
                       ))}
                     </Field>
+                  </div>
+                  <div>
+                    {" "}
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="country"
+                    />
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="state"
+                    />
+                    <ErrorMessage
+                      render={(msg) => <div className="error">{msg}</div>}
+                      name="city"
+                    />
                   </div>
                   <div className="containerButtonInfoById">
                     <button className="buttonOne buttonInfoById">
