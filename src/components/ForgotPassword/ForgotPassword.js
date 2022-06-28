@@ -18,10 +18,10 @@ const ForgotPassword = () => {
 
   //Validation using Yup
   const validationSchema = Yup.object({
-    email: Yup.string()
-      .required("Es necesario llenar este campo")
-      .email("El email no es válido")
-      .trim("Elimine los espacios"),
+    // email: Yup.string()
+    //   .required("Es necesario llenar este campo")
+    //   .email("El email no es válido")
+    //   .trim("Elimine los espacios"),
     password: Yup.string()
       .required("Es necesario llenar este campo.")
       .matches(
@@ -70,10 +70,10 @@ const ForgotPassword = () => {
                     type="email"
                     placeholder="Email"
                   />
-                  <ErrorMessage
+                  {/* <ErrorMessage
                     render={(msg) => <div className="error">{msg}</div>}
                     name="email"
-                  />
+                  /> */}
 
                   <label className="sign-label">Documento:</label>
                   <Field
