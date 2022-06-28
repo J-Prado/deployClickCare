@@ -12,6 +12,8 @@ import {
   getCountry,
   GetStatebyCountry,
   getUserDetail,
+  profEdition,
+  userEdition,
 } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 const UploadWrapper = styled.div`
@@ -57,6 +59,7 @@ const UploadWrapper = styled.div`
 const DataEdition = () => {
   //Hooks
   const id = jwt.decode(localStorage.getItem("session"))?.id;
+  console.log(id);
 
   const dispatch = useDispatch();
 
@@ -75,7 +78,7 @@ const DataEdition = () => {
   const country = useSelector((state) => state.country);
   const states = useSelector((state) => state.states);
   const cities = useSelector((state) => state.cities);
-  const register = useSelector((state) => state.userRegister);
+  const register = useSelector((state) => state.messagesEdition);
   let usuario = {};
 
   const [image, setImage] = React.useState(null);
@@ -111,7 +114,8 @@ const DataEdition = () => {
           phone2: usuario?.phone2, //
           id: id, //id_user
           photo: usuario?.photo, //
-
+          tuition: 123456,
+          trainings: "Enfermería",
           state: usuario?.state,
           city: usuario?.city,
           country: usuario?.country,
@@ -151,17 +155,28 @@ const DataEdition = () => {
     swal({
       text: "Para Confirmar Introduce tu Contraseña",
       content: "input",
+      attributes: {
+        type: "password",
+      },
       button: {
         text: "Validar",
         closeModal: false,
       },
     }).then((password) => {
       if (
+        verific === 1 &&
+        password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
+      ) {
+        dispatch(profEdition(values));
+        console.log("despache1");
+      } else if (
         verific === 0 &&
         password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
       ) {
-        dispatch();
+        dispatch(userEdition(values));
+        console.log("despache2");
       }
+      return swal("No se han validado los datos correctamente");
     });
   };
 
@@ -200,9 +215,7 @@ const DataEdition = () => {
               "El número no es válido."
             )
             .trim("Elimine los espacios"),
-          state: Yup.string().required("Es necesario llenar este campo."),
-          city: Yup.string().required("Es necesario llenar este campo."),
-          country: Yup.string().required("Es necesario llenar este campo."),
+
           nivelDeEstudio: Yup.string().required(
             "Es necesario llenar este campo."
           ),
@@ -248,9 +261,6 @@ const DataEdition = () => {
               "El número no es válido."
             )
             .trim("Elimine los espacios"),
-          state: Yup.string().required("Es necesario llenar este campo."),
-          city: Yup.string().required("Es necesario llenar este campo."),
-          country: Yup.string().required("Es necesario llenar este campo."),
         }
   );
 
