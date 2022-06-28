@@ -53,3 +53,7 @@ export const POST_AUCTION_FAILED = "POST_AUCTION_FAILED";
 
 //MERCADOPAGO
 export const MERCADOPAGO_PAYMENT = "MERCADOPAGO_PAYMENT";
+
+//User and Professional Custom Profile
+export const PROF_EDITION = "PROF_EDITION";
+export const USER_EDITION = "USER_EDITION";

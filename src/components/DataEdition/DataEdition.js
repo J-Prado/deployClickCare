@@ -148,6 +148,21 @@ const DataEdition = () => {
   const onSubmit = (values, { resetForm }) => {
     // resetForm();
     console.log(values);
+    swal({
+      text: "Para Confirmar Introduce tu Contraseña",
+      content: "input",
+      button: {
+        text: "Validar",
+        closeModal: false,
+      },
+    }).then((password) => {
+      if (
+        verific === 0 &&
+        password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
+      ) {
+        dispatch();
+      }
+    });
   };
 
   //Validation using Yup

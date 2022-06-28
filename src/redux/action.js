@@ -31,6 +31,8 @@ import {
   LOCATION,
   FORGET_PASSWORD,
   MERCADOPAGO_PAYMENT,
+  USER_EDITION,
+  PROF_EDITION,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -464,6 +466,49 @@ export function mercadoPagoPayment(values) {
       console.log(error);
       return dispatch({
         type: MERCADOPAGO_PAYMENT,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+//Professional Custom profile and User Too
+//Mercado Pago
+export function profEdition(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/editprofessional`, values, axiosConfig);
+
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: PROF_EDITION,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: PROF_EDITION,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+export function userEdition(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/edituser`, values, axiosConfig);
+
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: USER_EDITION,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: USER_EDITION,
         payload: error.response.data,
       });
     }

@@ -26,6 +26,8 @@ import {
   FECHA,
   FILTER_BY_SPEC,
   FORGET_PASSWORD,
+  USER_EDITION,
+  PROF_EDITION,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -49,6 +51,7 @@ const initialState = {
   userPostDetail: [],
   userDetail: [],
   newPassword: "",
+  messagesEdition: "",
 };
 
 //Reducers
@@ -292,6 +295,17 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         newPassword: action.payload,
+      };
+
+    case USER_EDITION:
+      return {
+        ...state,
+        messagesEdition: action.payload,
+      };
+    case PROF_EDITION:
+      return {
+        ...state,
+        messagesEdition: action.payload,
       };
 
     default:
