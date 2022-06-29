@@ -1,59 +1,102 @@
-.containerCardAuctProf{
-    width: 700px;
-    height: 400px;
-    margin-bottom: 1rem;
-    display: flex;
-    /* background-color: aqua; */
-    -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+.containerCardAuctProf {
+  width: 700px;
+  height: 400px;
+  margin-bottom: 1rem;
+  display: flex;
+  /* background-color: aqua; */
+  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-.containerCardAuctProfLeft{
-    width: 250px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.41);
-    border-radius: 16px;
-    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.145);
-    backdrop-filter: blur(8.5px);
-    -webkit-backdrop-filter: blur(8.5px);
-    border: 1px solid rgba(255, 255, 255, 0.17);
-    margin-top: 2rem;
-    margin-right: -2rem;
+.containerCardAuctProfLeft {
+  width: 250px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.41);
+  border-radius: 16px;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.145);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+  border: 1px solid rgba(255, 255, 255, 0.294);
+  margin-top: 2rem;
+  margin-right: -2rem;
 }
-.containerCardAuctProfRight{
-    width: 450px;
-    height: 400px;
-    background: rgba(26, 215, 228, 0.41);
-    border-radius: 16px;
-    
+.containerCardAuctProfRight {
+  width: 450px;
+  height: 450px;
+  background: rgba(230, 230, 230, 0.187);
+  border-radius: 16px;
+  padding: 1rem;
+  padding-left: 3rem;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.309);
+}
+.datetitleApli {
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
+  color: var(--main-extra-color);
+}
+.titlePosAuc {
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  color: var(--main-first-color);
+  font-size: 30px;
+  margin-bottom: 1rem;
+}
+.datetitlePosAuc {
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
+  color: var(--main-extra-color);
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+.subTitleActuc {
+  font-size: 20px;
+  font-family: "Nunito", sans-serif;
+  color: var(--main-extra-color);
+  text-align: left;
+  margin-bottom: 0;
+}
+.textoAuctTwo {
+  font-family: "Nunito", sans-serif;
+  color: var(--main-first-color);
+  font-weight: 800;
+  font-size: 24px;
+  margin-bottom: 0.5rem;
+}
+.datetitlePosAucOne {
+  color: var(--main-first-color);
+}
+.twoAucti2 {
+  font-size: 25px;
+}
+.dataAuctiExtra {
+  font-family: "Nunito", sans-serif;
+  color: var(--main-first-color);
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 0.5rem;
 }
 
-
-
-
-
- @-webkit-keyframes slide-in-left {
-    0% {
-      -webkit-transform: translateX(-1000px);
-              transform: translateX(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
   }
-  @keyframes slide-in-left {
-    0% {
-      -webkit-transform: translateX(-1000px);
-              transform: translateX(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
-      opacity: 1;
-    }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

@@ -3,7 +3,7 @@ import "./AuctionByPro.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAuctionsByProfesional } from "../../../../redux/action.js";
-import CardAuctProf from "./CardAucProf/CardAuctProf.js";
+import CardAuctProf from "./CardAucProf/CardAuctProf";
 import sliceRight from "../../../../images/sliceRight.png";
 import sliceLeft from "../../../../images//sliceLeft.png";
 
@@ -70,6 +70,7 @@ function AuctionByPro({ idPr }) {
               date={e.date}
               offer={e.offer}
               comment={e.comment}
+              approved={e.approved}
               date_post={e.post.date_post}
               date_ini={e.post.date_ini}
               date_fin={e.post.date_fin}

@@ -1,8 +1,9 @@
 import React from 'react'
 import "./CardAuctProf.css"
 
-function CardAuctProf({date,offer,comment,date_post,date_ini,date_fin,needs,namePatient,agePatient}) {
+function CardAuctProf({date,offer,comment,approved,date_post,date_ini,date_fin,needs,namePatient,agePatient,city}) {
     
+  console.log(approved)
     const whenIn = date_ini
     const whenOut = date_fin
 
@@ -57,19 +58,25 @@ function CardAuctProf({date,offer,comment,date_post,date_ini,date_fin,needs,name
   return (
     <div className='containerCardAuctProf'>
       <div className='containerCardAuctProfLeft'>
-        <h2 className='titleOneCardPostUserById '>{postedAgo}</h2>
-        <h2 className='textCardPostUserById '>Oferta: </h2>
-        <h1 className='titleOneCardPostUserById'>$ {offer}</h1>
-        <h2 className='textCardPostUserById '>Comentario: </h2>
-        <h1 className='titleOneCardPostUserById'>{comment}</h1>
+        <h3 className='datetitleApli'>Aplicaste hace: </h3>
+        <h3 className='dataAuctiExtra'>{postedAgo}</h3>
+        <h2 className='datetitleApli'>Oferta: </h2>
+        <h2 className='dataAuctiExtra'>$ {offer}</h2>
+        <h2 className='datetitleApli'>Comentario: </h2>
+        <h2 className='dataAuctiExtra'>{comment}</h2>
         <button className='buttonOne buttonOneCardPostUserById'>Eliminar</button>
       </div>
       <div className='containerCardAuctProfRight'>
-      <h2 className='titleOneCardPostUserById '>{postedAgo1}</h2>
-        <h2 className='textCardPostUserById '>Oferta: </h2>
-        <h1 className='titleOneCardPostUserById'>$ {dateService}</h1>
-        <h2 className='textCardPostUserById '>Comentario: </h2>
-        <h1 className='titleOneCardPostUserById'>{needs}</h1>
+        <h2 className='titlePosAuc'>Oferta: </h2>
+        <h2 className='datetitlePosAuc'>Oferta desde: <span className='datetitlePosAucOne '>{postedAgo1}</span></h2>
+        <h2 className='subTitleActuc'>Oferta desde:</h2>
+        <h2 className='textoAuctTwo'>{dateService}</h2>
+        <h2 className='subTitleActuc'>Comentario: </h2>
+        <h2 className='textoAuctTwo'>{needs}</h2>
+        <h2 className='datetitlePosAuc twoAucti2'>Paciente: <span className='datetitlePosAucOne '> {namePatient}</span> </h2>
+        
+        <h2 className='datetitlePosAuc twoAucti2'>Edad: <span className='datetitlePosAucOne '> {agePatient}</span> </h2>
+        
       </div>
     </div>
   )

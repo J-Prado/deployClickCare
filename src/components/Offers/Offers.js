@@ -14,6 +14,7 @@ import { HiArrowCircleLeft } from "react-icons/hi";
 import "./Offers.css";
 import Card from "./Card/Card.js";
 import { Link } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar.js";
 
 function Offers() {
   const usuario = useSelector((state) => state.userDetail);
@@ -125,6 +126,7 @@ function Offers() {
           />
           <button className="search buttonBar">🔎</button>
         </div> */}
+        <SearchBar />
         <Link to="/postForm">
           <button className="btnCrear buttonOne">Crear Post</button>
         </Link>
@@ -135,7 +137,6 @@ function Offers() {
             </h2>
           ) : null}
         </div>
-
         <div className="containerOffers">
           <div className="containerOffersLeft">
             <div className="containerInputDate">
@@ -318,7 +319,6 @@ function Offers() {
             ))}
           </div>
         </div>
-
         <div className="containerPagButton">
           <span className="countPag" id="paginas">
             Pagina 1
