@@ -842,7 +842,7 @@ export default function Admin() {
         </>
       ) : null}
       {table === "Profesionales" ? (
-        <>
+        <div className="dani">
           <button className="buttonOne posBottonVolver" onClick={activarProf}>
             ACTIVAR PROFESIONAL
           </button>
@@ -864,7 +864,7 @@ export default function Admin() {
           >
             CANCELAR MEMBRESÍA
           </button>
-        </>
+        </div>
       ) : null}
     </div>
   );

@@ -6,13 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useCookies, Cookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import jwt from "jsonwebtoken";
-import image from "./helpImages/doctor_PNG15967.png";
+import image from "./helpImages/imgUserById.png";
 import * as Yup from "yup";
 import swal from "sweetalert";
 //Google
 import { useAuth0 } from "@auth0/auth0-react";
 import google from "../LoginForm/helpImages/google.png";
-import { email } from "react-admin";
+// import { email } from "react-admin";
 const Login = (props) => {
   //Hooks needed
   const dispatch = useDispatch();
@@ -115,10 +115,10 @@ const Login = (props) => {
             ) : null}
             <div className="password"></div>
             <div className="password">
-              <label className="labelCheck">
+              {/* <label className="labelCheck">
                 <input className="box" type="checkbox" />
                 Recuerdame.
-              </label>
+              </label> */}
               <Link to="/forgetpassword">
                 <button className="buttonOne forget">
                   ¿Olvidaste tu contraseña?

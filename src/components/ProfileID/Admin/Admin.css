@@ -1,7 +1,10 @@
 * {
   text-decoration: none;
 }
-
+.dani {
+  position: relative;
+  bottom: 50px;
+}
 .tablauser {
   height: 400;
   width: "100%";
@@ -44,7 +47,6 @@
   /* font-size: 30px; */
   text-align: center;
   margin-left: 10px;
-
 }
 
 .divGeneral {

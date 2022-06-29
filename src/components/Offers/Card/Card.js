@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.css";
-import imguser1 from "../../Landingpage/Post/imgPost/imguser1.jpg";
+import imgUserById from "../../../images/imgUserById.png";
 import { GoCalendar } from "react-icons/go";
 import { Link } from "react-router-dom";
 
@@ -17,6 +17,7 @@ const Card = ({
   needs,
   specialty,
   name,
+  photo,
 }) => {
   //Fecha Posteo
   //let datePos = datPost +" "+ hourPost
@@ -138,7 +139,15 @@ const Card = ({
         </div>
       </div>
       <div className="cardContainerLeft">
-        <img className="imguserOffers" src={imguser1} alt="" />
+        {photo ? (
+          <img className="imguserOffers" src={photo} alt="imguserOffers" />
+        ) : (
+          <img
+            className="imguserOffers"
+            src={imgUserById}
+            alt="imguserOffers"
+          />
+        )}
       </div>
     </div>
   );

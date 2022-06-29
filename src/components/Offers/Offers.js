@@ -315,6 +315,7 @@ function Offers() {
                 needs={d.needs}
                 specialty={d.specialty.specialty}
                 name={d.user.name}
+                photo={d.user.photo}
               />
             ))}
           </div>
