@@ -40,19 +40,23 @@ export default function Contratos({
         <h1 className='contractText'>Comentario del profesional {auctionComment} </h1>
         </div>
     <div className='professionalInfo'>
+      <div className='professionalInfoText' >
         <h1 className='contractTextTitle'>Datos del profesional</h1>
         <h1 className='contractText'> Nombre: {profesionalName},{profesionalSurname}</h1>
         <h1 className='contractText'> Email: {profesionalemail}</h1>
         <h1 className='contractText'> Numero telefonico: {profesionalPhone}</h1>
+      </div>
         <div className='containerImgContract'>
         <img className='imagenContract' src={profesionalPhoto?profesionalPhoto:"https://us.123rf.com/450wm/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-icono-de-perfil-de-avatar-predeterminado-para-hombre-marcador-de-posici%C3%B3n-de-foto-gris-vector-de-ilu.jpg?ver=6"} alt=""/>
         </div>
      </div>
-    <div className='userInfoContainer'>
+    <div className='professionalInfo'>
+      <div className='professionalInfoText' >
         <h1 className='contractTextTitle'> Datos del usuario</h1>
         <h1 className='contractText'> Nombre : {userPost},{userPostSurname}</h1>
         <h1 className='contractText'> Email: {userPostemail}</h1>
         <h1 className='contractText'> Numero telefonico: {userPhone}</h1>
+      </div>
         <div className='containerImgContract'>
         <img className='imagenContract' src={userPostphoto?userPostphoto:"https://us.123rf.com/450wm/thesomeday123/thesomeday1231712/thesomeday123171200009/91087331-icono-de-perfil-de-avatar-predeterminado-para-hombre-marcador-de-posici%C3%B3n-de-foto-gris-vector-de-ilu.jpg?ver=6"} alt=""/>
         </div>

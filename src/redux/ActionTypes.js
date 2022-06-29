@@ -84,3 +84,5 @@ export const GET_KPI = "GET_KPI";
 
 export const ACTIVATE_POST = "ACTIVATE_POST";
 export const CANCEL_POST = "CANCEL_POST";
+
+export const IS_PROF = "IS_PROF";

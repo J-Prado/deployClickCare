@@ -54,6 +54,7 @@ import {
   GET_KPI,
   CANCEL_POST,
   ACTIVATE_POST,
+  IS_PROF,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -899,5 +900,18 @@ export function getTableUsers() {
     } catch (error) {
       console.log(error);
     }
+  };
+}
+
+export function isProfessional(values) {
+  return async function (dispatch) {
+    const resp = await axios.get(`/professionals`);
+    const json = await resp.data;
+    const profFilter = json.filter((e) => e.userId === values);
+    const confirmationProf = profFilter.length !== 0 ? true : false;
+    return dispatch({
+      type: IS_PROF,
+      payload: confirmationProf,
+    });
   };
 }

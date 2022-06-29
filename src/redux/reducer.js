@@ -31,6 +31,7 @@ import {
   GET_POST_DETAIL_AUCTION,
   GET_AUCTION_PROFESIONAL,
   SEARCH_POST,
+  IS_PROF,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -58,6 +59,7 @@ const initialState = {
   postDetailAuctions: [],
   auctionByProfesional: [],
   need: [],
+  isProfessional: "",
 };
 
 //Reducers
@@ -330,7 +332,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         messagesEdition: action.payload,
       };
-
+    case IS_PROF:
+      return {
+        ...state,
+        isProfessional: action.payload,
+      };
     default:
       return { ...state };
   }
