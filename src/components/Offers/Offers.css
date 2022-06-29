@@ -1,10 +1,27 @@
-.pageOffers{
+.pageOffers {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
 }
-.pageOffersIn{
+.searchBar {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.inputBar {
+  width: 20em;
+  border-radius: 10em;
+  font-size: 1em;
+}
+.buttonBar {
+  font-size: 2em;
+  background: none;
+}
+
+.pageOffersIn {
   width: 90%;
   margin-top: 100px;
   margin-bottom: 100px;
@@ -12,7 +29,7 @@
   justify-content: center;
   text-align: center;
 }
-.containerPagButton{
+.containerPagButton {
   width: 54.9%;
   height: 80px;
   margin-left: auto;
@@ -22,19 +39,20 @@
   align-items: center;
   margin-top: 0rem;
 }
-.buttonArrowOffers{
+.buttonArrowOffers {
   color: var(--main-first-color);
   font-size: 45px;
   filter: drop-shadow(1px 1px 0.5px #000);
-  cursor:pointer;
+  cursor: pointer;
 }
-.countPag, #paginadoNumerico{
+.countPag,
+#paginadoNumerico {
   color: var(--main-first-color);
   font-size: 20px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 600;
 }
-.containerTitlesOffers{
+.containerTitlesOffers {
   width: 90%;
   height: 30px;
   margin-left: auto;
@@ -44,45 +62,52 @@
   align-items: center;
   margin-top: 2rem;
 }
-.lenthCity{
-  animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both
+.lenthCity {
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
-.containerOffers{
+.containerOffers {
   width: 100%;
   margin-top: 1rem;
   display: flex;
   justify-content: center;
 }
-.containerOffersLeft{
+.containerOffersLeft {
   width: auto;
   height: 900px;
 
   margin-top: 2rem;
   display: block;
   /* background-color: aqua; */
-
 }
-.containerInputDate{
-    
+.containerInputDate {
 }
 
-.containerInputDate{
+.containerInputDate {
   display: flex;
   justify-content: right;
   text-align: right;
   align-items: center;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: var(--main-first-color);
   font-size: 25px;
   margin-bottom: 1rem;
 }
-.titleFilters{
+.titleFilters {
   font-size: 30px;
   color: var(--main-extra-color);
 }
-.containerOffersRight{
+.containerOffersRight {
   width: 55%;
   height: 1380px;
 }
 
-@keyframes text-focus-in{0%{filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}

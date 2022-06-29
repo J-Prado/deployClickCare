@@ -49,7 +49,7 @@ function Offers() {
   //Paginado//
   const PostPagOne = page * PostPage;
   const firstPostPage = PostPagOne - PostPage;
-  const PostByPage = post.slice(firstPostPage, PostPagOne);
+  const PostByPage = post?.slice(firstPostPage, PostPagOne);
   const maxPages = Math.ceil(post.length / PostPagOne);
 
   function pageNum(e) {
@@ -117,7 +117,14 @@ function Offers() {
   return (
     <div className="pageOffers" onLoad={onLoad}>
       <div className="pageOffersIn">
-        <h2>search hhhhhhhhhhhh</h2>
+        {/* <div className="searchBar">
+          <input
+            type="search"
+            className="searchBar inputBar"
+            placeholder="Buscar"
+          />
+          <button className="search buttonBar">🔎</button>
+        </div> */}
         <Link to="/postForm">
           <button className="btnCrear buttonOne">Crear Post</button>
         </Link>
@@ -251,7 +258,7 @@ function Offers() {
                 <br />
               </form>
             </div>
-            <div className="containerInputDate">
+            {/* <div className="containerInputDate">
               <form onFocus={(e) => handleDateChange(e)}>
                 <legend className="titleFilters">Ubicacion</legend>
                 <label>
@@ -288,7 +295,7 @@ function Offers() {
                 </label>
                 <br />
               </form>
-            </div>
+            </div> */}
           </div>
 
           <div className="containerOffersRight">
