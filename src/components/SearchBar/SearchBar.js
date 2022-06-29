@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { searchPost } from "../../redux/action";
 
-function SearchBar(props) {
+function SearchBar() {
   const dispatch = useDispatch();
   const [state, setState] = useState("");
+  console.log(state);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -11,7 +13,7 @@ function SearchBar(props) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
+    dispatch(searchPost(event.target.value));
     setState("");
   };
 
@@ -21,7 +23,7 @@ function SearchBar(props) {
         className="searchInput"
         type="text"
         placeholder="Necesidad..."
-        value={state?.toLocaleLowerCase()}
+        value={state}
         onChange={handleChange}
       />
       <button className="searchButton" type="submit" onClick={handleSubmit}>

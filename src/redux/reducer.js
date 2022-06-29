@@ -30,6 +30,7 @@ import {
   PROF_EDITION,
   GET_POST_DETAIL_AUCTION,
   GET_AUCTION_PROFESIONAL,
+  SEARCH_POST,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -206,6 +207,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         userDetail: action.payload,
       };
+    case SEARCH_POST:
+      return {
+        ...state,
+        post: action.payload,
+      };
+
     //FILTER
     case LOCATION:
       let copyLocation = state.copyPost;

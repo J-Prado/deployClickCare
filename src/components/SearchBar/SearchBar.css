@@ -2,8 +2,13 @@
 }
 .searchImg {
 }
-
+/* 
 .searchInput {
+  width: 20em;
+  border-radius: 10em;
+  font-size: 1em;
 }
 .searchButton {
-}
+  height: 2rem;
+  background: none;
+} */

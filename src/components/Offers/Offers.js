@@ -118,14 +118,14 @@ function Offers() {
   return (
     <div className="pageOffers" onLoad={onLoad}>
       <div className="pageOffersIn">
-        {/* <div className="searchBar">
-          <input
+        <div className="searchBar">
+          {/* <input
             type="search"
             className="searchBar inputBar"
             placeholder="Buscar"
           />
-          <button className="search buttonBar">🔎</button>
-        </div> */}
+          <button className="search buttonBar">🔎</button> */}
+        </div>
         <SearchBar />
         <Link to="/postForm">
           <button className="btnCrear buttonOne">Crear Post</button>

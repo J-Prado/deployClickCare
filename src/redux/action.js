@@ -35,6 +35,7 @@ import {
   PROF_EDITION,
   GET_POST_DETAIL_AUCTION,
   GET_AUCTION_PROFESIONAL,
+  SEARCH_POST,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -216,6 +217,25 @@ export function getAllPost() {
       });
     } catch (error) {
       return error;
+    }
+  };
+}
+
+export function searchPost(value) {
+  return async function (dispatch) {
+    try {
+      let response = await axios.get(`/searchPost`, value);
+      // console.log(response.data)
+      return dispatch({
+        type: SEARCH_POST,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: SEARCH_POST,
+        payload: error.response.data,
+      });
     }
   };
 }

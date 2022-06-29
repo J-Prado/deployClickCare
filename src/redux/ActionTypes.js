@@ -33,6 +33,7 @@ export const LOCATION = "LOCATION";
 //Post
 export const GET_SPECIALTIES = "GET_SPECIALTIES";
 export const POST_REGISTER = "POST_REGISTER";
+export const SEARCH_POST = "SEARCH_POST";
 
 //Payment
 export const VALIDATE_PREMIUM = "ALIDATE_PREMIUM";

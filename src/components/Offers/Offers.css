@@ -5,20 +5,30 @@
   justify-content: center;
 }
 .searchBar {
-  padding: 10px;
+  margin: 20px;
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
 }
-.inputBar {
-  width: 20em;
+.searchInput {
+  width: 15em;
+  height: 30px;
   border-radius: 10em;
   font-size: 1em;
+  padding: 10px;
 }
-.buttonBar {
-  font-size: 2em;
-  background: none;
+.searchImg {
+  width: auto;
+  background-color: none;
+}
+
+.searchButton > .searchImg {
+  height: 30px;
+  background-color: none;
+}
+.searchButton:hover {
+  cursor: pointer;
 }
 
 .pageOffersIn {
