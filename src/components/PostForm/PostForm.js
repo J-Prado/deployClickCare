@@ -98,7 +98,10 @@ const PostForm = () => {
       swal({
         title: postInfo,
         text: "Continue usando ClickCare.",
-      });
+      }).then(
+        () =>
+          (window.location = "https://deploy-click-care.vercel.app/user/:id")
+      );
     }
   };
   onClick();
