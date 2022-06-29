@@ -13,7 +13,7 @@ function SearchBar() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(searchPost(event.target.value));
+    dispatch(searchPost(encodeURI(state)));
     setState("");
   };
 
@@ -23,7 +23,7 @@ function SearchBar() {
         className="searchInput"
         type="text"
         placeholder="Necesidad..."
-        value={state}
+        value={state?.toLocaleLowerCase()}
         onChange={handleChange}
       />
       <button className="searchButton" type="submit" onClick={handleSubmit}>

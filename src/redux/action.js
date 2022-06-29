@@ -223,9 +223,10 @@ export function getAllPost() {
 
 export function searchPost(value) {
   return async function (dispatch) {
+    console.log(value);
     try {
-      let response = await axios.get(`/searchPost`, value);
-      // console.log(response.data)
+      let response = await axios.get(`/searchPost/${value}`);
+      console.log(response.data);
       return dispatch({
         type: SEARCH_POST,
         payload: response.data,

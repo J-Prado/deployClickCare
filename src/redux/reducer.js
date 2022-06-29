@@ -57,6 +57,7 @@ const initialState = {
   messagesEdition: "",
   postDetailAuctions: [],
   auctionByProfesional: [],
+  need: [],
 };
 
 //Reducers
@@ -211,6 +212,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         post: action.payload,
+        need: action.payload,
       };
 
     //FILTER
