@@ -1,10 +1,13 @@
 * {
   text-decoration: none;
 }
-.dani {
-  position: relative;
-  bottom: 50px;
+.containerProfileIdUs_Pro_Adm {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }
+
 .tablauser {
   height: 400;
   width: "100%";
@@ -16,6 +19,23 @@
 
 .h3usuario {
   text-align: left;
+}
+
+.divdeDivs {
+  display: grid;
+}
+.buttonAdmin {
+  position: relative;
+  top: 40px;
+}
+.h5Admin {
+  position: relative;
+  top: -15px;
+}
+
+.divDatagridMui{
+  position: relative;
+  top: 20px;
 }
 
 .divTabla {
@@ -49,14 +69,14 @@
   margin-left: 10px;
 }
 
-.divGeneral {
-  width: 100%;
+.divGeneralTABLERO {
+  width: 80%;
   height: 800px;
   justify-content: center;
   /* background-color: aqua; */
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 10%;
+  margin-top: 6%;
   margin-bottom: 10%;
   align-items: center;
   text-align: center;

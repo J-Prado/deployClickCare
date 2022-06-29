@@ -722,150 +722,197 @@ export default function Admin() {
 
   //RENDERIZADO
   return (
-    <div className="divGeneral">
-      <h1 className="divTabla">TABLERO DE ADMINISTRACIÓN</h1>
-      {/* <h3 className="divTabla h3usuario">Id seleccionado:{idSelected}</h3> */}
-      <div className="divIndicadores">
-        <div className="divModuloIndicadores">
-          <h2>Usuarios Activos: {kpi.usuarios}</h2>
-          <h2>Profesionales Activos: {kpi.professionals}</h2>
-          <h2>Cantidad Miembros: {kpi.members}</h2>
-          <h2>
-            Members:{" "}
-            {((100 * Number(kpi.members)) / Number(kpi.professionals)).toFixed(
-              0
-            )}{" "}
-            %
-          </h2>
+    <div className="containerProfileIdUs_Pro_Adm">
+      <div className="divGeneralTABLERO">
+        <h1 className="divTabla">TABLERO DE ADMINISTRACIÓN</h1>
+        {/* <h3 className="divTabla h3usuario">Id seleccionado:{idSelected}</h3> */}
+        <div className="divIndicadores">
+          <div className="divModuloIndicadores">
+            <h2>Usuarios Activos: {kpi.usuarios}</h2>
+            <h2>Profesionales Activos: {kpi.professionals}</h2>
+            <h2>Cantidad Miembros: {kpi.members}</h2>
+            <h2>
+              Members:{" "}
+              {(
+                (100 * Number(kpi.members)) /
+                Number(kpi.professionals)
+              ).toFixed(0)}{" "}
+              %
+            </h2>
+          </div>
+          <div className="divModuloIndicadores">
+            <h2>Posteos: {kpi.posts}</h2>
+            <h2>Aplicaciones: {kpi.aplicaciones}</h2>
+            <h2>
+              Aplicacion/Posteo:{" "}
+              {(Number(kpi.aplicaciones) / Number(kpi.posts)).toFixed(1)}
+            </h2>
+          </div>
+          <div className="divModuloIndicadores">
+            <h2>Contratos: {kpi.contractsactive}</h2>
+            <h2>
+              Promedio $/Contratos: $
+              {(Number(kpi.priceactivo) / Number(kpi.contractsactive)).toFixed(
+                0
+              )}
+            </h2>
+            <h2>Sum $ Contratos: ${kpi.priceactivo}</h2>
+          </div>
         </div>
-        <div className="divModuloIndicadores">
-          <h2>Posteos: {kpi.posts}</h2>
-          <h2>Aplicaciones: {kpi.aplicaciones}</h2>
-          <h2>
-            Aplicacion/Posteo:{" "}
-            {(Number(kpi.aplicaciones) / Number(kpi.posts)).toFixed(1)}
-          </h2>
+        <br />
+        <br />
+        <div className="divdeDivs">
+          <div>
+            <button className="buttonOne posBottonVolver" onClick={bringUsers}>
+              Usuarios
+            </button>
+            <button className="buttonOne posBottonVolver" onClick={bringProfes}>
+              Profesionales
+            </button>
+            <button
+              className="buttonOne posBottonVolver"
+              onClick={bringPosteos}
+            >
+              Posteos
+            </button>
+            <button
+              className="buttonOne posBottonVolver"
+              onClick={bringAuctions}
+            >
+              Aplicaciones
+            </button>
+            <button
+              className="buttonOne posBottonVolver"
+              onClick={bringContracts}
+            >
+              Contratos
+            </button>
+          </div>
+          <div className="h5Admin">
+            {table ? (
+              <h5 className="divTabla">Visualizando Tabla: {table}</h5>
+            ) : null}
+          </div>
+          <div className="buttonAdmin">
+            {table === "Posteos" ? (
+              <>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={activarPOST}
+                >
+                  Activar Post
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={cancelarPost}
+                >
+                  Desactivar Post
+                </button>
+              </>
+            ) : null}
+            {table === "Usuarios" ? (
+              <>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={activarUser}
+                >
+                  Activar Usuario
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={desactivarUser}
+                >
+                  Desactivar Usuario
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={changeToUser}
+                >
+                  Dar rol usuario
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={changeToAdmin}
+                >
+                  Dar rol admin
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={validateMail}
+                >
+                  Validar mail
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={invalidateMail}
+                >
+                  Invalidar mail
+                </button>
+              </>
+            ) : null}
+            {table === "Profesionales" ? (
+              <>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={activarProf}
+                >
+                  ACTIVAR PROFESIONAL
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={desactivarProf}
+                >
+                  DESACTIVAR PROFESIONAL
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={activateMembership}
+                >
+                  ACTIVAR MEMBRESÍA
+                </button>
+                <button
+                  className="buttonOne posBottonVolver"
+                  onClick={cancelmembership}
+                >
+                  CANCELAR MEMBRESÍA
+                </button>
+              </>
+            ) : null}
+          </div>
         </div>
-        <div className="divModuloIndicadores">
-          <h2>Contratos: {kpi.contractsactive}</h2>
-          <h2>
-            Promedio $/Contratos: $
-            {(Number(kpi.priceactivo) / Number(kpi.contractsactive)).toFixed(0)}
-          </h2>
-          <h2>Sum $ Contratos: ${kpi.priceactivo}</h2>
+        <div className="divDatagridMui">
+          <DataGrid
+            className="tablauser"
+            rows={info.data}
+            columns={info.columns}
+            autoHeight={true}
+            showBorders={true}
+            allowColumnResizing={true}
+            pageSize={10}
+            rowsPerPageOptions={[20]}
+            rowAlternationEnabled={true}
+            sx={{
+              boxShadow: 2,
+              border: 2,
+              borderColor: "primary.light",
+              "& .MuiDataGrid-cell:hover": {
+                color: "primary.main",
+              },
+            }}
+            components={{
+              Toolbar: GridToolbar, //CustomToolbar
+            }}
+            onRowClick={handleRowClick} //https://mui.com/x/react-data-grid/events/
+            onCellDoubleClick={goToSeeDetails}
+            key={Math.random()}
+            // hoverStateEnabled={true}
+            // onCellClick={handleCellClick}
+            // checkboxSelection
+            // getRowClassName={(params) => `super-app-theme--${params.row.status}`}
+            // columnAutoWidth={true}
+          />
         </div>
       </div>
-      <br />
-      <br />
-      <button className="buttonOne posBottonVolver" onClick={bringUsers}>
-        Usuarios
-      </button>
-      <button className="buttonOne posBottonVolver" onClick={bringProfes}>
-        Profesionales
-      </button>
-      <button className="buttonOne posBottonVolver" onClick={bringPosteos}>
-        Posteos
-      </button>
-      <button className="buttonOne posBottonVolver" onClick={bringAuctions}>
-        Aplicaciones
-      </button>
-      <button className="buttonOne posBottonVolver" onClick={bringContracts}>
-        Contratos
-      </button>
-      {table ? <h5 className="divTabla">Visualizando Tabla: {table}</h5> : null}
-      <DataGrid
-        className="tablauser"
-        rows={info.data}
-        columns={info.columns}
-        autoHeight={true}
-        showBorders={true}
-        allowColumnResizing={true}
-        pageSize={10}
-        rowsPerPageOptions={[20]}
-        rowAlternationEnabled={true}
-        sx={{
-          boxShadow: 2,
-          border: 2,
-          borderColor: "primary.light",
-          "& .MuiDataGrid-cell:hover": {
-            color: "primary.main",
-          },
-        }}
-        components={{
-          Toolbar: GridToolbar, //CustomToolbar
-        }}
-        onRowClick={handleRowClick} //https://mui.com/x/react-data-grid/events/
-        onCellDoubleClick={goToSeeDetails}
-        key={Math.random()}
-        // hoverStateEnabled={true}
-        // onCellClick={handleCellClick}
-        // checkboxSelection
-        // getRowClassName={(params) => `super-app-theme--${params.row.status}`}
-        // columnAutoWidth={true}
-      />
-      {table === "Posteos" ? (
-        <>
-          <button className="buttonOne posBottonVolver" onClick={activarPOST}>
-            ACTIVAR POST
-          </button>
-          <button className="buttonOne posBottonVolver" onClick={cancelarPost}>
-            DESACTIVAR POST
-          </button>
-        </>
-      ) : null}
-      {table === "Usuarios" ? (
-        <>
-          <button className="buttonOne posBottonVolver" onClick={activarUser}>
-            ACTIVAR USUARIO
-          </button>
-          <button
-            className="buttonOne posBottonVolver"
-            onClick={desactivarUser}
-          >
-            DESACTIVAR USUARIO
-          </button>
-          <button className="buttonOne posBottonVolver" onClick={changeToUser}>
-            DAR ROL USUARIO
-          </button>
-          <button className="buttonOne posBottonVolver" onClick={changeToAdmin}>
-            DAR ROL ADMIN
-          </button>
-          <button className="buttonOne posBottonVolver" onClick={validateMail}>
-            VALIDAR MAIL
-          </button>
-          <button
-            className="buttonOne posBottonVolver"
-            onClick={invalidateMail}
-          >
-            INVALIDAR MAIL
-          </button>
-        </>
-      ) : null}
-      {table === "Profesionales" ? (
-        <div className="dani">
-          <button className="buttonOne posBottonVolver" onClick={activarProf}>
-            ACTIVAR PROFESIONAL
-          </button>
-          <button
-            className="buttonOne posBottonVolver"
-            onClick={desactivarProf}
-          >
-            DESACTIVAR PROFESIONAL
-          </button>
-          <button
-            className="buttonOne posBottonVolver"
-            onClick={activateMembership}
-          >
-            ACTIVAR MEMBRESÍA
-          </button>
-          <button
-            className="buttonOne posBottonVolver"
-            onClick={cancelmembership}
-          >
-            CANCELAR MEMBRESÍA
-          </button>
-        </div>
-      ) : null}
     </div>
   );
 }
