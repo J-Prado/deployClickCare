@@ -36,6 +36,24 @@ import {
   GET_POST_DETAIL_AUCTION,
   GET_AUCTION_PROFESIONAL,
   SEARCH_POST,
+  GET_TABLE_USERS,
+  GET_TABLE_PROFS,
+  GET_TABLE_POSTEOS,
+  GET_TABLE_AUCTIONS,
+  GET_TABLE_CONTRACTS,
+  CANCEL_USER,
+  ACTIVATE_USER,
+  MAKE_USER_ADMIN,
+  MAKE_USER_usuario,
+  DESACTIVATE_PROFESSIONAL,
+  ACTIVATE_PROFESSIONAL,
+  ACTIVATE_MEMBERSHIP,
+  CANCEL_MEMBERSHIP,
+  EMAIL_VALIDATION,
+  EMAIL_CANCELATION,
+  GET_KPI,
+  CANCEL_POST,
+  ACTIVATE_POST,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -555,6 +573,331 @@ export function userEdition(values) {
         type: USER_EDITION,
         payload: error.response.data,
       });
+    }
+  };
+}
+
+export function activatePost(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/activePost/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: ACTIVATE_POST,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: ACTIVATE_POST,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function cancelPost(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/cancelPost/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: CANCEL_POST,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: CANCEL_POST,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function getKpi() {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/indicadores`);
+      const json = await resp.data;
+      return dispatch({
+        type: GET_KPI,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+export function cancelateEmailUser(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/NOvalidatedEmailUser/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: EMAIL_CANCELATION,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: EMAIL_CANCELATION,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function validateEmailUser(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/validatedEmailUser/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: EMAIL_VALIDATION,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: EMAIL_VALIDATION,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+export function cancelMember(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/balance_0/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: CANCEL_MEMBERSHIP,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: CANCEL_MEMBERSHIP,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+export function activateMember(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/balance_1/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: ACTIVATE_MEMBERSHIP,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: ACTIVATE_MEMBERSHIP,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function activateProfessional(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/activeProfessional/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: ACTIVATE_PROFESSIONAL,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: ACTIVATE_PROFESSIONAL,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function desactivateProf(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/cancelProfessional/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: DESACTIVATE_PROFESSIONAL,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: DESACTIVATE_PROFESSIONAL,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function makeUserUsuario(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/userUsuario/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: MAKE_USER_usuario,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: MAKE_USER_usuario,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+export function makeUserAdmin(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/userAdmin/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: MAKE_USER_ADMIN,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: MAKE_USER_ADMIN,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function activateUser(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/activeUser/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: ACTIVATE_USER,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: ACTIVATE_USER,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+export function cancelUser(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put(`/cancelUser/${values}`);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: CANCEL_USER,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: CANCEL_USER,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function getTableContracts() {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/AllContractsActivo`);
+      const json = await resp.data;
+      return dispatch({
+        type: GET_TABLE_CONTRACTS,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getTableAplicaciones() {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/AllAuctions`);
+      const json = await resp.data;
+      return dispatch({
+        type: GET_TABLE_AUCTIONS,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getTablePosteos() {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/Allposts`);
+      const json = await resp.data;
+      return dispatch({
+        type: GET_TABLE_POSTEOS,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getTableProfs() {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/AllprofessionalsActive`); //professionals
+      const json = await resp.data;
+      return dispatch({
+        type: GET_TABLE_PROFS,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function getTableUsers() {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.get(`/users`);
+      const json = await resp.data;
+      return dispatch({
+        type: GET_TABLE_USERS,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
     }
   };
 }

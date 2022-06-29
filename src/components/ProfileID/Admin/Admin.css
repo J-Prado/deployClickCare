@@ -1,0 +1,61 @@
+* {
+  text-decoration: none;
+}
+
+.tablauser {
+  height: 400;
+  width: "100%";
+}
+
+.containerProfileIdUs_Pro_Adm {
+  background-color: rgba(255, 255, 255, 0.921);
+}
+
+.h3usuario {
+  text-align: left;
+}
+
+.divTabla {
+  /* margin-top: 10px; */
+  /* margin-right: 32px; */
+  /* color: var(--main-first-color); */
+  color: gray;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 35px;
+  justify-content: center;
+  /* width: 400px; */
+  background-color: rgba(255, 255, 255, 0.837);
+}
+
+.divIndicadores {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* background-color: rgb(36, 184, 184); */
+
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 15px;
+  margin-top: 10;
+}
+.divModuloIndicadores {
+  background-color: rgba(128, 128, 128, 0.16);
+  border: 3px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  /* font-size: 30px; */
+  text-align: center;
+  margin-left: 10px;
+
+}
+
+.divGeneral {
+  width: 100%;
+  height: 800px;
+  justify-content: center;
+  /* background-color: aqua; */
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  align-items: center;
+  text-align: center;
+}
