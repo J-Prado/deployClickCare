@@ -34,6 +34,7 @@ import {
   USER_EDITION,
   PROF_EDITION,
   GET_POST_DETAIL_AUCTION,
+  GET_AUCTION_PROFESIONAL,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -415,7 +416,16 @@ export function postAuction(values) {
     }
   };
 }
-
+export function getAuctionsByProfesional(id) {
+  return async function (dispatch) {
+    const response = await axios.get(`auctionsByProfessiona/` + id);
+    //console.log("DATA ID:", response)
+    return dispatch({
+      type: GET_AUCTION_PROFESIONAL,
+      payload: response.data,
+    });
+  };
+}
 //Filters
 export const dateFilter = (value) => {
   console.log(value);

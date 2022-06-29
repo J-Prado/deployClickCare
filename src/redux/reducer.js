@@ -29,6 +29,7 @@ import {
   USER_EDITION,
   PROF_EDITION,
   GET_POST_DETAIL_AUCTION,
+  GET_AUCTION_PROFESIONAL,
 } from "./ActionTypes";
 
 //Initial State Redux
@@ -54,6 +55,7 @@ const initialState = {
   newPassword: "",
   messagesEdition: "",
   postDetailAuctions: [],
+  auctionByProfesional: [],
 };
 
 //Reducers
@@ -147,6 +149,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         postRegister: action.payload,
+      };
+    case GET_AUCTION_PROFESIONAL:
+      return {
+        ...state,
+        auctionByProfesional: action.payload,
       };
 
     case SIGN_UP_PROF:
