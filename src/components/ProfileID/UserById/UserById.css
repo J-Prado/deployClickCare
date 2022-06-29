@@ -60,9 +60,12 @@
     filter: none;
     margin-top: 0.5rem;
     background-color: #1e9191;
+    margin-left: 1rem;
 }
 .doNotDeploys{
     margin-top: 0.5rem;
+    margin-left: 00.5rem;
+    margin-right: 00.5rem;
 }
 .doNotDeploysTwo{
     background-color: var(--main-second-color);

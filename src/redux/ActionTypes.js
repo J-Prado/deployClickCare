@@ -46,6 +46,7 @@ export const GET_CONTRACTS = "GET_CONTRACTS";
 //Profile
 export const GET_USER_POST_DETAIL = "GET_USER_POST_DETAIL";
 export const GET_USER_DETAIL = "GET_USER_DETAIL";
+export const GET_POST_DETAIL_AUCTION = "GET_POST_DETAIL_AUCTION";
 
 //Auctions
 export const POST_AUCTION = "POST_AUCTION";

@@ -376,7 +376,6 @@ const DataEdition = () => {
                       placeholder={detailUser[0]?.age}
                       disabled
                     />
-
                     <Field
                       className="infoDataUser oneTitleUser"
                       id="password"
@@ -385,7 +384,6 @@ const DataEdition = () => {
                       placeholder="Contraseña"
                       disabled
                     />
-
                     <Field
                       className="infoDataUser twoTitleUser"
                       id="email"

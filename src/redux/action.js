@@ -33,6 +33,7 @@ import {
   MERCADOPAGO_PAYMENT,
   USER_EDITION,
   PROF_EDITION,
+  GET_POST_DETAIL_AUCTION,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -369,6 +370,17 @@ export function getUserPostDetail(id) {
     //console.log("DATA ID:", response)
     return dispatch({
       type: GET_USER_POST_DETAIL,
+      payload: response.data,
+    });
+  };
+}
+
+export function gePostDetailAuctions(id) {
+  return async function (dispatch) {
+    const response = await axios.get(`traerPostByAuction/` + id);
+    //console.log("DATA ID:", response)
+    return dispatch({
+      type: GET_POST_DETAIL_AUCTION,
       payload: response.data,
     });
   };
