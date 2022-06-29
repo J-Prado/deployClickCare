@@ -22,6 +22,9 @@ const Navbar = () => {
   //Id
   const idUser = jwt.decode(localStorage.getItem("session"))?.id;
 
+  const name = idUser ? jwt.decode(localStorage.getItem("session")) : "";
+  console.log("name NAVBAR", name);
+
   //Handlers
   const onClick = () => {
     // dispatch(logOut());
@@ -40,6 +43,9 @@ const Navbar = () => {
       <Link to="/">
         <img className="nav-logo" href="/" src={logo} height={60} alt="logo" />
       </Link>
+      {name ? (
+        <h3 className="bienvenidoUsuario">{`Hola ${name.name}!,`}</h3>
+      ) : null}
       <div className={`nav-items ${isOpen && "open"}`}>
         <Link to="/">
           <span>Inicio</span>

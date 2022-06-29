@@ -11,32 +11,42 @@
 .Navbar > .nav-logo {
   margin: 2rem;
 }
-.Navbar > .nav-items{
+
+.bienvenidoUsuario {
+  color: var(--main-first-color);
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 33px;
+  line-height: 35px;
+  text-align: left;
+}
+
+.Navbar > .nav-items {
   margin-right: 2rem;
   margin-top: 2rem;
   margin-left: 0;
   display: flex;
 }
-.buttonNav{
+.buttonNav {
   margin-right: 10px;
   margin-bottom: 10px;
 }
-.buttonNavTwo{
+.buttonNavTwo {
   background-color: var(--main-second-color);
   filter: drop-shadow(1px 1px 1px #000);
 }
 .Navbar > .nav-items > a {
   color: var(--main-first-color);
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 18px;
   text-decoration: none;
   margin-right: 10px;
   position: relative;
- }
- 
+}
+
 .Navbar > .nav-items > a:hover {
- color: var(--main-second-color);
+  color: var(--main-second-color);
 }
 .Navbar > .nav-toggle {
   display: none;
@@ -53,8 +63,8 @@
     width: 50%;
     height: 400px;
     transform: translateX(-100%);
-    transition: all .45s;
-    border-radius: 0% 100% 100% 0% / 0% 0% 100% 100% ;
+    transition: all 0.45s;
+    border-radius: 0% 100% 100% 0% / 0% 0% 100% 100%;
     padding-top: 20px;
   }
   .Navbar > .nav-items > a {
@@ -66,27 +76,26 @@
     position: relative;
     opacity: 0.9;
   }
-  .containerButtonNav{
+  .containerButtonNav {
     margin-top: 1rem;
     margin-left: 10px;
     display: flex;
     flex-direction: column;
   }
-  .buttonNav{
+  .buttonNav {
     color: var(--main-first-color);
     background-color: white;
   }
-  .buttonNavTwo{
+  .buttonNavTwo {
     color: white;
     background-color: var(--main-second-color);
   }
   .Navbar > .nav-items > a::before {
-      background: transparent;
-      
+    background: transparent;
   }
 
   .Navbar > .nav-items.open {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 
   .Navbar > .nav-toggle {
@@ -128,18 +137,16 @@
   }
 
   .nav-toggle.open > .bar {
-      transform: translateX(-40px);
-      background: transparent;
+    transform: translateX(-40px);
+    background: transparent;
   }
 
   .nav-toggle.open > .bar::before {
-      width: 32px;
-      transform: rotate(45deg) translate(26px, -26px);
+    width: 32px;
+    transform: rotate(45deg) translate(26px, -26px);
   }
 
   .nav-toggle.open > .bar::after {
     transform: rotate(-45deg) translate(26px, 26px);
   }
-
-
 }
