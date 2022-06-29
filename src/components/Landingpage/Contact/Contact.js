@@ -30,9 +30,9 @@ function Contact() {
           ea voluptate velit esse quam nihil molestiae consequatur, vel illum
           qui dolorem eum fugiat quo voluptas nulla pariatur?
         </p>
-        <Link to="/about">
+        {/* <Link to="/about">
           <button className="buttonOne Star contacBotton">Contactanos</button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

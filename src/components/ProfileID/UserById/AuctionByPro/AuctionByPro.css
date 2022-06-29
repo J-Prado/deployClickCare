@@ -1,6 +1,6 @@
-.containerAuctionByProfesional{
+.containerAuctionByPro{
     min-width: 500px;
-    min-height: 700px;
+    min-height: 600px;
     text-align: left;
     background: rgba(255, 255, 255, 0.823);
     border-radius: 16px;
@@ -11,5 +11,11 @@
     padding-left: 3rem;
     padding-top: 2rem;
     padding-bottom: 3rem;
+    justify-content: center;
+    text-align: center;  
 }
-
+.containerAuctionByProOne{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

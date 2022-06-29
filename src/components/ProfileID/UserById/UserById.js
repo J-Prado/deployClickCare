@@ -10,7 +10,8 @@ import RecordPostById from "./RecordPostById/RecordPostById.js";
 import { Link } from "react-router-dom";
 import ProfRegiById from "./ProfRegiById/ProfRegiById.js";
 import Chats from "./Chats/Chats.js";
-import AuctionByProfesional from "./AuctionByProfesional/AuctionByProfesional.js";
+
+import AuctionByPro from "./AuctionByPro/AuctionByPro.js";
 
 function UserById({ idUs }) {
   const dispatch = useDispatch();
@@ -157,7 +158,7 @@ function UserById({ idUs }) {
           }
         >
           {detailUser.map((s) => (
-            <AuctionByProfesional key={s.id} idPr={s.professionals[0]?.id} />
+            <AuctionByPro key={s.id} idPr={s.id} />
           ))}
         </div>
         <div
