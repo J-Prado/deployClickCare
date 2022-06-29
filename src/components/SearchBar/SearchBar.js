@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchPost } from "../../redux/action";
+import { getAllPost, searchPost } from "../../redux/action";
 
 function SearchBar() {
   const dispatch = useDispatch();
@@ -13,7 +13,11 @@ function SearchBar() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(searchPost(encodeURI(state)));
+    if (state.length === 0) {
+      dispatch(getAllPost());
+    } else {
+      dispatch(searchPost(encodeURI(state)));
+    }
     setState("");
   };
 

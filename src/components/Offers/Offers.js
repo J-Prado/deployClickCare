@@ -77,7 +77,7 @@ function Offers() {
   };
 
   //Filtros
-  const cityLength = post.filter((e) => e.city.name);
+  const cityLength = post?.filter((e) => e.city?.name);
   //const postLoca = cityLength.filter(cityLength => cityLength = citys)
   //console.log(cityLength)
 
