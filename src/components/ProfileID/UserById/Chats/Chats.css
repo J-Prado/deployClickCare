@@ -1,15 +1,15 @@
-.containerChat{
-    min-width: 500px;
-    min-height: 700px;
-    text-align: left;
-    background: rgba(255, 255, 255, 0.823);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(10.4px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    padding-left: 3rem;
-    padding-right: 1rem;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
+.containerChat {
+  min-width: 400px;
+  min-height: 500px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.823);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(10.4px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding-left: 3rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
 }

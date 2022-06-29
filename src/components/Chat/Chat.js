@@ -177,7 +177,7 @@ export default function Chat() {
               </>
             ) : (
               <span className="noConversationText">
-                Abri una conversaciones para empezar a chatear
+                Debes abrir una conversación para iniciar con el chat.
               </span>
             )}
           </div>

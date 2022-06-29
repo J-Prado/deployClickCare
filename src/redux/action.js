@@ -507,6 +507,7 @@ export function profEdition(values) {
   };
 }
 export function userEdition(values) {
+  console.log("Mis Valores ", values);
   return async function (dispatch) {
     try {
       const resp = await axios.put(`/edituser`, values, axiosConfig);

@@ -10,15 +10,17 @@ function ProfRegiById({ idUsr }) {
   //Input values
   const initialValues = {
     id_user: idUsr,
-    // tuition: "",
+    tuition: "",
+    titulo: "",
+    institucion: "", //
     trainings: "",
     // photo: "",
-    cvu: "",
-    nivelDeEstudio: "",
-    institucion: "",
-    titulo: "",
-    date_inicioEstudio: "",
-    date_finicioEstudio: "",
+    cvu: "", //
+    nivelDeEstudio: "", //
+
+    //
+    date_inicioEstudio: "", //
+    date_finicioEstudio: "", //
   };
   //console.log(idUs)
 
@@ -31,35 +33,35 @@ function ProfRegiById({ idUsr }) {
     // tuition: Yup.string()
     //   .required("Es necesario llenar este campo")
     // .trim("Elimine los espacios en blanco"),
-    trainings: Yup.string()
-      .required("Es necesario llenar este campo")
-      .trim("Elimine los espacios en blanco"),
+    // trainings: Yup.string()
+    //   .required("Es necesario llenar este campo")
+    //   .trim("Elimine los espacios en blanco"),
     // photo: Yup.string()
     //   .required("Es necesario llenar este campo")
     //   .trim("Elimine los espacios en blanco"),
-    cvu: Yup.string()
-      .required("Es necesario llenar este campo")
-      .trim("Elimine los espacios en blanco"),
-    nivelDeEstudio: Yup.string()
-      .required("Es necesario llenar este campo")
-      .trim("Elimine los espacios en blanco"),
-    titulo: Yup.string()
-      .required("Es necesario llenar este campo")
-      .trim("Elimine los espacios en blanco"),
-    institucion: Yup.string()
-      .required("Es necesario llenar este campo")
-      .trim("Elimine los espacios en blanco"),
-    date_inicioEstudio: Yup.string().required("Es necesario llenar este campo"),
-    date_finicioEstudio: Yup.string().required(
-      "Es necesario llenar este campo"
-    ),
+    // cvu: Yup.string()
+    //   .required("Es necesario llenar este campo")
+    //   .trim("Elimine los espacios en blanco"),
+    // nivelDeEstudio: Yup.string()
+    //   .required("Es necesario llenar este campo")
+    //   .trim("Elimine los espacios en blanco"),
+    // titulo: Yup.string()
+    //   .required("Es necesario llenar este campo")
+    //   .trim("Elimine los espacios en blanco"),
+    // institucion: Yup.string()
+    //   .required("Es necesario llenar este campo")
+    //   .trim("Elimine los espacios en blanco"),
+    // date_inicioEstudio: Yup.string().required("Es necesario llenar este campo"),
+    // date_finicioEstudio: Yup.string().required(
+    //   "Es necesario llenar este campo"
+    // ),
   });
 
   //Handlers
   const onSubmit = (values, { resetForm }) => {
     dispatch(profRegister(values));
     console.log(values);
-    resetForm();
+    // resetForm();
   };
 
   const onClick = () => {
@@ -67,7 +69,7 @@ function ProfRegiById({ idUsr }) {
       swal({
         title: register?.message,
         text: "Usted se ha registrado como profesional",
-      });
+      }).then(() => window.location.reload);
     } else if (register.errors) {
       register.errors.map((e) =>
         swal({
@@ -89,6 +91,7 @@ function ProfRegiById({ idUsr }) {
         onSubmit={onSubmit}
       >
         {(props) => {
+          const { values, setFieldValue } = props;
           return (
             <Form>
               <div className="containerProfRegiById">
@@ -105,18 +108,19 @@ function ProfRegiById({ idUsr }) {
                     <label className="titleProfRegiById">Titulo *</label>
                     <Field
                       className="inputsProfRegiById"
-                      id="tuition"
-                      name="tuition"
+                      id="titulo"
+                      name="titulo"
                       type="text"
+                      value={values.titulo}
+                      onChange={(e) => {
+                        const { value } = e.target;
+                        setFieldValue("titulo", value);
+                        values.trainings = value;
+                      }}
                     />
-                    {/* <button className="principalButton">Añadir Capacitación</button>
-                            <ul>
-                                <li>a</li>
-                                <li>a</li>
-                            </ul> */}
                     <ErrorMessage
                       render={(msg) => <div className="error-prof">{msg}</div>}
-                      name="tuition"
+                      name="titulo"
                     />
 
                     <label className="titleProfRegiById">
@@ -132,17 +136,21 @@ function ProfRegiById({ idUsr }) {
                       render={(msg) => <div className="error-prof">{msg}</div>}
                       name="nivelDeEstudio"
                     />
-                    <label className="titleProfRegiById">Capacitación *</label>
-                    <Field
+                    {/* <label className="titleProfRegiById">Capacitación *</label> */}
+                    {/* <Field
                       className="inputsProfRegiById"
                       id="trainings"
                       name="trainings"
                       type="text"
-                    />
-                    <ErrorMessage
+                      value={values.trainings}
+                      onChange={(e) => {
+                        console.log("Soy Cambio", e);
+                      }}
+                    /> */}
+                    {/* <ErrorMessage
                       render={(msg) => <div className="error-prof">{msg}</div>}
                       name="trainings"
-                    />
+                    /> */}
 
                     <label className="titleProfRegiById">
                       Institucion Educativa *
@@ -196,6 +204,12 @@ function ProfRegiById({ idUsr }) {
                       id="cvu"
                       name="cvu"
                       type="text"
+                      value={values.cvu}
+                      onChange={(e) => {
+                        const { value } = e.target;
+                        setFieldValue("cvu", value);
+                        values.tuition = value;
+                      }}
                     />
                     <ErrorMessage
                       render={(msg) => <div className="error-prof">{msg}</div>}

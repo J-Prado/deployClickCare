@@ -116,9 +116,9 @@ const DataEdition = () => {
           photo: usuario?.photo, //
           tuition: 123456,
           trainings: "Enfermería",
-          state: usuario?.state,
-          city: usuario?.city,
-          country: usuario?.country,
+          state: usuario?.state?.name,
+          city: usuario?.city?.name,
+          country: usuario?.country?.name,
           nivelDeEstudio: detailUser[0]?.professionals[0]?.nivelDeEstudio,
           institucion: detailUser[0]?.professionals[0]?.institucion,
           titulo: detailUser[0]?.professionals[0]?.titulo,
@@ -139,9 +139,9 @@ const DataEdition = () => {
           age: usuario?.age,
           document: usuario?.document,
           phone2: usuario?.phone2,
-          state: usuario?.state,
-          city: usuario?.city,
-          country: usuario?.country,
+          state: usuario?.state?.name,
+          city: usuario?.city?.name,
+          country: usuario?.country?.name,
           photo: usuario?.photo,
         };
   };
@@ -154,30 +154,34 @@ const DataEdition = () => {
     // console.log(values);
     dispatch(userEdition(values));
 
-    // swal({
-    //   text: "Para Confirmar Introduce tu Contraseña",
-    //   content: "input",
-    //   attributes: {},
-    //   button: {
-    //     text: "Validar",
-    //     closeModal: false,
-    //   },
-    // }).then((password) => {
-    //   if (
-    //     verific === 1 &&
-    //     password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
-    //   ) {
-    //     dispatch(profEdition(values));
-    //     console.log("despache1");
-    //   } else if (
-    //     verific === 0 &&
-    //     password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
-    //   ) {
-    //     dispatch(userEdition(values));
-    //     console.log("despache2");
-    //   }
-    //   return swal("No se han validado los datos correctamente");
-    // });
+    swal({
+      text: "Para Confirmar Introduce tu Contraseña",
+      content: {
+        element: "input",
+        attributes: {
+          type: "password",
+        },
+      },
+      attributes: {},
+    }).then((password) => {
+      if (
+        verific === 1 &&
+        password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
+      ) {
+        dispatch(profEdition(values));
+        console.log("despache1");
+        return swal("Se han editado tus datos");
+      } else if (
+        verific === 0 &&
+        password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
+      ) {
+        dispatch(userEdition(values));
+        console.log("despache2");
+        return swal("Se han editado tus datos");
+      } else {
+        return swal("No se han validado los datos correctamente");
+      }
+    });
   };
 
   //Validation using Yup
@@ -372,7 +376,7 @@ const DataEdition = () => {
                       className="infoDataUser"
                       id="age"
                       name="age"
-                      type="text"
+                      type="date"
                       placeholder={detailUser[0]?.age}
                       disabled
                     />
