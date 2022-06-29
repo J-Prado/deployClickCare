@@ -30,6 +30,7 @@ function UserById({ idUs }) {
   const score = 3;
   const idValidate = detailUser[0]?.professionals[0]?.id;
   //console.log(idValidate)
+  const userType = detailUser[0]?.userType;
 
   let verific = 0;
   if (idValidate !== undefined) {
@@ -134,6 +135,15 @@ function UserById({ idUs }) {
         <Link to="/contract">
           <button className="buttonOne doNotDeploysTwo">Tus Contratos</button>
         </Link>
+        {userType.toLowerCase() === "admin" ? (
+          <>
+            <Link to="/Admin">
+              <button className="buttonOne doNotDeploysTwo">
+                Tablero Admin
+              </button>
+            </Link>
+          </>
+        ) : null}
       </div>
       <div className="containerUserByIRight">
         <div

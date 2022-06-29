@@ -19,6 +19,7 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword.js";
 import Contract from "./components/Contratos/Contract.js";
 import Forbiden from "./components/Forbiden/Forbiden.js";
 import Mercadopago from "./components/ProfileID/UserById/mercadopago/mercadopago.js";
+import Admin from "./components/ProfileID/Admin/Admin.js";
 // import { useEffect } from "react";
 // import { gapi } from "gapi-script";
 
@@ -52,6 +53,8 @@ function App() {
         <Route exact path="/paymentStatus" component={PaymentStatus} />
         <Route exact path="/chat" component={Chat} />
         <Route exact path="/user/:id" component={ProfileID} />
+        <Route exact path="/Admin" component={Admin} />
+
         <Route exact path="/postForm">
           {localStorage.getItem("session") ? (
             <PostForm />
