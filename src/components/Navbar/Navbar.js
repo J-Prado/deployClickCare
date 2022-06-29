@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { GoogleLogout } from "react-google-login";
 import logo from "../../images/logonavbar.png";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
@@ -11,6 +12,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
   //Hooks
+
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
   const out = useSelector((state) => state.userSession);

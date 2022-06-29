@@ -12,36 +12,25 @@ import swal from "sweetalert";
 //Google
 import { useAuth0 } from "@auth0/auth0-react";
 import google from "../LoginForm/helpImages/google.png";
-import { GoogleLogin } from "react-google-login";
+import { email } from "react-admin";
 const Login = (props) => {
   //Hooks needed
   const dispatch = useDispatch();
-  const auth = useAuth0();
+  const { loginWithPopup, user, isAuthenticated, logout } = useAuth0();
 
-  // console.log(auth);
   const userlogged = useSelector((state) => state.userSession);
 
-  const onSucess = (res) => {
-    const email = res.profileObj.email;
-    const isAuthenticated = true;
-    dispatch(loginGoogle({ email, isAuthenticated }), [email]);
-  };
-  const onFailure = (res) => {};
+  useEffect(() => {
+    if (isAuthenticated) {
+      validate();
+    }
+  }, [isAuthenticated]);
 
-  const onClick = () => {
-    auth
-      .loginWithPopup()
-      .then((e) => {
-        console.log(e);
-        const { email } = auth.user;
-        const { isAuthenticated } = auth;
-        dispatch(loginGoogle({ email, isAuthenticated }), [email]);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  const validate = async () => {
+    dispatch(
+      loginGoogle({ isAuthenticated: isAuthenticated, email: user.email })
+    );
   };
-
   //Formik initial values
   const initialValues = { email: "", password: "" };
 
@@ -75,13 +64,12 @@ const Login = (props) => {
       localStorage.setItem("session", userlogged["token"]);
       window.location = "https://deploy-click-care.vercel.app/offers";
     });
-    console.log(jwt.decode(localStorage.getItem("session"))?.id);
   } else if (userlogged?.error) {
     swal({
       title: userlogged?.error,
       text: "Por Favor Intente Nuevamente",
     });
-    auth.logout();
+    logout();
   }
 
   //Setting Formik to be functional when calling
@@ -144,21 +132,14 @@ const Login = (props) => {
           </form>
           <div className="reg-space">
             <span className="register">Inicia Sesión También con ➤</span>
-
-            <GoogleLogin
-              clientId={
-                "902348215403-lfbk7h4s4vd64ot8kf1gj4eujcgd0soa.apps.googleusercontent.com"
-              }
-              icon={false}
+            <button
               className="logGoogle"
-              buttonText=""
-              onSuccess={onSucess}
-              onFailure={onFailure}
-              cookiePolicy={"single_host_origin"}
-              style={{ backgroundImage: google, width: 50, height: 50 }}
+              onClick={() => {
+                loginWithPopup();
+              }}
             >
               <img className="google" src={google} alt="Google Login" />
-            </GoogleLogin>
+            </button>
           </div>
           <div>
             <Link className="link" to="/signin">

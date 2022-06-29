@@ -20,7 +20,7 @@ const Welcome = withRouter((props) => {
   }, [dispatch, props.match.params.id]);
 
   //Formik initial values
-  const initialValues = { email: `${validation.email}`, password: "" };
+  const initialValues = { email: validation.email, password: "" };
   const validationSchema = Yup.object({
     password: Yup.string()
       .required("Es necesario llenar este campo.")
@@ -46,9 +46,9 @@ const Welcome = withRouter((props) => {
         localStorage.setItem("session", userSession["token"]);
         window.location = "https://deploy-click-care.vercel.app/offers";
       });
-    } else if (userSession.error) {
+    } else if (userSession.errors) {
       swal({
-        title: userSession.error,
+        title: userSession.errors.error,
         text: "Por Favor Intente Nuevamente",
       });
       dispatch(clear());

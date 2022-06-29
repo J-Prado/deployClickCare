@@ -291,7 +291,7 @@ const DataEdition = () => {
                     <Widget
                       ref={widgetApi}
                       localeTranslations={translation}
-                      crop="free, 1:1"
+                      crop="1:1"
                       publicKey="demopublickey"
                       id="photo"
                       name="photo"
@@ -315,346 +315,372 @@ const DataEdition = () => {
                 </div>
 
                 <div className="dataUserIdConteiner">
-                  <div className="containerTextDataUser">
-                    <label className="TitleDataUser">Nombres:</label>
-                    <label className="TitleDataUser">Apellidos:</label>
-                    <label className="TitleDataUser">
-                      Documento de Identidad:
-                    </label>
+                  <div className="secUno">
+                    <div className="dataBlock">
+                      <label className="TitleDataUser">Nombres:</label>
+                      <Field
+                        className="infoDataUser"
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder={usuario?.name}
+                      />{" "}
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="name"
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser">Apellidos:</label>
+                      <Field
+                        className="infoDataUser"
+                        id="surname"
+                        name="surname"
+                        type="text"
+                        placeholder={detailUser[0]?.surname}
+                      />
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="surname"
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser">Apellidos:</label>
+                      <Field
+                        className="infoDataUser"
+                        id="surname"
+                        name="surname"
+                        type="text"
+                        placeholder={detailUser[0]?.surname}
+                      />
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="surname"
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser">
+                        Documento de Identidad:
+                      </label>
+                      <Field
+                        className="infoDataUser"
+                        id="document"
+                        name="document"
+                        type="text"
+                        placeholder={detailUser[0]?.document}
+                      />
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="document"
+                      />
+                    </div>
                   </div>
-                  <div className="containerTextDataUser">
-                    <Field
-                      className="infoDataUser"
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder={usuario?.name}
-                    />
-
-                    <Field
-                      className="infoDataUser"
-                      id="surname"
-                      name="surname"
-                      type="text"
-                      placeholder={detailUser[0]?.surname}
-                    />
-
-                    <Field
-                      className="infoDataUser"
-                      id="document"
-                      name="document"
-                      type="text"
-                      placeholder={detailUser[0]?.document}
-                    />
-                  </div>
-                  <div>
-                    {" "}
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="name"
-                    />
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="surname"
-                    />
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="document"
-                    />
-                  </div>
-                  <div className="containerTextDataUser">
-                    <label className="TitleDataUser">Fecha nacimiento:</label>
-                    <label className="TitleDataUser oneTitleUser">
-                      Contraseña:
-                    </label>
-                    <label className="TitleDataUser twoTitleUser">
-                      Correo Electronico:
-                    </label>
-                  </div>
-                  <div className="containerTextDataUser">
-                    <Field
-                      className="infoDataUser"
-                      id="age"
-                      name="age"
-                      type="date"
-                      placeholder={detailUser[0]?.age}
-                      disabled
-                    />
-                    <Field
-                      className="infoDataUser oneTitleUser"
-                      id="password"
-                      name="password"
-                      type="password"
-                      placeholder="Contraseña"
-                      disabled
-                    />
-                    <Field
-                      className="infoDataUser twoTitleUser"
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder={usuario?.email}
-                    />
-                  </div>
-                  <div>
-                    {" "}
-                    {/* <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="age"
-                    /> */}
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="password"
-                    />
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="email"
-                    />
+                  <div className="secUno">
+                    <div className="dataBlock">
+                      <label className="TitleDataUser">Fecha nacimiento:</label>
+                      <Field
+                        className="infoDataUser"
+                        id="age"
+                        name="age"
+                        type="text"
+                        placeholder={detailUser[0]?.age}
+                        disabled
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser oneTitleUser">
+                        Contraseña:
+                      </label>
+                      <Field
+                        className="infoDataUser oneTitleUser"
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Contraseña"
+                        disabled
+                      />
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="password"
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser twoTitleUser">
+                        Correo Electronico:
+                      </label>
+                      <Field
+                        className="infoDataUser twoTitleUser"
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder={usuario?.email}
+                      />
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="email"
+                      />
+                    </div>
                   </div>
                   {verific === 1 ? (
                     <div>
-                      <div className="containerTextDataUser">
-                        <label className="TitleDataUser">Nivel Educativo</label>
-                        <label className="TitleDataUser">
-                          Institucion Educativa
-                        </label>
-                        <label className="TitleDataUser">Titulo</label>
+                      <div className="secUno">
+                        <div className="dataBlock">
+                          <label className="TitleDataUser">
+                            Nivel Educativo
+                          </label>
+                          <Field
+                            className="infoDataUser"
+                            id="nivelDeEstudio"
+                            name="nivelDeEstudio"
+                            type="text"
+                            placeholder={
+                              detailUser[0]?.professionals[0]?.nivelDeEstudio
+                            }
+                          />{" "}
+                          <ErrorMessage
+                            render={(msg) => <div className="error">{msg}</div>}
+                            name="nivelDeEstudio"
+                          />
+                        </div>
+                        <div className="dataBlock">
+                          <label className="TitleDataUser">
+                            Institucion Educativa
+                          </label>
+                          <Field
+                            className="infoDataUser"
+                            id="institucion"
+                            name="institucion"
+                            type="text"
+                            placeholder={
+                              detailUser[0]?.professionals[0]?.institucion
+                            }
+                          />
+                          <ErrorMessage
+                            render={(msg) => <div className="error">{msg}</div>}
+                            name="institucion"
+                          />
+                        </div>
+                        <div className="dataBlock">
+                          <label className="TitleDataUser">Titulo</label>
+                          <Field
+                            className="infoDataUser"
+                            id="titulo"
+                            name="titulo"
+                            type="text"
+                            placeholder={
+                              detailUser[0]?.professionals[0]?.titulo
+                            }
+                          />
+                          <ErrorMessage
+                            render={(msg) => <div className="error">{msg}</div>}
+                            name="titulo"
+                          />
+                        </div>
                       </div>
-                      <div className="containerTextDataUser">
-                        <Field
-                          className="infoDataUser"
-                          id="nivelDeEstudio"
-                          name="nivelDeEstudio"
-                          type="text"
-                          placeholder={
-                            detailUser[0]?.professionals[0]?.nivelDeEstudio
-                          }
-                        />
+                      <div className="secUno">
+                        <div className="dataBlock">
+                          <label className="TitleDataUser">
+                            Fecha de Inicio
+                          </label>
+                          <Field
+                            className="infoDataUser"
+                            id="date_inicioEstudio"
+                            name="date_inicioEstudio"
+                            type="text"
+                            placeholder={
+                              detailUser[0]?.professionals[0]
+                                ?.date_inicioEstudio
+                            }
+                          />
+                          <ErrorMessage
+                            render={(msg) => <div className="error">{msg}</div>}
+                            name="date_inicioEstudio"
+                          />
+                        </div>
+                        <div className="dataBlock">
+                          <label className="TitleDataUser">
+                            Fecha de Finalización
+                          </label>
+                          <Field
+                            className="infoDataUser"
+                            id="date_finicioEstudio"
+                            name="date_finicioEstudio"
+                            type="text"
+                            placeholder={
+                              detailUser[0]?.professionals[0]
+                                ?.date_finicioEstudio
+                            }
+                          />
+                          <ErrorMessage
+                            render={(msg) => <div className="error">{msg}</div>}
+                            name="date_finicioEstudio"
+                          />
+                        </div>
+                        <div className="dataBlock">
+                          <label className="TitleDataUser">
+                            Tarjeta Profesional
+                          </label>
 
-                        <Field
-                          className="infoDataUser"
-                          id="institucion"
-                          name="institucion"
-                          type="text"
-                          placeholder={
-                            detailUser[0]?.professionals[0]?.institucion
-                          }
-                        />
-
-                        <Field
-                          className="infoDataUser"
-                          id="titulo"
-                          name="titulo"
-                          type="text"
-                          placeholder={detailUser[0]?.professionals[0]?.titulo}
-                        />
-                      </div>
-                      <div>
-                        {" "}
-                        <ErrorMessage
-                          render={(msg) => <div className="error">{msg}</div>}
-                          name="nivelDeEstudio"
-                        />
-                        <ErrorMessage
-                          render={(msg) => <div className="error">{msg}</div>}
-                          name="institucion"
-                        />
-                        <ErrorMessage
-                          render={(msg) => <div className="error">{msg}</div>}
-                          name="titulo"
-                        />
-                      </div>
-                      <div className="containerTextDataUser">
-                        <label className="TitleDataUser">Fecha de Inicio</label>
-                        <label className="TitleDataUser">
-                          Fecha de Finalización
-                        </label>
-                        <label className="TitleDataUser">
-                          Tarjeta Profesional
-                        </label>
-                      </div>
-                      <div className="containerTextDataUser">
-                        <Field
-                          className="infoDataUser"
-                          id="date_inicioEstudio"
-                          name="date_inicioEstudio"
-                          type="text"
-                          placeholder={
-                            detailUser[0]?.professionals[0]?.date_inicioEstudio
-                          }
-                        />
-
-                        <Field
-                          className="infoDataUser"
-                          id="date_finicioEstudio"
-                          name="date_finicioEstudio"
-                          type="text"
-                          placeholder={
-                            detailUser[0]?.professionals[0]?.date_finicioEstudio
-                          }
-                        />
-
-                        <Field
-                          className="infoDataUser"
-                          id="cvu"
-                          name="cvu"
-                          type="text"
-                          placeholder={detailUser[0]?.professionals[0]?.cvu}
-                        />
-                      </div>
-                      <div>
-                        {" "}
-                        <ErrorMessage
-                          render={(msg) => <div className="error">{msg}</div>}
-                          name="date_inicioEstudio"
-                        />
-                        <ErrorMessage
-                          render={(msg) => <div className="error">{msg}</div>}
-                          name="date_finicioEstudio"
-                        />
-                        <ErrorMessage
-                          render={(msg) => <div className="error">{msg}</div>}
-                          name="cvu"
-                        />
+                          <Field
+                            className="infoDataUser"
+                            id="cvu"
+                            name="cvu"
+                            type="text"
+                            placeholder={detailUser[0]?.professionals[0]?.cvu}
+                          />
+                          <ErrorMessage
+                            render={(msg) => <div className="error">{msg}</div>}
+                            name="cvu"
+                          />
+                        </div>
                       </div>
                     </div>
                   ) : null}
+                  <div className="secUno">
+                    <div className="dataBlock">
+                      <label className="TitleDataUser threeTitleUser">
+                        Telefono:
+                      </label>
+                      <Field
+                        className="infoDataUser threeTitleUser"
+                        id="phone2"
+                        name="phone2"
+                        type="text"
+                        placeholder={detailUser[0]?.phone2}
+                      />
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="phone2"
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser threeTitleUser">
+                        Movil:
+                      </label>
+                      <Field
+                        className="infoDataUser threeTitleUser"
+                        id="phone"
+                        name="phone"
+                        type="text"
+                        placeholder={detailUser[0]?.phone}
+                      />
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="phone"
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser forTitleUser">
+                        Dirección:
+                      </label>
+                      <Field
+                        className="infoDataUser forTitleUser"
+                        id="address"
+                        name="address"
+                        type="text"
+                        placeholder={detailUser[0]?.address}
+                      />
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="address"
+                      />
+                    </div>
+                  </div>
 
-                  <div className="containerTextDataUser">
-                    <label className="TitleDataUser threeTitleUser">
-                      Telefono:
-                    </label>
-                    <label className="TitleDataUser threeTitleUser">
-                      Movil:
-                    </label>
-                    <label className="TitleDataUser forTitleUser">
-                      Dirección:
-                    </label>
-                  </div>
-                  <div className="containerTextDataUser">
-                    <Field
-                      className="infoDataUser threeTitleUser"
-                      id="phone2"
-                      name="phone2"
-                      type="text"
-                      placeholder={detailUser[0]?.phone2}
-                    />
+                  <div className="secUno">
+                    <div className="dataBlock">
+                      <label className="TitleDataUser forTitleUser">
+                        País:
+                      </label>
 
-                    <Field
-                      className="infoDataUser threeTitleUser"
-                      id="phone"
-                      name="phone"
-                      type="text"
-                      placeholder={detailUser[0]?.phone}
-                    />
-
-                    <Field
-                      className="infoDataUser forTitleUser"
-                      id="address"
-                      name="address"
-                      type="text"
-                      placeholder={detailUser[0]?.address}
-                    />
-                  </div>
-                  <div>
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="phone2"
-                    />
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="phone"
-                    />
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="address"
-                    />
-                  </div>
-                  <div className="containerTextDataUser">
-                    <label className="TitleDataUser">País:</label>
-                    <label className="TitleDataUser">Estado/Provincia:</label>
-                    <label className="TitleDataUser">Ciudad:</label>
-                  </div>
-                  <div className="containerTextDataUser">
-                    <Field
-                      className="infoDataUser"
-                      as="select"
-                      name="country"
-                      id="country"
-                      value={values.country}
-                      onChange={(e) => {
-                        const { value } = e.target;
-                        setFieldValue("country", value);
-                        dispatch(GetStatebyCountry(value));
-                      }}
-                    >
-                      <option value="" key="paises">
-                        Cambia tu país
-                      </option>
-                      {country?.map((country) => (
-                        <option value={country.name} key={country.id}>
-                          {country.name}
+                      <Field
+                        className="infoDataUser uno"
+                        as="select"
+                        name="country"
+                        id="country"
+                        value={values.country}
+                        onChange={(e) => {
+                          const { value } = e.target;
+                          setFieldValue("country", value);
+                          dispatch(GetStatebyCountry(value));
+                        }}
+                      >
+                        <option value="" key="paises">
+                          Cambia tu país
                         </option>
-                      ))}
-                    </Field>
+                        {country?.map((country) => (
+                          <option value={country.name} key={country.id}>
+                            {country.name}
+                          </option>
+                        ))}
+                      </Field>
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="country"
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser forTitleUser">
+                        Estado/Provincia:
+                      </label>
 
-                    <Field
-                      className="infoDataUser"
-                      as="select"
-                      name="state"
-                      value={values.state}
-                      onChange={(e) => {
-                        const { value } = e.target;
-                        setFieldValue("state", value);
-                        dispatch(GetCitiesByState(value));
-                      }}
-                    >
-                      <option value="" key="estados">
-                        Cambia tu Estado
-                      </option>
-                      {states?.map((state) => (
-                        <option value={state.name} key={state.id}>
-                          {state.name}
+                      <Field
+                        className="infoDataUser uno"
+                        as="select"
+                        name="state"
+                        value={values.state}
+                        onChange={(e) => {
+                          const { value } = e.target;
+                          setFieldValue("state", value);
+                          dispatch(GetCitiesByState(value));
+                        }}
+                      >
+                        <option value="" key="estados">
+                          Cambia tu Estado
                         </option>
-                      ))}
-                    </Field>
+                        {states?.map((state) => (
+                          <option value={state.name} key={state.id}>
+                            {state.name}
+                          </option>
+                        ))}
+                      </Field>
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="state"
+                      />
+                    </div>
+                    <div className="dataBlock">
+                      <label className="TitleDataUser forTitleUser">
+                        Ciudad:
+                      </label>
+                      <Field
+                        className="infoDataUser uno"
+                        as="select"
+                        name="city"
+                        id="city"
+                        value={values.city}
+                        onChange={(e) => {
+                          const { value } = e.target;
+                          setFieldValue("city", value);
+                        }}
+                      >
+                        <option value="" key="ciudades">
+                          Cambia tu Ciudad
+                        </option>
+                        {cities[0]?.cities?.map((city) => (
+                          <option value={city.name} key={city.id}>
+                            {city.name}
+                          </option>
+                        ))}
+                      </Field>
 
-                    <Field
-                      className="infoDataUser"
-                      as="select"
-                      name="city"
-                      id="city"
-                      value={values.city}
-                      onChange={(e) => {
-                        const { value } = e.target;
-                        setFieldValue("city", value);
-                      }}
-                    >
-                      <option value="" key="ciudades">
-                        Cambia tu Ciudad
-                      </option>
-                      {cities[0]?.cities?.map((city) => (
-                        <option value={city.name} key={city.id}>
-                          {city.name}
-                        </option>
-                      ))}
-                    </Field>
+                      <ErrorMessage
+                        render={(msg) => <div className="error">{msg}</div>}
+                        name="city"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    {" "}
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="country"
-                    />
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="state"
-                    />
-                    <ErrorMessage
-                      render={(msg) => <div className="error">{msg}</div>}
-                      name="city"
-                    />
-                  </div>
+
                   <div className="containerButtonInfoById">
                     <button className="buttonOne buttonInfoById">
                       Validar los Cambios

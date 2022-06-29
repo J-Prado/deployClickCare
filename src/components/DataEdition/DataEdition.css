@@ -8,6 +8,23 @@
   background-repeat: no-repeat;
   padding-top: 80px;
 }
+.dataBlock {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
+.infoDataUser {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f9f9f9;
+  border: 2px solid #edeff1;
+  box-shadow: 0px 2px 30px rgba(13, 52, 81, 0.05);
+  border-radius: 28px;
+  padding: 8px 15px;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+}
 .formEditContainer {
   display: inline-flex;
 }

@@ -187,7 +187,7 @@ const UserRegister = () => {
                 <Widget
                   ref={widgetApi}
                   localeTranslations={translation}
-                  crop="free, 1:1"
+                  crop="1:1"
                   publicKey="demopublickey"
                   id="photo"
                   name="photo"
