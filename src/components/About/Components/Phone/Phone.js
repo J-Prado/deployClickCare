@@ -17,7 +17,7 @@ function Phone() {
           {" "}
           <a
             className="appOne"
-            href="https://expo.dev/@ryudark037/Mobile-Click-Care?serviceType=classic&distribution=expo-go"
+            href="https://drive.google.com/drive/folders/1MZAue16T9DhwUZjdwfk6vGR0Y2MjvVMw"
           >
             {" "}
             Descargar

@@ -73,7 +73,8 @@ const Login = (props) => {
       title: userlogged?.error,
       text: "Por Favor Intente Nuevamente",
     });
-    logout();
+
+    window.clearImmediate();
   }
 
   //Setting Formik to be functional when calling
