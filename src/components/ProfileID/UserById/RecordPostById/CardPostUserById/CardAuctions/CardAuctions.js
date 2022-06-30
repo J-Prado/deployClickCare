@@ -77,7 +77,7 @@ const CardAuctions = ({
       if (resp) {
         dispatch(userAcceptAuctionfromProf(obj)).then((resp) => {
           console.log(resp.payload);
-          if (resp.data === "Contract created") {
+          if (resp.payload === "Contract created") {
             swal({
               title: "ACEPTACIÓN DE APLICACIÓN",
               text: `Genial! Usted ha Creado un Contrato con ${name} ${surname}`,
