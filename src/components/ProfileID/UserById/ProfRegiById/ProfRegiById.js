@@ -39,22 +39,22 @@ function ProfRegiById({ idUsr }) {
     // photo: Yup.string()
     //   .required("Es necesario llenar este campo")
     //   .trim("Elimine los espacios en blanco"),
-    // cvu: Yup.string()
-    //   .required("Es necesario llenar este campo")
-    //   .trim("Elimine los espacios en blanco"),
-    // nivelDeEstudio: Yup.string()
-    //   .required("Es necesario llenar este campo")
-    //   .trim("Elimine los espacios en blanco"),
-    // titulo: Yup.string()
-    //   .required("Es necesario llenar este campo")
-    //   .trim("Elimine los espacios en blanco"),
-    // institucion: Yup.string()
-    //   .required("Es necesario llenar este campo")
-    //   .trim("Elimine los espacios en blanco"),
-    // date_inicioEstudio: Yup.string().required("Es necesario llenar este campo"),
-    // date_finicioEstudio: Yup.string().required(
-    //   "Es necesario llenar este campo"
-    // ),
+    cvu: Yup.string()
+      .required("Es necesario llenar este campo")
+      .trim("Elimine los espacios en blanco"),
+    nivelDeEstudio: Yup.string()
+      .required("Es necesario llenar este campo")
+      .trim("Elimine los espacios en blanco"),
+    titulo: Yup.string()
+      .required("Es necesario llenar este campo")
+      .trim("Elimine los espacios en blanco"),
+    institucion: Yup.string()
+      .required("Es necesario llenar este campo")
+      .trim("Elimine los espacios en blanco"),
+    date_inicioEstudio: Yup.string().required("Es necesario llenar este campo"),
+    date_finicioEstudio: Yup.string().required(
+      "Es necesario llenar este campo"
+    ),
   });
 
   //Handlers

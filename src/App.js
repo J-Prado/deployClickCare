@@ -22,7 +22,7 @@ import Mercadopago from "./components/ProfileID/UserById/mercadopago/mercadopago
 import Admin from "./components/ProfileID/Admin/Admin.js";
 // import { useEffect } from "react";
 // import { gapi } from "gapi-script";
-
+import jwt from "jsonwebtoken";
 function App() {
   // const client =
   //   "902348215403-lfbk7h4s4vd64ot8kf1gj4eujcgd0soa.apps.googleusercontent.com";
@@ -35,7 +35,7 @@ function App() {
   //   }
   //   gapi.load("client:auth2", start);
   // });
-
+  const user = jwt.decode(localStorage?.getItem("session"));
   return (
     <div>
       <Navbar />
@@ -49,12 +49,21 @@ function App() {
         <Route exact path="/contactUs" component={ContactUs} />
         <Route exact path="/welcome/:id" component={Welcome} />
         <Route exact path="/welcome" component={Welcome} />
+        <Route exact path="/professional">
+          {" "}
+          {user ? <Professional /> : <Redirect to="/login" />}{" "}
+        </Route>{" "}
         <Route exact path="/professional" component={Professional} />
-        <Route exact path="/paymentStatus" component={PaymentStatus} />
-        <Route exact path="/chat" component={Chat} />
+        <Route exact path="/paymentStatus">
+          {" "}
+          {user ? <PaymentStatus /> : <Redirect to="/login" />}{" "}
+        </Route>
+        <Route exact path="/chat">
+          {" "}
+          {user ? <Chat /> : <Redirect to="/login" />}{" "}
+        </Route>
         <Route exact path="/user/:id" component={ProfileID} />
         <Route exact path="/Admin" component={Admin} />
-
         <Route exact path="/postForm">
           {localStorage.getItem("session") ? (
             <PostForm />
@@ -64,11 +73,10 @@ function App() {
         </Route>
         <Route exact path="/dataedition" component={DataEdition} />
         <Route exact path="/forgetpassword" component={ForgotPassword} />
-        <Route
-          exact
-          path="/OfferCardDetailed/:id"
-          component={OfferCardDetailed}
-        />
+        <Route exact path="/OfferCardDetailed/:id">
+          {" "}
+          {user ? <OfferCardDetailed /> : <Redirect to="/login" />}{" "}
+        </Route>
         {/* <Route exact path="/OfferCardDetailed/:id">
           {localStorage.getItem("session") ? (
             <OfferCardDetailed />
@@ -76,7 +84,6 @@ function App() {
             <Redirect to="/login" />
           )}
         </Route> */}
-
         {/* <Route exact path="/user/:id">
           {localStorage.getItem("session") ? (
             <ProfileID />
@@ -84,8 +91,14 @@ function App() {
             <Redirect to="/login" />
           )}
         </Route> */}
-        <Route exact path="/mercadopago" component={Mercadopago} />
-        <Route exact path="/contract" component={Contract} />
+        <Route exact path="/mercadopago">
+          {" "}
+          {user ? <Mercadopago /> : <Redirect to="/login" />}{" "}
+        </Route>
+        <Route exact path="/contract">
+          {" "}
+          {user ? <Contract /> : <Redirect to="/login" />}{" "}
+        </Route>
         <Route exact path="*" component={Forbiden} />
       </Switch>
 

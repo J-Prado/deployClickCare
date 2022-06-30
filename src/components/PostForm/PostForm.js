@@ -12,8 +12,10 @@ import {
 } from "../../redux/action.js";
 import * as Yup from "yup";
 import swal from "sweetalert";
+import { Link } from "react-router-dom";
 
 const PostForm = () => {
+  const id = jwt.decode(localStorage?.getItem("session"))?.id;
   //Hooks states
   const dispatch = useDispatch();
   const country = useSelector((state) => state.country);
@@ -108,6 +110,9 @@ const PostForm = () => {
 
   return (
     <div className="containerCreatePostForm">
+      <Link to={`/user/${id}`}>
+        <button className="buttonOne posBottonVolver">Volver</button>
+      </Link>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
