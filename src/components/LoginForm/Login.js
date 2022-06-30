@@ -120,9 +120,9 @@ const Login = (props) => {
                 Recuerdame.
               </label> */}
               <Link to="/forgetpassword">
-                <button className="buttonOne forget">
+                <span className="buttonOne forget">
                   ¿Olvidaste tu contraseña?
-                </button>
+                </span>
               </Link>
             </div>
 

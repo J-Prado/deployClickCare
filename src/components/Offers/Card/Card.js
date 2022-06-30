@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.css";
-import imgUserById from "../../../images/imgUserById.png";
+import imgUsersById from "../../../images/imgUsersById.jpg";
 import { GoCalendar } from "react-icons/go";
 import { Link } from "react-router-dom";
 
@@ -144,7 +144,7 @@ const Card = ({
         ) : (
           <img
             className="imguserOffers"
-            src={imgUserById}
+            src={imgUsersById}
             alt="imguserOffers"
           />
         )}

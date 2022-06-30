@@ -44,7 +44,7 @@ const Navbar = () => {
         <img className="nav-logo" href="/" src={logo} height={60} alt="logo" />
       </Link>
       {name ? (
-        <h3 className="bienvenidoUsuario">{`Hola ${name.name}!,`}</h3>
+        <h3 className="bienvenidoUsuario">{`¡Hola ${name.name}!`}</h3>
       ) : null}
       <div className={`nav-items ${isOpen && "open"}`}>
         <Link to="/">

@@ -1,8 +1,9 @@
 .container-edit {
   width: 100%;
   min-height: 900px;
-  display: flex;
+  display: inline flex;
   justify-content: center;
+  align-items: center;
   background-image: url("../../images/the-polygon.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -42,10 +43,14 @@
 
 .formEditContainer {
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .containerEditLeft {
   padding: 1rem;
+
   /* width: 400px;
   height: 800px;
 

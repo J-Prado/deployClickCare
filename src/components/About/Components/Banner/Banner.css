@@ -21,12 +21,6 @@
   color: var(--main-extra-color);
   font-size: 60px;
 }
-.aboutPar {
-  justify-self: center;
-  font-size: 30.5px;
-  color: var(--main-extra-color);
-  text-align: center;
-}
 
 .VideoContainer {
   width: 40%;

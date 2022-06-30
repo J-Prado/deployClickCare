@@ -100,6 +100,10 @@ function Offers() {
         setgeoPos((geoPos) => [localCity]);
       });
   }
+
+  // async function location(localCity) {
+  //   const location = async () => await { localCity };
+  // }
   const onLoad = () => {
     navigator.geolocation.getCurrentPosition(position);
   };
@@ -141,6 +145,16 @@ function Offers() {
           <div className="containerOffersLeft">
             <div className="containerInputDate">
               <form onFocus={(e) => handleDateChange(e)}>
+                <label>
+                  {" "}
+                  Todos{" "}
+                  <input
+                    type="radio"
+                    name="date"
+                    value="ALL"
+                    onChange={filtroGeneral}
+                  />
+                </label>
                 <legend className="titleFilters">Fecha de publicación</legend>
                 <label>
                   {" "}
@@ -180,17 +194,6 @@ function Offers() {
             <div className="containerInputDate">
               <form onFocus={(e) => handleDateChange(e)}>
                 <legend className="titleFilters">Categoría</legend>
-                <label>
-                  {" "}
-                  Todos{" "}
-                  <input
-                    type="radio"
-                    name="date"
-                    value="ALL"
-                    onChange={filtroGeneral}
-                  />
-                </label>
-                <br />
                 <label>
                   {" "}
                   Acompañante Terapéutico{" "}
@@ -343,7 +346,7 @@ function Offers() {
             />
             <span className="countPag" id="unadetantas">
               {" "}
-              /{maxPages}
+              /{Math.ceil(post.length / 5)}
             </span>
           </div>
         </div>

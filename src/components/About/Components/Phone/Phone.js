@@ -9,7 +9,7 @@ function Phone() {
           <img className='phoneImg' src={phone} alt=""/>
     </div>
     <div className='phoneTexto'>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente voluptatum qui adipisci.</p>
+      <p>Descarga ya nuestra app para llevar la seguridad a todas partes en todo momento.</p>
       <button className='buttonOne'>Descargar</button>
     </div>
    

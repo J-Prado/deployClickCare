@@ -67,42 +67,42 @@
   margin-top: 0;
 }
 #ivan {
-  background-image: url("https://images.mubicdn.net/images/cast_member/2552/cache-207-1524922850/image-w856.jpg?size=800x");
+  background-image: url(../Teams/ImgTeams/ivan.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
 #steven{
- background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Zac_Efron%2C_Eva_Rinaldi_Photography_%2810%29_%2834732926735%29.jpg/800px-Zac_Efron%2C_Eva_Rinaldi_Photography_%2810%29_%2834732926735%29.jpg"); 
+ background-image: url(../Teams/ImgTeams/stevee.PNG); 
  background-size: cover;
   background-repeat: no-repeat;
 }
 #juan{
-  background-image: url("https://m.media-amazon.com/images/M/MV5BOWU1Nzg0M2ItYjEzMi00ODliLThkODAtNGEyYzRkZTBmMmEzXkEyXkFqcGdeQXVyNDk2Mzk2NDg@._V1_.jpg"); 
+  background-image: url(../Teams/ImgTeams/juan.PNG); 
   background-size: cover;
   background-repeat: no-repeat; 
 }
 #luis{
-  background-image: url("https://phantom-telva.unidadeditorial.es/99da4ecff6d748daf9a16d16aa868bef/crop/0x0/2038x2880/resize/828/f/jpg/assets/multimedia/imagenes/2021/05/06/16202888369890.jpg"); 
+  background-image: url(../Teams/ImgTeams/luiss.PNG); 
   background-size: cover;
   background-repeat: no-repeat; 
 }
 #Matias{
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Jason_Momoa_%2843055621224%29_%28cropped%29.jpg/1200px-Jason_Momoa_%2843055621224%29_%28cropped%29.jpg"); 
+  background-image: url(../Teams/ImgTeams/mati.PNG); 
   background-size: cover;
   background-repeat: no-repeat; 
 }
 #Danimir{
-  background-image: url("https://s.yimg.com/ny/api/res/1.2/w7HUnFe6IVAJJGQzTs66.w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTUxNg--/https://s.yimg.com/os/creatr-uploaded-images/2019-09/942434a0-cd96-11e9-bbff-d15f998bb95d"); 
+  background-image: url(../Teams/ImgTeams/Danimir.PNG); 
   background-size: cover;
   background-repeat: no-repeat; 
 }
 #Emmanuel{
-  background-image: url("https://phantom-elmundo.unidadeditorial.es/429deea4379cd8cb5b7ed330e4902b30/resize/1200/f/jpg/assets/multimedia/imagenes/2022/03/27/16483950282613.jpg"); 
+  background-image: url(../Teams/ImgTeams/emma.jpg); 
   background-size: cover;
   background-repeat: no-repeat; 
 }
 #beto{
-  background-image: url("https://instagram.fclo1-3.fna.fbcdn.net/v/t51.2885-15/10838862_1516529835290264_158648402_n.jpg?stp=dst-jpg_e15&_nc_ht=instagram.fclo1-3.fna.fbcdn.net&_nc_cat=108&_nc_ohc=Vc0XPGZ1d3kAX8hYC0N&tn=QSd6bLooG19krmsb&edm=ALQROFkBAAAA&ccb=7-5&ig_cache_key=ODY5ODYzNjg3MDMyNjIwMTYx.2-ccb7-5&oh=00_AT9DOS1NhvTjI2eB513MHeOohzUNEy-6mtAqjCsKbLo1aA&oe=62B4746B&_nc_sid=30a2ef"); 
+  background-image: url(../Teams/ImgTeams/beto.PNG); 
   background-size: cover;
   background-repeat: no-repeat; 
 }

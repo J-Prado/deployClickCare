@@ -16,6 +16,7 @@ import {
   userEdition,
 } from "../../redux/action";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const UploadWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -99,6 +100,11 @@ const DataEdition = () => {
     // console.log("llegué");
   }
 
+  const dayB = new Date(usuario?.age).getDate();
+  const monthb = new Date(usuario?.age).getMonth() + 1;
+  const yearB = new Date(usuario?.age).getFullYear();
+  const birthdayDate = dayB + "/" + monthb + "/" + yearB;
+  const ageFinal = birthdayDate ? birthdayDate : "";
   //Initial Values
   const initialValues = (usuario) => {
     return verific === 1
@@ -109,7 +115,7 @@ const DataEdition = () => {
           surname: usuario?.surname, //
           phone: usuario?.phone, //
           address: usuario?.address,
-          age: usuario?.age, //
+          age: birthdayDate, //
           document: usuario?.document, //
           phone2: usuario?.phone2, //
           id: id, //id_user
@@ -136,7 +142,7 @@ const DataEdition = () => {
           surname: usuario?.surname,
           phone: usuario?.phone,
           address: usuario?.address,
-          age: usuario?.age,
+          age: birthdayDate,
           document: usuario?.document,
           phone2: usuario?.phone2,
           state: usuario?.state?.name,
@@ -270,6 +276,10 @@ const DataEdition = () => {
 
   return (
     <div className="container-edit">
+      <Link to={`/user/${id}`}>
+        <button className="buttonOne posBottonVolver">Volver</button>
+      </Link>
+
       <Formik
         initialValues={usuario ? initialValues(usuario) : initialValues}
         validationSchema={validationSchema}
@@ -345,20 +355,6 @@ const DataEdition = () => {
                       />
                     </div>
                     <div className="dataBlock">
-                      <label className="TitleDataUser">Apellidos:</label>
-                      <Field
-                        className="infoDataUser"
-                        id="surname"
-                        name="surname"
-                        type="text"
-                        placeholder={detailUser[0]?.surname}
-                      />
-                      <ErrorMessage
-                        render={(msg) => <div className="error">{msg}</div>}
-                        name="surname"
-                      />
-                    </div>
-                    <div className="dataBlock">
                       <label className="TitleDataUser">
                         Documento de Identidad:
                       </label>
@@ -383,7 +379,6 @@ const DataEdition = () => {
                         id="age"
                         name="age"
                         type="text"
-                        placeholder={detailUser[0]?.age}
                         disabled
                       />
                     </div>
@@ -486,11 +481,11 @@ const DataEdition = () => {
                             className="infoDataUser"
                             id="date_inicioEstudio"
                             name="date_inicioEstudio"
-                            type="text"
-                            placeholder={
-                              detailUser[0]?.professionals[0]
-                                ?.date_inicioEstudio
-                            }
+                            type="date"
+                            // placeholder={
+                            //   detailUser[0]?.professionals[0]
+                            //     ?.date_inicioEstudio
+                            // }
                           />
                           <ErrorMessage
                             render={(msg) => <div className="error">{msg}</div>}
@@ -505,11 +500,11 @@ const DataEdition = () => {
                             className="infoDataUser"
                             id="date_finicioEstudio"
                             name="date_finicioEstudio"
-                            type="text"
-                            placeholder={
-                              detailUser[0]?.professionals[0]
-                                ?.date_finicioEstudio
-                            }
+                            type="date"
+                            // placeholder={
+                            //   detailUser[0]?.professionals[0]
+                            //     ?.date_finicioEstudio
+                            // }
                           />
                           <ErrorMessage
                             render={(msg) => <div className="error">{msg}</div>}

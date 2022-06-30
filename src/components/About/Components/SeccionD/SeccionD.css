@@ -89,6 +89,8 @@
   }
   .active-content {
     display: block;
+    color: var(--main-first-color);
+    text-align: center;
     
   }
 

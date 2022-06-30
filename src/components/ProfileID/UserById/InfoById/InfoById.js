@@ -89,7 +89,7 @@ function InfoById({ idUs }) {
         <h3 className="infoDataUser">{detailUser[0]?.document}</h3>
       </div>
       <div className="containerTextDataUser">
-        <h3 className="TitleDataUser ">Fecha naciemiento</h3>
+        <h3 className="TitleDataUser ">Fecha Nacimiento</h3>
         <h3 className="TitleDataUser oneTitleUser">Edad</h3>
         <h3 className="TitleDataUser twoTitleUser">Correo Electronico</h3>
       </div>
@@ -156,15 +156,11 @@ function InfoById({ idUs }) {
             Actualiza o Cambia Tu Info
           </button>
         </Link>
-        {verific === 1?
+        {verific === 1 ? (
           <Link to="/mercadopago">
-            <button className="buttonOne ">
-              Paga tu membresía
-            </button>
-        </Link>
-        :null}
-        
-        
+            <button className="buttonOne ">Paga tu membresía</button>
+          </Link>
+        ) : null}
       </div>
     </div>
   );
