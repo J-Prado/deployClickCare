@@ -86,3 +86,9 @@ export const ACTIVATE_POST = "ACTIVATE_POST";
 export const CANCEL_POST = "CANCEL_POST";
 
 export const IS_PROF = "IS_PROF";
+
+//AS USER ACCEPT AUCTION
+export const ACCEPT_AUCTION = "ACCEPT_AUCTION";
+
+//ELIMINAR POST
+export const ELIMINAR_POST = "ELIMINAR_POST";

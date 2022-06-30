@@ -55,6 +55,7 @@ import {
   CANCEL_POST,
   ACTIVATE_POST,
   IS_PROF,
+  ELIMINAR_POST,
 } from "./ActionTypes";
 
 const axiosConfig = {
@@ -913,5 +914,38 @@ export function isProfessional(values) {
       type: IS_PROF,
       payload: confirmationProf,
     });
+  };
+}
+
+//Premium or not validation
+export function eliminarPOST(values) {
+  return async function (dispatch) {
+    try {
+      const resp = await axios.put("/activeFalsePost", values);
+      const json = await resp.data;
+      console.log(json);
+      return dispatch({
+        type: ELIMINAR_POST,
+        payload: json,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: ELIMINAR_POST,
+        payload: error.response.data,
+      });
+    }
+  };
+}
+
+export function userAcceptAuctionfromProf(values) {
+  return async function (dispatch) {
+    try {
+      const json = await axios.post(`/addContracts`, values);
+      console.log("json del action", json);
+      return json;
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
