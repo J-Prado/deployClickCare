@@ -30,6 +30,10 @@ const Login = (props) => {
     dispatch(
       loginGoogle({ isAuthenticated: isAuthenticated, email: user.email })
     );
+    localStorage.setItem(
+      "accessBlocked",
+      jwt.sign({ isAuthenticated: isAuthenticated, email: user.email }, "Goool")
+    );
   };
   //Formik initial values
   const initialValues = { email: "", password: "" };
