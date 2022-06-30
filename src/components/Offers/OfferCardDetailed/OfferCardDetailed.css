@@ -190,3 +190,10 @@ h2 {
   color: var(--main-first-color);
   margin-top: -0.4rem;
 }
+
+.appButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

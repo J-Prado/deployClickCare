@@ -1,7 +1,7 @@
-.containerPostForm {
+.containerCreatePostForm {
   display: flex;
+  padding-top: 50px;
   width: 100%;
-  padding-top: 10%;
   justify-content: center;
 }
 /* contenDescription-----------------------------------------------------------------------------------*/
@@ -12,6 +12,13 @@
   min-width: 550px;
   height: auto;
 }
+
+.buttonCreate {
+  background-color: var(--main-first-color);
+  filter: drop-shadow(1px 1px 1px #000);
+  margin-left: 30px;
+}
+
 .contenPostForm {
   background: white;
   border-radius: 16px;

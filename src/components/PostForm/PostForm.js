@@ -107,7 +107,7 @@ const PostForm = () => {
   onClick();
 
   return (
-    <div className="containerPostForm">
+    <div className="containerCreatePostForm">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -377,7 +377,7 @@ const PostForm = () => {
                       Cancelar
                     </button>
                     <button
-                      className="buttonOne principalButton"
+                      className="buttonOne buttonCreate"
                       type="submit"
                       onSubmit={onSubmit}
                     >

@@ -286,14 +286,14 @@ export default function OfferCardDetailed(props) {
               return (
                 <Form>
                   <div className="commentAuction">
-                    <label className="sign-label">Comentario*:</label>
+                    <label className="TitleDataUser">Comentario*:</label>
                     <Field
-                      className="sign-inputs"
+                      className="infoDataUser"
                       id="comment"
                       name="comment"
-                      type="text"
+                      type="text-area"
                       multiline={true}
-                      placeholder="comment"
+                      placeholder="Comentario"
                     />
                     <ErrorMessage
                       render={(msg) => <div className="error">{msg}</div>}
@@ -301,9 +301,9 @@ export default function OfferCardDetailed(props) {
                     />
                   </div>
                   <div className="propousalAuction">
-                    <label className="sign-label">Propuesta*:</label>
+                    <label className="TitleDataUser">Propuesta*:</label>
                     <Field
-                      className="sign-inputs"
+                      className="infoDataUser"
                       id="offer"
                       name="offer"
                       type="number"
@@ -313,16 +313,15 @@ export default function OfferCardDetailed(props) {
                       render={(msg) => <div className="error">{msg}</div>}
                       name="offer"
                     />
-                  </div>
-
-                  <div className="sign-button">
-                    <button
-                      className="buttonOne principalButton"
-                      type="submit"
-                      onSubmit={onSubmit}
-                    >
-                      Aplique su propuesta
-                    </button>
+                    <div className="appButton">
+                      <button
+                        className="buttonOne principalButton"
+                        type="submit"
+                        onSubmit={onSubmit}
+                      >
+                        Aplique su propuesta
+                      </button>
+                    </div>
                   </div>
                 </Form>
               );
