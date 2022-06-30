@@ -110,12 +110,14 @@ const UserRegister = () => {
       )
       .required("Es necesario llenar este campo.")
       .trim("Elimine los espacios"),
+
     address: Yup.string().required("Es necesario llenar este campo."),
     age: Yup.string().required("Es necesario llenar este campo."),
     document: Yup.string()
       .required("Es necesario llenar este campo.")
       .trim("Elimine los espacios"),
     phone2: Yup.string()
+      .required("Es necesario llenar este campo.")
       .matches(
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
         "El número no es válido."
