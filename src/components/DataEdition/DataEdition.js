@@ -160,8 +160,12 @@ const DataEdition = () => {
     // console.log(values);
 
     if (localStorage.getItem("google")) {
+      if (initialValues.length === 0)
+        swal({
+          text: "Escriba su contraseña en su campo requerido",
+        });
       swal({
-        text: "Escriba su contraseña en el campo requerido",
+        text: "Se ha enviado sus datos Correctamente",
       });
       dispatch(userEdition(values));
     } else {
