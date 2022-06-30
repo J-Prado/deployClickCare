@@ -290,9 +290,6 @@ const DataEdition = () => {
 
   return (
     <div className="container-edit">
-      <Link to={`/user/${id}`}>
-        <button className="buttonOne posBottonVolver">Volver</button>
-      </Link>
       <Formik
         initialValues={usuario ? initialValues(usuario) : initialValues}
         validationSchema={validationSchema}
@@ -713,6 +710,11 @@ const DataEdition = () => {
                     <button className="buttonOne buttonInfoById">
                       Validar los Cambios
                     </button>
+                    <Link to={`/user/${id}`}>
+                      <button className="buttonOne volverProfile">
+                        Volver
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
