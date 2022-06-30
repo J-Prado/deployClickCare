@@ -1,6 +1,6 @@
 .Navbar {
-  position: fixed;
-  z-index: 3;
+  /* position: fixed;
+  z-index: 3; */
   width: 100%;
   height: 80px;
   display: flex;
