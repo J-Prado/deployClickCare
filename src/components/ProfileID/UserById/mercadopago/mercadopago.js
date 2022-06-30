@@ -5,8 +5,10 @@ import * as df from "../../../Offers/datefunctions.js";
 import { getUserDetail, mercadoPagoPayment } from "../../../../redux/action.js";
 import swal from "sweetalert";
 import jwt from "jsonwebtoken";
+import { Link } from "react-router-dom";
 
 export default function Mercadopago() {
+  const id = jwt.decode(localStorage.getItem("session"))?.id;
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.userDetail);
 
@@ -151,6 +153,11 @@ export default function Mercadopago() {
               >
                 Quiero abonar mi membresía mensual
               </button>
+              <div>
+                <Link to={`/user/${id}`}>
+                  <button className="buttonOne volverMercado">Volver</button>
+                </Link>
+              </div>
             </div>
           ) : null}
           {daysBetween < 0 ? (

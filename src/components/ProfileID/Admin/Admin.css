@@ -12,10 +12,10 @@
   height: 400;
   width: "100%";
 }
-
+/* 
 .containerProfileIdUs_Pro_Adm {
   background-color: rgba(255, 255, 255, 0.921);
-}
+} */
 
 .h3usuario {
   text-align: left;
@@ -33,7 +33,7 @@
   top: -15px;
 }
 
-.divDatagridMui{
+.divDatagridMui {
   position: relative;
   top: 20px;
 }

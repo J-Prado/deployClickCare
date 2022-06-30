@@ -279,7 +279,6 @@ const DataEdition = () => {
       <Link to={`/user/${id}`}>
         <button className="buttonOne posBottonVolver">Volver</button>
       </Link>
-
       <Formik
         initialValues={usuario ? initialValues(usuario) : initialValues}
         validationSchema={validationSchema}

@@ -12,6 +12,14 @@
   min-width: 550px;
   height: auto;
 }
+
+.volverMercado {
+  position: relative;
+  top: -35px;
+  right: 0px;
+  left: 640px;
+}
+
 .contenPostForm {
   background: white;
   border-radius: 16px;
