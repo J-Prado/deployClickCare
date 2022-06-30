@@ -158,36 +158,46 @@ const DataEdition = () => {
   const onSubmit = (values, { resetForm }) => {
     // resetForm();
     // console.log(values);
-    dispatch(userEdition(values));
 
-    swal({
-      text: "Para Confirmar Introduce tu Contraseña",
-      content: {
-        element: "input",
-        attributes: {
-          type: "password",
+    if (localStorage.getItem("google")) {
+      swal({
+        text: "Escriba su contraseña en el campo requerido",
+      });
+      dispatch(userEdition(values));
+    } else {
+      dispatch(userEdition(values));
+
+      swal({
+        text: "Para Confirmar Introduce tu Contraseña",
+        content: {
+          element: "input",
+          attributes: {
+            type: "password",
+          },
         },
-      },
-      attributes: {},
-    }).then((password) => {
-      if (
-        verific === 1 &&
-        password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
-      ) {
-        dispatch(profEdition(values));
-        console.log("despache1");
-        return swal("Se han editado tus datos");
-      } else if (
-        verific === 0 &&
-        password === jwt.decode(localStorage.getItem("accessBlocked"))?.password
-      ) {
-        dispatch(userEdition(values));
-        console.log("despache2");
-        return swal("Se han editado tus datos");
-      } else {
-        return swal("No se han validado los datos correctamente");
-      }
-    });
+        attributes: {},
+      }).then((password) => {
+        if (
+          verific === 1 &&
+          password ===
+            jwt.decode(localStorage.getItem("accessBlocked"))?.password
+        ) {
+          dispatch(profEdition(values));
+          console.log("despache1");
+          return swal("Se han editado tus datos");
+        } else if (
+          verific === 0 &&
+          password ===
+            jwt.decode(localStorage.getItem("accessBlocked"))?.password
+        ) {
+          dispatch(userEdition(values));
+          console.log("despache2");
+          return swal("Se han editado tus datos");
+        } else {
+          return swal("No se han validado los datos correctamente");
+        }
+      });
+    }
   };
 
   //Validation using Yup
@@ -381,23 +391,43 @@ const DataEdition = () => {
                         disabled
                       />
                     </div>
-                    <div className="dataBlock">
-                      <label className="TitleDataUser oneTitleUser">
-                        Contraseña:
-                      </label>
-                      <Field
-                        className="infoDataUser oneTitleUser"
-                        id="password"
-                        name="password"
-                        type="password"
-                        placeholder="Contraseña"
-                        disabled
-                      />
-                      <ErrorMessage
-                        render={(msg) => <div className="error">{msg}</div>}
-                        name="password"
-                      />
-                    </div>
+                    {localStorage.getItem("google") ? (
+                      <div className="dataBlock">
+                        <label className="TitleDataUser oneTitleUser">
+                          Contraseña:
+                        </label>
+                        <Field
+                          className="infoDataUser oneTitleUser"
+                          id="password"
+                          name="password"
+                          type="password"
+                          placeholder="Contraseña"
+                        />
+                        <ErrorMessage
+                          render={(msg) => <div className="error">{msg}</div>}
+                          name="password"
+                        />
+                      </div>
+                    ) : (
+                      <div className="dataBlock">
+                        <label className="TitleDataUser oneTitleUser">
+                          Contraseña:
+                        </label>
+                        <Field
+                          className="infoDataUser oneTitleUser"
+                          id="password"
+                          name="password"
+                          type="password"
+                          placeholder="Contraseña"
+                          disabled
+                        />
+                        <ErrorMessage
+                          render={(msg) => <div className="error">{msg}</div>}
+                          name="password"
+                        />
+                      </div>
+                    )}
+
                     <div className="dataBlock">
                       <label className="TitleDataUser twoTitleUser">
                         Correo Electronico:

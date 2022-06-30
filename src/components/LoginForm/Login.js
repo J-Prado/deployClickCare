@@ -31,7 +31,7 @@ const Login = (props) => {
       loginGoogle({ isAuthenticated: isAuthenticated, email: user.email })
     );
     localStorage.setItem(
-      "accessBlocked",
+      "google",
       jwt.sign({ isAuthenticated: isAuthenticated, email: user.email }, "Goool")
     );
   };
